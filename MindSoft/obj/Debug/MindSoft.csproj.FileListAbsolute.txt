@@ -1,6 +1,0 @@
-c:\users\leon\documents\visual studio 2012\Projects\MindSoft\MindSoft\bin\Debug\MindSoft.exe.config
-C:\Users\Rob\Desktop\mindsoftcase\MindSoft\bin\Debug\MindSoft.exe.config
-C:\Users\Rob\Desktop\mindsoftcase\MindSoft\obj\Debug\MindSoft.csprojResolveAssemblyReference.cache
-C:\Users\Rob\Desktop\mindsoftcase\MindSoft\obj\Debug\MindSoft.Form1.resources
-C:\Users\Rob\Desktop\mindsoftcase\MindSoft\obj\Debug\MindSoft.Properties.Resources.resources
-C:\Users\Rob\Desktop\mindsoftcase\MindSoft\obj\Debug\MindSoft.csproj.GenerateResource.Cache

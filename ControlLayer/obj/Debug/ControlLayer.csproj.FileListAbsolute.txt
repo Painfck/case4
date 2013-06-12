@@ -1,4 +1,0 @@
-C:\Users\leon\Desktop\Mindsoft case\ControlLayer\bin\Debug\ControlLayer.dll
-C:\Users\leon\Desktop\Mindsoft case\ControlLayer\bin\Debug\ControlLayer.pdb
-C:\Users\leon\Desktop\Mindsoft case\ControlLayer\obj\Debug\ControlLayer.dll
-C:\Users\leon\Desktop\Mindsoft case\ControlLayer\obj\Debug\ControlLayer.pdb

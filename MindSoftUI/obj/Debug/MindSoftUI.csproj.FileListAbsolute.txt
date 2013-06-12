@@ -1,7 +1,0 @@
-C:\Users\Rob\Desktop\mindsoftcase\MindSoftUI\bin\Debug\MindSoftUI.exe.config
-C:\Users\Rob\Desktop\mindsoftcase\MindSoftUI\bin\Debug\MindSoftUI.exe
-C:\Users\Rob\Desktop\mindsoftcase\MindSoftUI\bin\Debug\MindSoftUI.pdb
-C:\Users\Rob\Desktop\mindsoftcase\MindSoftUI\obj\Debug\MindSoftUI.Properties.Resources.resources
-C:\Users\Rob\Desktop\mindsoftcase\MindSoftUI\obj\Debug\MindSoftUI.csproj.GenerateResource.Cache
-C:\Users\Rob\Desktop\mindsoftcase\MindSoftUI\obj\Debug\MindSoftUI.exe
-C:\Users\Rob\Desktop\mindsoftcase\MindSoftUI\obj\Debug\MindSoftUI.pdb
