@@ -1,1 +1,2 @@
 C:\Users\leon\Desktop\Mindsoft case\MindSoft\MindSoft\bin\Debug\MindSoft.exe.config
+C:\Users\Rob\Desktop\mindsoftcase\MindSoft\MindSoft\bin\Debug\MindSoft.exe.config
