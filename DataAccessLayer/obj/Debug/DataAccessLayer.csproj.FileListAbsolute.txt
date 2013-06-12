@@ -1,0 +1,4 @@
+C:\Users\leon\Desktop\Mindsoft case\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\leon\Desktop\Mindsoft case\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\leon\Desktop\Mindsoft case\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\leon\Desktop\Mindsoft case\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

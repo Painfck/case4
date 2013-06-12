@@ -1,0 +1,4 @@
+C:\Users\leon\Desktop\Mindsoft case\BussinesLayer\bin\Debug\BussinesLayer.dll
+C:\Users\leon\Desktop\Mindsoft case\BussinesLayer\bin\Debug\BussinesLayer.pdb
+C:\Users\leon\Desktop\Mindsoft case\BussinesLayer\obj\Debug\BussinesLayer.dll
+C:\Users\leon\Desktop\Mindsoft case\BussinesLayer\obj\Debug\BussinesLayer.pdb
