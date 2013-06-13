@@ -16,5 +16,25 @@ namespace MindSoft
         {
             InitializeComponent();
         }
+
+        private void newKnoopBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delKnoopBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
