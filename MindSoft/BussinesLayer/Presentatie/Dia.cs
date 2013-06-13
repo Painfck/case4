@@ -31,7 +31,7 @@ namespace BussinesLayer
                 }
             }
         }
-        private void Draw(Graphics graphics)
+        public void Draw(Graphics graphics)
         {
             float x, y;
             x = 10;
