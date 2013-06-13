@@ -11,6 +11,7 @@ namespace BussinesLayer
         private IList<string> medialist;
         private IList<string> hyperlist;
         private Font diafont = new Font("Arial", 11);
+
         public Dia(Knoop knoop)
         {
             this.Knoop = knoop;
@@ -70,6 +71,7 @@ namespace BussinesLayer
                 }
             }
         }
+
         public Knoop Knoop;
         public Notitie Notitie;
     }
