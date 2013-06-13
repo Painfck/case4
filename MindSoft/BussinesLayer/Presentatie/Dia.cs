@@ -7,26 +7,30 @@ namespace BussinesLayer
 {
     public class Dia
     {
-        public Knoop Knoop
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private IList<object> bullets;
+        private IList<object> medialist;
+        private IList<object> hyperlist;
 
-        public Notitie Notitie
+        public Dia(Knoop knoop)
         {
-            get
+            this.Knoop = knoop;
+            foreach (Inhoud inhoud in knoop.inhoudlist)
             {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
+                if (inhoud is Hyperlink)
+                {
+                    hyperlist.Add(inhoud.content);
+                }
+                else if (inhoud is Text)
+                {
+                    bullets.Add(inhoud.content);
+                }
+                else if (inhoud is Media)
+                {
+                    medialist.Add(inhoud.content);
+                }
             }
         }
+        public Knoop Knoop;
+        public Notitie Notitie;
     }
 }

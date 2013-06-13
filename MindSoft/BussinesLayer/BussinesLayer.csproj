@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mindmap\MindMap.cs" />
     <Compile Include="Presentatie\Dia.cs" />
     <Compile Include="Mindmap\Hyperlink.cs" />
     <Compile Include="Mindmap\Inhoud.cs" />

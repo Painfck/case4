@@ -5,19 +5,6 @@ using System.Text;
 
 namespace BussinesLayer
 {
-    public class MindMap
-    {
-        public Knoop Knoop
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-    }
 
     public class Knoop
     {
@@ -32,15 +19,6 @@ namespace BussinesLayer
             }
         }
 
-        public Inhoud Inhoud
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public IList<Inhoud> inhoudlist;
     }
 }

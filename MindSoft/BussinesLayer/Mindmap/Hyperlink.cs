@@ -7,5 +7,6 @@ namespace BussinesLayer
 {
     public class Hyperlink : Inhoud
     {
+        public string content;
     }
 }

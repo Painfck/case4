@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BussinesLayer.Mindmap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,14 +8,12 @@ namespace BussinesLayer
 {
     public class Presentatie
     {
-        public Dia Dia
+        private IList<Dia> dialist;
+        public Presentatie(MindMap mindmap)
         {
-            get
+            foreach(Knoop knoop in mindmap.knopenlist)
             {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
+                dialist.Add(new Dia(knoop));
             }
         }
     }

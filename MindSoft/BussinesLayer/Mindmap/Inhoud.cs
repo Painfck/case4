@@ -7,5 +7,6 @@ namespace BussinesLayer
 {
     public abstract class Inhoud
     {
+        public string content;
     }
 }

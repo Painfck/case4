@@ -7,5 +7,6 @@ namespace BussinesLayer
 {
     public class Media : Inhoud
     {
+        public string content;
     }
 }
