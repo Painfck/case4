@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Drawing;
 namespace BussinesLayer
 {
     public class Dia
     {
-        private IList<object> bullets;
-        private IList<object> medialist;
-        private IList<object> hyperlist;
-
+        private IList<string> bullets;
+        private IList<string> medialist;
+        private IList<string> hyperlist;
+        private Font diafont = new Font("Arial", 11);
         public Dia(Knoop knoop)
         {
             this.Knoop = knoop;
@@ -27,6 +27,46 @@ namespace BussinesLayer
                 else if (inhoud is Media)
                 {
                     medialist.Add(inhoud.content);
+                }
+            }
+        }
+        private void Draw(Graphics graphics)
+        {
+            float x, y;
+            x = 10;
+            y = 10;
+
+            foreach(string obj in bullets)
+            {
+                if (y < 600)
+                {
+                    graphics.DrawString(obj, diafont, new SolidBrush(Color.Black), new PointF(x, y));
+                    y += 12;
+                }
+                else
+                {
+                    y = 10;
+                    x += 100;
+                    graphics.DrawString(obj, diafont, new SolidBrush(Color.Black), new PointF(x, y));
+                }
+            }
+            foreach (string obj in medialist)
+            {
+                graphics.DrawImage(null/*obj.content*/, new Point(Convert.ToInt32(x), Convert.ToInt32(y));
+                y += 10 /* obj.content.length */;
+            }
+
+            foreach(string obj in hyperlist)
+            {
+                if (y < 600)
+                {
+                    graphics.DrawString(obj, diafont, new SolidBrush(Color.Black), new PointF(x, y));
+                }
+                else
+                {
+                    y = 10;
+                    x += 100;
+                    graphics.DrawString(obj, diafont, new SolidBrush(Color.Black), new PointF(x, y));
                 }
             }
         }
