@@ -131,6 +131,7 @@
             // 
             // newKnoopBtn
             // 
+            this.newKnoopBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.newKnoopBtn.Location = new System.Drawing.Point(407, 27);
             this.newKnoopBtn.Name = "newKnoopBtn";
             this.newKnoopBtn.Size = new System.Drawing.Size(127, 23);
@@ -141,6 +142,7 @@
             // 
             // delKnoopBtn
             // 
+            this.delKnoopBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.delKnoopBtn.Location = new System.Drawing.Point(407, 56);
             this.delKnoopBtn.Name = "delKnoopBtn";
             this.delKnoopBtn.Size = new System.Drawing.Size(127, 23);
@@ -151,6 +153,7 @@
             // 
             // zoomTBar
             // 
+            this.zoomTBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zoomTBar.Location = new System.Drawing.Point(407, 294);
             this.zoomTBar.Maximum = 250;
             this.zoomTBar.Name = "zoomTBar";
@@ -159,6 +162,7 @@
             // 
             // zoomCB
             // 
+            this.zoomCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zoomCB.FormattingEnabled = true;
             this.zoomCB.Items.AddRange(new object[] {
             "25%",
@@ -175,6 +179,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(436, 279);
             this.label1.Name = "label1";
