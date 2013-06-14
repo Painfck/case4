@@ -10,7 +10,6 @@ namespace BussinesLayer
     public class Relatie
     {
         private Knoop Knoop2;
-
         private Knoop Knoop1;
 
         public Relatie(Knoop knoop1, Knoop knoop2)
@@ -18,10 +17,10 @@ namespace BussinesLayer
             this.Knoop1 = knoop1;
             this.Knoop2 = knoop2;
         }
-
         public void draw(Graphics graphics)
         {
             graphics.DrawLine(new Pen(Color.Black), Knoop1.positie, Knoop2.positie);
         }
+        
     }
 }
