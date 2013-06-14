@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MindSoft
 {
-    public partial class Form1 : Form
+    public partial class MindSoft : Form
     {
-        public Form1()
+        public MindSoft()
         {
             InitializeComponent();
         }
@@ -29,11 +29,15 @@ namespace MindSoft
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            InfoForm Help = new InfoForm();
+            Help.Show();
 
         }
 
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            InfoForm About = new InfoForm();
+            About.Show();
 
         }
     }

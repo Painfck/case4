@@ -1,6 +1,6 @@
 ﻿namespace MindSoft
 {
-    partial class Form1
+    partial class MindSoft
     {
         /// <summary>
         /// Required designer variable.
