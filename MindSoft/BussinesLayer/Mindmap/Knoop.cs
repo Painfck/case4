@@ -20,5 +20,7 @@ namespace BussinesLayer
         }
 
         public IList<Inhoud> inhoudlist;
+
+        public System.Drawing.Point positie { get; set; }
     }
 }

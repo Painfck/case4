@@ -13,7 +13,7 @@
   <Class Name="BussinesLayer.Presentatie">
     <Position X="6.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAQAAAEBAA=</HashCode>
       <FileName>Presentatie\Presentatie.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -27,7 +27,7 @@
   <Class Name="BussinesLayer.Knoop">
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAIAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Mindmap\Knoop.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -82,12 +82,12 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>Mindmap\Relatie.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Knoop2" />
-      <Property Name="Knoop1" />
+      <Field Name="Knoop2" />
+      <Field Name="Knoop1" />
     </ShowAsAssociation>
   </Class>
   <Class Name="BussinesLayer.Dia">

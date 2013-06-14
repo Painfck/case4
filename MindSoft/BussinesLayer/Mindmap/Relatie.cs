@@ -7,27 +7,21 @@ using System.Drawing;
 
 namespace BussinesLayer
 {
-    public class Relatie : Knoop
+    public class Relatie
     {
-        public  Point point1
+        private Knoop Knoop2;
+
+        private Knoop Knoop1;
+
+        public Relatie(Knoop knoop1, Knoop knoop2)
         {
-            get { return point1; }
-        }
-        private Point point2
-        {
-            get { return point2; }
-        }
-        public Knoop Knoop2
-        {
-            get { return Knoop2; }
+            this.Knoop1 = knoop1;
+            this.Knoop2 = knoop2;
         }
 
-        public Knoop Knoop1
+        public void draw(Graphics graphics)
         {
-            get { return Knoop1; }
-        }
-
-        public IList<Relatie> Relaties;
+            graphics.DrawLine(new Pen(Color.Black), Knoop1.positie, Knoop2.positie);
         }
     }
-
+}
