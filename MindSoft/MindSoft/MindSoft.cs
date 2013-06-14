@@ -29,16 +29,14 @@ namespace MindSoft
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InfoForm Help = new InfoForm();
+            InfoForm Help = new InfoForm("Help");
             Help.Show();
-
         }
 
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            InfoForm About = new InfoForm();
+            InfoForm About = new InfoForm("About");
             About.Show();
-
         }
     }
 }
