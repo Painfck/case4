@@ -15,18 +15,9 @@ namespace MindSoft
         public MindSoft()
         {
             InitializeComponent();
+            pbView.Height = this.Height;
+            PnlPlayer.Hide();
         }
-
-        private void newKnoopBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void delKnoopBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InfoForm Help = new InfoForm("Help");
@@ -37,6 +28,57 @@ namespace MindSoft
         {
             InfoForm About = new InfoForm("About");
             About.Show();
+        }
+
+        private void bteditknoop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btopmaakknoop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btcontentknoop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bteditrelatie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnewrelatie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnewknoop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MindSoft_Resize(object sender, EventArgs e)
+        {
+            PnlPlayer.Width = pbView.Width;
+            trbartimebar.Width = PnlPlayer.Width;
+        }
+
+        private void playerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PnlPlayer.Show();
+            PnlEdit.Hide();
+            pbView.Width = this.Width;
+            PnlPlayer.Width = this.Width;
+        }
+
+        private void mindmapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PnlPlayer.Hide();
+            PnlEdit.Show();
+            pbView.Width = (this.Width - PnlEdit.Width);
         }
     }
 }
