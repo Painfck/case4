@@ -35,13 +35,13 @@ namespace BussinesLayer
 
         public void play(Graphics graphics)
         {
-            foreach (Knoop knoop in knopen)
-            {
                 foreach (Relatie relatie in relaties)
                 {
-                        graphics.DrawEllipse(new Pen(Color.Black), new Rectangle(relatie.Knoop1.Positie, relatie.Knoop1.size));
-                        graphics.DrawLine(new Pen(Color.Black), relatie.Knoop1.Positie, relatie.Knoop2.Positie);
-                        graphics.DrawEllipse(new Pen(Color.Black), new Rectangle(relatie.Knoop2.Positie, relatie.Knoop2.size));
+                        //tekenen van de relatie met bijbehorende knopen
+                        relatie.Knoop1.Teken(graphics);
+                        relatie.draw(graphics);
+                        relatie.Knoop2.Teken(graphics);
+                    
                         //knopen toevoegen in juiste lijst en verwijderen uit andere lijst
                         knopengetekend.Add(relatie.Knoop1);
                         knopengetekend.Add(relatie.Knoop2);
@@ -51,9 +51,39 @@ namespace BussinesLayer
                         relatiesgetekend.Add(relatie);
                         relaties.Remove(relatie);
                 }
-            }
         }
+        public void rewind(Graphics graphics)
+        {
+            graphics.Clear(Color.White);
+            knopen.Clear();
+            relaties.Clear();
+            knopen = mindmap.knopenlist;
+            relaties = mindmap.relatieslist;
+            knopengetekend.Clear();
+            relatiesgetekend.Clear();
+        }
+        public void stop(Graphics graphics)
+        {
+            knopen.Clear();
+            relaties.Clear();
 
+            knopengetekend.Clear();
+            relatiesgetekend.Clear();
+
+            knopen = mindmap.knopenlist;
+            relaties = mindmap.relatieslist;
+                foreach (Relatie relatie in relaties)
+                {
+                    relatie.Knoop1.Teken(graphics);
+                    knopengetekend.Add(relatie.Knoop1);
+
+                    relatie.draw(graphics);
+                    relatiesgetekend.Add(relatie);
+
+                    relatie.Knoop2.Teken(graphics);
+                    knopengetekend.Add(relatie.Knoop2);
+                }
+        }
         #endregion
     }
 }
