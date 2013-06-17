@@ -34,6 +34,13 @@ namespace BussinesLayer
 
         }
 
+        //Grootte van de knoop
+        public Size size;
+        public Size Size
+        {
+            get { return size; }
+            set { size = value; }
+        }
         #endregion
         public Knoop()
         {
@@ -48,6 +55,6 @@ namespace BussinesLayer
             canvas.DrawRectangle(pen, positie.X, positie.Y, 200, 200);
         }
 
-        public Size size { get; set; }
+    
     }
 }
