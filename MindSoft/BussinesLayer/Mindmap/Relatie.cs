@@ -9,8 +9,8 @@ namespace BussinesLayer
 {
     public class Relatie
     {
-        private Knoop Knoop2;
-        private Knoop Knoop1;
+        public Knoop Knoop2;
+        public Knoop Knoop1;
 
         public Relatie(Knoop knoop1, Knoop knoop2)
         {
