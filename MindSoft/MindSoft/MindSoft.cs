@@ -101,5 +101,8 @@ namespace MindSoft
             mindMap.Teken(canvas);
         }
 
+        private void MindSoft_Load(object sender, EventArgs e)
+        {
+        }
     }
 }
