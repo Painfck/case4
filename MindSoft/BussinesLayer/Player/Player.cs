@@ -37,6 +37,7 @@ namespace BussinesLayer
         {
                 foreach (Relatie relatie in relaties)
                 {
+                        //tekenen van de relatie met bijbehorende knopen
                         relatie.Knoop1.Teken(graphics);
                         relatie.draw(graphics);
                         relatie.Knoop2.Teken(graphics);
