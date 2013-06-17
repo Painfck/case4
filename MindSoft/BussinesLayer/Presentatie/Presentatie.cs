@@ -9,8 +9,13 @@ namespace BussinesLayer
 {
     public class Presentatie
     {
+        #region attributen
         private Dia currentDia;
         private IList<Dia> dialist;
+
+        #endregion
+
+        #region constructors
         public Presentatie(MindMap mindmap)
         {
             foreach (Knoop knoop in mindmap.knopenlist)
@@ -18,6 +23,9 @@ namespace BussinesLayer
                 dialist.Add(new Dia(knoop));
             }
         }
+        #endregion
+
+        #region arrangemethods
         public void reArrange(Dia originalDia, Dia NewDia)
         {
             int originaldiaindex = 0;
@@ -39,10 +47,6 @@ namespace BussinesLayer
             }
             dialist.Insert(newdiaindex, originalDia);
             dialist.Insert(originaldiaindex, NewDia);
-        }
-        public void Display(Graphics graphics)
-        {
-            currentDia.Draw(graphics);
         }
         public void nextDia()
         {
@@ -68,5 +72,13 @@ namespace BussinesLayer
                 }
             }
         }
+        #endregion
+
+        #region displaymethods
+        public void Display(Graphics graphics)
+        {
+            currentDia.Draw(graphics);
+        }
+        #endregion
     }
 }

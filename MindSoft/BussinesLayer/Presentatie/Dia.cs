@@ -7,11 +7,17 @@ namespace BussinesLayer
 {
     public class Dia
     {
+        #region attributen
         private IList<string> bullets;
         private IList<string> medialist;
         private IList<string> hyperlist;
         private Font diafont = new Font("Arial", 11);
+        public Knoop Knoop;
+        public Notitie Notitie;
 
+        #endregion
+
+        #region constructors
         public Dia(Knoop knoop)
         {
             this.Knoop = knoop;
@@ -31,6 +37,9 @@ namespace BussinesLayer
                 }
             }
         }
+        #endregion 
+
+        #region displaymethods
         public void Draw(Graphics graphics)
         {
             float x, y;
@@ -71,8 +80,7 @@ namespace BussinesLayer
                 }
             }
         }
+        #endregion
 
-        public Knoop Knoop;
-        public Notitie Notitie;
     }
 }
