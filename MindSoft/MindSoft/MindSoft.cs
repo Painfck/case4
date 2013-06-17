@@ -23,6 +23,7 @@ namespace MindSoft
             pbView.Height = this.Height;
             PnlPlayer.Hide();
             canvas = pbView.CreateGraphics();
+            mindMap = new MindMap();
             
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)

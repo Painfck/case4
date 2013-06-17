@@ -14,7 +14,8 @@ namespace BussinesLayer.Mindmap
 
         public MindMap()
         {
-
+            knopenlist = new List<Knoop>();
+            relatieslist = new List<Relatie>();
         }
 
         public void Teken(Graphics canvas)
