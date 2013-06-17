@@ -50,9 +50,17 @@ namespace BussinesLayer
 
         }
 
+        public Knoop(int positieX, int positieY)
+        {
+            kleur = Color.Black;
+            pen = new Pen(kleur);
+            this.positie.X = positieX;
+            this.positie.Y = positieY;
+        }
+
         public void Teken(Graphics canvas)
         {
-            canvas.DrawRectangle(pen, positie.X, positie.Y, 200, 200);
+            canvas.DrawRectangle(pen, positie.X, positie.Y, 200, 20);
         }
 
     

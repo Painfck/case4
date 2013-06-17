@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinesLayer;
+using BussinesLayer.Mindmap;
 
 namespace MindSoft
 {
@@ -15,12 +16,14 @@ namespace MindSoft
     {
         private Knoop knoop;
         private Graphics canvas;
+        private MindMap mindMap;
         public MindSoft()
         {
             InitializeComponent();
             pbView.Height = this.Height;
             PnlPlayer.Hide();
             canvas = pbView.CreateGraphics();
+            
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -61,8 +64,8 @@ namespace MindSoft
 
         private void btnewknoop_Click(object sender, EventArgs e)
         {
-            knoop = new Knoop();
-            knoop.Teken(canvas);
+            
+           
         }
 
         private void MindSoft_Resize(object sender, EventArgs e)
@@ -88,7 +91,15 @@ namespace MindSoft
 
         private void pbView_MouseClick(object sender, MouseEventArgs e)
         {
-
+            
         }
+
+        private void pbView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Knoop knoop = new Knoop(e.X, e.Y);
+            mindMap.knopenlist.Add(knoop);
+            mindMap.Teken(canvas);
+        }
+
     }
 }
