@@ -116,7 +116,7 @@ namespace MindSoft
             if (selected)
             {
                 mindMap.MoveKnoop(e.X, e.Y);
-                mindMap.Teken(canvas);
+                mindMap.TekenObjecten(canvas);
             }
         }
 
@@ -130,7 +130,7 @@ namespace MindSoft
         {
             Knoop knoop = new Knoop(e.X, e.Y);
             mindMap.knopenlist.Add(knoop);
-            mindMap.Teken(canvas);
+            mindMap.TekenObjecten(canvas);
         }
         
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
