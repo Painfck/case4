@@ -18,7 +18,7 @@ namespace BussinesLayer
         public IList<Inhoud> inhoudlist;
 
         //Opmaak van de knoop
-        private Opmaak opmaak;
+        public Opmaak opmaak;
         public Opmaak Opmaak
         {
             get { return opmaak; }
@@ -26,7 +26,7 @@ namespace BussinesLayer
         }
 
         //Positie van de knoop
-        protected Point positie;
+        public Point positie;
         public Point Positie
         {
             get { return positie; }
