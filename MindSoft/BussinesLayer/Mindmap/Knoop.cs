@@ -47,5 +47,7 @@ namespace BussinesLayer
         {
             canvas.DrawRectangle(pen, positie.X, positie.Y, 200, 200);
         }
+
+        public Size size { get; set; }
     }
 }

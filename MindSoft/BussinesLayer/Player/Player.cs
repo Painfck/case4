@@ -39,7 +39,7 @@ namespace BussinesLayer
             {
                 foreach (Relatie relatie in relaties)
                 {
-                        graphics.DrawEllipse(new Pen(Color.Black), new Rectangle(relatie.Knoop1.Positie, relatie.Knoop1.));
+                        graphics.DrawEllipse(new Pen(Color.Black), new Rectangle(relatie.Knoop1.Positie, relatie.Knoop1.size));
                         graphics.DrawLine(new Pen(Color.Black), relatie.Knoop1.Positie, relatie.Knoop2.Positie);
                         graphics.DrawEllipse(new Pen(Color.Black), new Rectangle(relatie.Knoop2.Positie, relatie.Knoop2.size));
                         //knopen toevoegen in juiste lijst en verwijderen uit andere lijst
