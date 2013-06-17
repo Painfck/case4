@@ -18,6 +18,7 @@ namespace MindSoft
         private Knoop knoop;
         private Graphics canvas;
         private MindMap mindMap;
+        private bool selected = false;
 
         private string initialDir;
         private string currentFile = "";
@@ -99,7 +100,30 @@ namespace MindSoft
 
         private void pbView_MouseClick(object sender, MouseEventArgs e)
         {
-            
+  
+        }
+
+        private void pbView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (mindMap != null && e.Button == MouseButtons.Left)
+            {
+                selected = mindMap.SearchObject(e.X, e.Y);
+            }
+        }
+
+        private void pbView_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (selected)
+            {
+                mindMap.MoveKnoop(e.X, e.Y);
+                mindMap.Teken(canvas);
+            }
+        }
+
+
+        private void pbView_MouseUp(object sender, MouseEventArgs e)
+        {
+            selected = false;
         }
 
         private void pbView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -154,5 +178,10 @@ namespace MindSoft
                 outputStream.Close();
             }
         }
+
+
+
+
+
     }
 }
