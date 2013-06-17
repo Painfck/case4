@@ -28,13 +28,11 @@ namespace MindSoft
             {
                 case "Help":
                 this.Text = "Help";
-                label1.Text = "Help";
                 infoTB.Text = File.ReadAllText("Help.MST");
                 break;
 
                 case "About":
                 this.Text = "About";
-                label1.Text = "About";
                 infoTB.Text = File.ReadAllText("About.MST");
                 break;
             }

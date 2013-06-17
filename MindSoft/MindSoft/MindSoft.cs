@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinesLayer;
 using BussinesLayer.Mindmap;
+using System.IO;
 
 namespace MindSoft
 {
@@ -17,6 +18,10 @@ namespace MindSoft
         private Knoop knoop;
         private Graphics canvas;
         private MindMap mindMap;
+
+        private string initialDir;
+        private string currentFile = "";
+
         public MindSoft()
         {
             InitializeComponent();
@@ -24,6 +29,8 @@ namespace MindSoft
             PnlPlayer.Hide();
             canvas = pbView.CreateGraphics();
             mindMap = new MindMap();
+
+            initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,9 +108,51 @@ namespace MindSoft
             mindMap.knopenlist.Add(knoop);
             mindMap.Teken(canvas);
         }
-
-        private void MindSoft_Load(object sender, EventArgs e)
+        
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            StreamReader inputStream;
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = initialDir;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                currentFile = dialog.FileName;
+                inputStream = File.OpenText(currentFile);
+                //hier komt het laden van de xml in het project
+
+                inputStream.Close();
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter outputStream = File.CreateText(currentFile);
+            if (currentFile == "")
+            {
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.InitialDirectory = initialDir;
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    currentFile = dialog.FileName;
+                }
+            }
+            //hier het saven van XML
+
+            outputStream.Close();
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter outputStream = File.CreateText(currentFile);
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.InitialDirectory = initialDir;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                currentFile = dialog.FileName;
+                //saven van XML hier
+
+                outputStream.Close();
+            }
         }
     }
 }
