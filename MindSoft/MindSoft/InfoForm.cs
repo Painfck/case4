@@ -24,16 +24,19 @@ namespace MindSoft
 
         private void InfoForm_Load(object sender, EventArgs e)
         {
-            if (Insert_Name == "Help")
+            switch(Insert_Name)
             {
-                this.Name = "Help";
+                case "Help":
+                this.Text = "Help";
                 label1.Text = "Help";
                 infoTB.Text = File.ReadAllText("Help.MST");
-            }
-            if (Insert_Name == "About")
-            {
-                this.Name = "About";
+                break;
+
+                case "About":
+                this.Text = "About";
+                label1.Text = "About";
                 infoTB.Text = File.ReadAllText("About.MST");
+                break;
             }
         }
     }
