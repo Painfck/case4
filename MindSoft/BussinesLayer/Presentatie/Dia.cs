@@ -62,7 +62,7 @@ namespace BussinesLayer
             }
             foreach (string obj in medialist)
             {
-                graphics.DrawImage(null/*obj.content*/, new Point(Convert.ToInt32(x), Convert.ToInt32(y));
+                graphics.DrawImage(null/*obj.content*/, new Point(Convert.ToInt32(x), Convert.ToInt32(y)));
                 y += 10 /* obj.content.length */;
             }
 
