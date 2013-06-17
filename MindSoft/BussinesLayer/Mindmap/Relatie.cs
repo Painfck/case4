@@ -19,7 +19,7 @@ namespace BussinesLayer
         }
         public void draw(Graphics graphics)
         {
-            graphics.DrawLine(new Pen(Color.Black), Knoop1.positie, Knoop2.positie);
+            graphics.DrawLine(new Pen(Color.Black), Knoop1.Positie, Knoop2.Positie);
         }
         
     }
