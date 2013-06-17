@@ -10,18 +10,42 @@ namespace BussinesLayer
     public class Knoop
     {
         #region attributen
-        private Opmaak huidigeOpmaak;
 
+        protected Pen pen;
+        protected Color kleur;
+        
+        //List voor het bijhouden van de inhoud.
+        public IList<Inhoud> inhoudlist;
 
+        //Opmaak van de knoop
+        private Opmaak opmaak;
         public Opmaak Opmaak
         {
-            get { return huidigeOpmaak; }
-            set { huidigeOpmaak = value; }
+            get { return opmaak; }
+            set { opmaak = value; }
         }
 
-        public IList<Inhoud> inhoudlist;
-        public Point positie { get; set; }
+        //Positie van de knoop
+        protected Point positie;
+        public Point Positie
+        {
+            get { return positie; }
+            set { positie = value; }
+
+        }
 
         #endregion
+        public Knoop()
+        {
+            kleur = Color.Black;
+            pen = new Pen(kleur);
+            positie = new Point(10, 10);
+
+        }
+
+        public void Teken(Graphics canvas)
+        {
+            canvas.DrawRectangle(pen, positie.X, positie.Y, 200, 200);
+        }
     }
 }
