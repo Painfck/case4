@@ -23,5 +23,7 @@ namespace BussinesLayer
         public Point positie { get; set; }
 
         #endregion
+
+        public Size size { get; set; }
     }
 }

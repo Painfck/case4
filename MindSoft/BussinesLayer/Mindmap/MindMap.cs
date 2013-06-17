@@ -9,6 +9,7 @@ namespace BussinesLayer.Mindmap
     public class MindMap
     {
         public IList<Knoop> knopenlist;
+        public IList<Relatie> relatieslist;
 
         public MindMap()
         {
