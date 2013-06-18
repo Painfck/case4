@@ -31,6 +31,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mindmapToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.presentatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +43,7 @@
             this.presentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mindmapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmpresentation = new System.Windows.Forms.ToolStripMenuItem();
             this.pbView = new System.Windows.Forms.PictureBox();
             this.btnewknoop = new System.Windows.Forms.Button();
             this.tbarzoom = new System.Windows.Forms.TrackBar();
@@ -74,7 +77,8 @@
             this.presentationToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(696, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(12, 4, 0, 4);
+            this.menuStrip1.Size = new System.Drawing.Size(1392, 47);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,33 +90,59 @@
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 39);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem1
             // 
+            this.newToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.projectToolStripMenuItem,
+            this.mindmapToolStripMenuItem1,
+            this.presentatieToolStripMenuItem});
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(175, 40);
             this.newToolStripMenuItem1.Text = "New";
+            this.newToolStripMenuItem1.Click += new System.EventHandler(this.newToolStripMenuItem1_Click);
+            // 
+            // projectToolStripMenuItem
+            // 
+            this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
+            this.projectToolStripMenuItem.Size = new System.Drawing.Size(212, 40);
+            this.projectToolStripMenuItem.Text = "Project";
+            this.projectToolStripMenuItem.Click += new System.EventHandler(this.projectToolStripMenuItem_Click);
+            // 
+            // mindmapToolStripMenuItem1
+            // 
+            this.mindmapToolStripMenuItem1.Name = "mindmapToolStripMenuItem1";
+            this.mindmapToolStripMenuItem1.Size = new System.Drawing.Size(212, 40);
+            this.mindmapToolStripMenuItem1.Text = "Mindmap";
+            this.mindmapToolStripMenuItem1.Click += new System.EventHandler(this.mindmapToolStripMenuItem1_Click);
+            // 
+            // presentatieToolStripMenuItem
+            // 
+            this.presentatieToolStripMenuItem.Name = "presentatieToolStripMenuItem";
+            this.presentatieToolStripMenuItem.Size = new System.Drawing.Size(212, 40);
+            this.presentatieToolStripMenuItem.Text = "Presentatie";
+            this.presentatieToolStripMenuItem.Click += new System.EventHandler(this.presentatieToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -122,20 +152,20 @@
             this.helpToolStripMenuItem,
             this.aboutToolStripMenuItem1});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(95, 39);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(158, 40);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(158, 40);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
@@ -144,30 +174,31 @@
             this.presentationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mindmapToolStripMenuItem,
             this.playerToolStripMenuItem,
-            this.editToolStripMenuItem});
+            this.tsmpresentation});
             this.presentationToolStripMenuItem.Name = "presentationToolStripMenuItem";
-            this.presentationToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.presentationToolStripMenuItem.Size = new System.Drawing.Size(92, 39);
             this.presentationToolStripMenuItem.Text = "Mode";
             // 
             // mindmapToolStripMenuItem
             // 
             this.mindmapToolStripMenuItem.Name = "mindmapToolStripMenuItem";
-            this.mindmapToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.mindmapToolStripMenuItem.Size = new System.Drawing.Size(228, 40);
             this.mindmapToolStripMenuItem.Text = "Mindmap";
             this.mindmapToolStripMenuItem.Click += new System.EventHandler(this.mindmapToolStripMenuItem_Click);
             // 
             // playerToolStripMenuItem
             // 
             this.playerToolStripMenuItem.Name = "playerToolStripMenuItem";
-            this.playerToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.playerToolStripMenuItem.Size = new System.Drawing.Size(228, 40);
             this.playerToolStripMenuItem.Text = "Player";
             this.playerToolStripMenuItem.Click += new System.EventHandler(this.playerToolStripMenuItem_Click);
             // 
-            // editToolStripMenuItem
+            // tsmpresentation
             // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.editToolStripMenuItem.Text = "Presentation";
+            this.tsmpresentation.Name = "tsmpresentation";
+            this.tsmpresentation.Size = new System.Drawing.Size(228, 40);
+            this.tsmpresentation.Text = "Presentation";
+            this.tsmpresentation.Click += new System.EventHandler(this.tsmpresentation_Click);
             // 
             // pbView
             // 
@@ -175,9 +206,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbView.BackColor = System.Drawing.Color.White;
-            this.pbView.Location = new System.Drawing.Point(0, 27);
+            this.pbView.Location = new System.Drawing.Point(0, 52);
+            this.pbView.Margin = new System.Windows.Forms.Padding(6);
             this.pbView.Name = "pbView";
-            this.pbView.Size = new System.Drawing.Size(551, 317);
+            this.pbView.Size = new System.Drawing.Size(1102, 610);
             this.pbView.TabIndex = 1;
             this.pbView.TabStop = false;
             this.pbView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbView_MouseClick);
@@ -190,9 +222,10 @@
             // 
             this.btnewknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnewknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnewknoop.Location = new System.Drawing.Point(8, 60);
+            this.btnewknoop.Location = new System.Drawing.Point(16, 115);
+            this.btnewknoop.Margin = new System.Windows.Forms.Padding(6);
             this.btnewknoop.Name = "btnewknoop";
-            this.btnewknoop.Size = new System.Drawing.Size(127, 23);
+            this.btnewknoop.Size = new System.Drawing.Size(254, 44);
             this.btnewknoop.TabIndex = 2;
             this.btnewknoop.Text = "Nieuwe Knoop";
             this.btnewknoop.UseVisualStyleBackColor = false;
@@ -201,10 +234,11 @@
             // tbarzoom
             // 
             this.tbarzoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbarzoom.Location = new System.Drawing.Point(2, 346);
+            this.tbarzoom.Location = new System.Drawing.Point(4, 665);
+            this.tbarzoom.Margin = new System.Windows.Forms.Padding(6);
             this.tbarzoom.Maximum = 250;
             this.tbarzoom.Name = "tbarzoom";
-            this.tbarzoom.Size = new System.Drawing.Size(139, 45);
+            this.tbarzoom.Size = new System.Drawing.Size(278, 90);
             this.tbarzoom.TabIndex = 4;
             // 
             // cbzoom
@@ -219,18 +253,20 @@
             "150%",
             "200%",
             "250%"});
-            this.cbzoom.Location = new System.Drawing.Point(70, 324);
+            this.cbzoom.Location = new System.Drawing.Point(140, 623);
+            this.cbzoom.Margin = new System.Windows.Forms.Padding(6);
             this.cbzoom.Name = "cbzoom";
-            this.cbzoom.Size = new System.Drawing.Size(67, 21);
+            this.cbzoom.Size = new System.Drawing.Size(130, 33);
             this.cbzoom.TabIndex = 5;
             // 
             // lbzoom
             // 
             this.lbzoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbzoom.AutoSize = true;
-            this.lbzoom.Location = new System.Drawing.Point(26, 324);
+            this.lbzoom.Location = new System.Drawing.Point(52, 623);
+            this.lbzoom.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbzoom.Name = "lbzoom";
-            this.lbzoom.Size = new System.Drawing.Size(37, 13);
+            this.lbzoom.Size = new System.Drawing.Size(74, 26);
             this.lbzoom.TabIndex = 6;
             this.lbzoom.Text = "Zoom:";
             // 
@@ -238,9 +274,10 @@
             // 
             this.bteditknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bteditknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bteditknoop.Location = new System.Drawing.Point(8, 89);
+            this.bteditknoop.Location = new System.Drawing.Point(16, 171);
+            this.bteditknoop.Margin = new System.Windows.Forms.Padding(6);
             this.bteditknoop.Name = "bteditknoop";
-            this.bteditknoop.Size = new System.Drawing.Size(127, 23);
+            this.bteditknoop.Size = new System.Drawing.Size(254, 44);
             this.bteditknoop.TabIndex = 8;
             this.bteditknoop.Text = "Wijzig Knoop";
             this.bteditknoop.UseVisualStyleBackColor = false;
@@ -250,9 +287,10 @@
             // 
             this.btnewrelatie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnewrelatie.BackColor = System.Drawing.SystemColors.Info;
-            this.btnewrelatie.Location = new System.Drawing.Point(8, 3);
+            this.btnewrelatie.Location = new System.Drawing.Point(16, 6);
+            this.btnewrelatie.Margin = new System.Windows.Forms.Padding(6);
             this.btnewrelatie.Name = "btnewrelatie";
-            this.btnewrelatie.Size = new System.Drawing.Size(127, 23);
+            this.btnewrelatie.Size = new System.Drawing.Size(254, 44);
             this.btnewrelatie.TabIndex = 7;
             this.btnewrelatie.Text = "Nieuwe Relatie";
             this.btnewrelatie.UseVisualStyleBackColor = false;
@@ -262,9 +300,10 @@
             // 
             this.btopmaakknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btopmaakknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btopmaakknoop.Location = new System.Drawing.Point(8, 119);
+            this.btopmaakknoop.Location = new System.Drawing.Point(16, 229);
+            this.btopmaakknoop.Margin = new System.Windows.Forms.Padding(6);
             this.btopmaakknoop.Name = "btopmaakknoop";
-            this.btopmaakknoop.Size = new System.Drawing.Size(127, 23);
+            this.btopmaakknoop.Size = new System.Drawing.Size(254, 44);
             this.btopmaakknoop.TabIndex = 10;
             this.btopmaakknoop.Text = "Opmaak wijzigen";
             this.btopmaakknoop.UseVisualStyleBackColor = false;
@@ -274,9 +313,10 @@
             // 
             this.bteditrelatie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bteditrelatie.BackColor = System.Drawing.SystemColors.Info;
-            this.bteditrelatie.Location = new System.Drawing.Point(8, 28);
+            this.bteditrelatie.Location = new System.Drawing.Point(16, 54);
+            this.bteditrelatie.Margin = new System.Windows.Forms.Padding(6);
             this.bteditrelatie.Name = "bteditrelatie";
-            this.bteditrelatie.Size = new System.Drawing.Size(127, 23);
+            this.bteditrelatie.Size = new System.Drawing.Size(254, 44);
             this.bteditrelatie.TabIndex = 9;
             this.bteditrelatie.Text = "Wijzig Relatie";
             this.bteditrelatie.UseVisualStyleBackColor = false;
@@ -286,9 +326,10 @@
             // 
             this.btcontentknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btcontentknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btcontentknoop.Location = new System.Drawing.Point(8, 148);
+            this.btcontentknoop.Location = new System.Drawing.Point(16, 285);
+            this.btcontentknoop.Margin = new System.Windows.Forms.Padding(6);
             this.btcontentknoop.Name = "btcontentknoop";
-            this.btcontentknoop.Size = new System.Drawing.Size(127, 23);
+            this.btcontentknoop.Size = new System.Drawing.Size(254, 44);
             this.btcontentknoop.TabIndex = 11;
             this.btcontentknoop.Text = "Inhoud wijzigen";
             this.btcontentknoop.UseVisualStyleBackColor = false;
@@ -303,56 +344,56 @@
             this.PnlPlayer.Controls.Add(this.btstop);
             this.PnlPlayer.Controls.Add(this.btplay);
             this.PnlPlayer.Controls.Add(this.btpauze);
-            this.PnlPlayer.Location = new System.Drawing.Point(0, 344);
-            this.PnlPlayer.Margin = new System.Windows.Forms.Padding(2);
+            this.PnlPlayer.Location = new System.Drawing.Point(0, 662);
+            this.PnlPlayer.Margin = new System.Windows.Forms.Padding(4);
             this.PnlPlayer.Name = "PnlPlayer";
-            this.PnlPlayer.Size = new System.Drawing.Size(551, 60);
+            this.PnlPlayer.Size = new System.Drawing.Size(1102, 115);
             this.PnlPlayer.TabIndex = 12;
             // 
             // trbartimebar
             // 
-            this.trbartimebar.Location = new System.Drawing.Point(0, 29);
-            this.trbartimebar.Margin = new System.Windows.Forms.Padding(2);
+            this.trbartimebar.Location = new System.Drawing.Point(0, 56);
+            this.trbartimebar.Margin = new System.Windows.Forms.Padding(4);
             this.trbartimebar.Name = "trbartimebar";
-            this.trbartimebar.Size = new System.Drawing.Size(551, 45);
+            this.trbartimebar.Size = new System.Drawing.Size(1102, 90);
             this.trbartimebar.TabIndex = 4;
             // 
             // btrewind
             // 
-            this.btrewind.Location = new System.Drawing.Point(332, 3);
-            this.btrewind.Margin = new System.Windows.Forms.Padding(2);
+            this.btrewind.Location = new System.Drawing.Point(664, 6);
+            this.btrewind.Margin = new System.Windows.Forms.Padding(4);
             this.btrewind.Name = "btrewind";
-            this.btrewind.Size = new System.Drawing.Size(100, 26);
+            this.btrewind.Size = new System.Drawing.Size(200, 50);
             this.btrewind.TabIndex = 3;
             this.btrewind.Text = "rewind";
             this.btrewind.UseVisualStyleBackColor = true;
             // 
             // btstop
             // 
-            this.btstop.Location = new System.Drawing.Point(225, 3);
-            this.btstop.Margin = new System.Windows.Forms.Padding(2);
+            this.btstop.Location = new System.Drawing.Point(450, 6);
+            this.btstop.Margin = new System.Windows.Forms.Padding(4);
             this.btstop.Name = "btstop";
-            this.btstop.Size = new System.Drawing.Size(100, 26);
+            this.btstop.Size = new System.Drawing.Size(200, 50);
             this.btstop.TabIndex = 2;
             this.btstop.Text = "stop";
             this.btstop.UseVisualStyleBackColor = true;
             // 
             // btplay
             // 
-            this.btplay.Location = new System.Drawing.Point(10, 3);
-            this.btplay.Margin = new System.Windows.Forms.Padding(2);
+            this.btplay.Location = new System.Drawing.Point(20, 6);
+            this.btplay.Margin = new System.Windows.Forms.Padding(4);
             this.btplay.Name = "btplay";
-            this.btplay.Size = new System.Drawing.Size(100, 26);
+            this.btplay.Size = new System.Drawing.Size(200, 50);
             this.btplay.TabIndex = 0;
             this.btplay.Text = "play";
             this.btplay.UseVisualStyleBackColor = true;
             // 
             // btpauze
             // 
-            this.btpauze.Location = new System.Drawing.Point(118, 3);
-            this.btpauze.Margin = new System.Windows.Forms.Padding(2);
+            this.btpauze.Location = new System.Drawing.Point(236, 6);
+            this.btpauze.Margin = new System.Windows.Forms.Padding(4);
             this.btpauze.Name = "btpauze";
-            this.btpauze.Size = new System.Drawing.Size(100, 26);
+            this.btpauze.Size = new System.Drawing.Size(200, 50);
             this.btpauze.TabIndex = 1;
             this.btpauze.Text = "pauze";
             this.btpauze.UseVisualStyleBackColor = true;
@@ -370,23 +411,23 @@
             this.PnlEdit.Controls.Add(this.bteditrelatie);
             this.PnlEdit.Controls.Add(this.bteditknoop);
             this.PnlEdit.Controls.Add(this.btnewknoop);
-            this.PnlEdit.Location = new System.Drawing.Point(552, 27);
-            this.PnlEdit.Margin = new System.Windows.Forms.Padding(2);
+            this.PnlEdit.Location = new System.Drawing.Point(1104, 52);
+            this.PnlEdit.Margin = new System.Windows.Forms.Padding(4);
             this.PnlEdit.Name = "PnlEdit";
-            this.PnlEdit.Size = new System.Drawing.Size(144, 378);
+            this.PnlEdit.Size = new System.Drawing.Size(288, 727);
             this.PnlEdit.TabIndex = 13;
             // 
             // MindSoft
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 401);
+            this.ClientSize = new System.Drawing.Size(1392, 771);
             this.Controls.Add(this.PnlPlayer);
             this.Controls.Add(this.pbView);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.PnlEdit);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MindSoft";
             this.Text = "Mindsoft";
             this.Resize += new System.EventHandler(this.MindSoft_Resize);
@@ -429,13 +470,16 @@
         private System.Windows.Forms.ToolStripMenuItem presentationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mindmapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem playerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmpresentation;
         private System.Windows.Forms.TrackBar trbartimebar;
         private System.Windows.Forms.Button btrewind;
         private System.Windows.Forms.Button btstop;
         private System.Windows.Forms.Button btpauze;
         private System.Windows.Forms.Button btplay;
         private System.Windows.Forms.Panel PnlEdit;
+        private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mindmapToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem presentatieToolStripMenuItem;
 
     }
 }

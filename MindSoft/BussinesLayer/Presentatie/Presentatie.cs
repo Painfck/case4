@@ -26,6 +26,8 @@ namespace BussinesLayer
         }
         #endregion
 
+
+
         #region arrangemethods
         public void reArrange(Dia originalDia, Dia NewDia)
         {

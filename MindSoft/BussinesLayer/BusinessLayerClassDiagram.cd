@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="BussinesLayer.MindMap">
-    <Position X="1.5" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
-      <FileName>Knoop.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Knoop" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="BussinesLayer.Presentatie">
     <Position X="6.75" Y="2" Width="1.5" />
     <TypeIdentifier>
@@ -20,14 +10,14 @@
   <Class Name="BussinesLayer.Player">
     <Position X="9.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAYAAAAAAAAAAAAAAICAAAAAEAAAAAAAQAA=</HashCode>
+      <HashCode>AAAAAwAAAAAQAgAAAAAAEAAAAICoAQAEEAAQACAAUAA=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BussinesLayer.Knoop">
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAASAAgAAgAIAAIgAAAAAAAAAQAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAASAAgAAgAIAAIgAAAAAAAAAQAAAAAAAAEAAAAI=</HashCode>
       <FileName>Mindmap\Knoop.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -106,6 +96,24 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Presentatie\Notitie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BussinesLayer.Project">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAAAA=</HashCode>
+      <FileName>Project.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Player" />
+      <Property Name="MindMap" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BussinesLayer.Mindmap.MindMap" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAABAAAoAAAAAAAAAAAAAAAEAAgAigAA=</HashCode>
+      <FileName>Mindmap\MindMap.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9.05" />

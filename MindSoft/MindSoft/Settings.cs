@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BussinesLayer;
 namespace MindSoft
 {
     public partial class Settings : Form
@@ -15,6 +15,12 @@ namespace MindSoft
         public Settings()
         {
             InitializeComponent();
+            
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

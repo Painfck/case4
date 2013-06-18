@@ -12,15 +12,18 @@ namespace BussinesLayer.Mindmap
         //Object lijsten
         public IList<Knoop> knopenlist;
         public IList<Relatie> relatieslist;
-
+        public Presentatie presentatie;
+        public Player player;
         //Voor het bepalen van welk object geselecteerd is.
         private Knoop selected;
-        
+        public string name;
+
         //Constructer
-        public MindMap()
+        public MindMap(string name)
         {
             knopenlist = new List<Knoop>();
             relatieslist = new List<Relatie>();
+            this.name = name;
         }
 
         //Teken de objecten op het canvas
@@ -67,6 +70,16 @@ namespace BussinesLayer.Mindmap
             selected.positie.X = posX;
             selected.positie.Y = posY;
         }
+        public void CreatePresentatie()
+        {
+            if (presentatie == null)
+            {
+                presentatie = new Presentatie(this);
+            }
+            else
+            {
 
+            }
+        }
     }
 }

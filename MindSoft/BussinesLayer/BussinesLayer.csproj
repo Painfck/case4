@@ -51,6 +51,7 @@
     <Compile Include="Mindmap\Opmaak.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="Presentatie\Presentatie.cs" />
+    <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Mindmap\Relatie.cs" />
     <Compile Include="Mindmap\Text.cs" />

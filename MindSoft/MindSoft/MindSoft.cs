@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using BussinesLayer;
 using BussinesLayer.Mindmap;
 using System.IO;
-using DataAccessLayer;
 
 namespace MindSoft
 {
@@ -18,7 +17,9 @@ namespace MindSoft
     {
         private Knoop knoop;
         private Graphics canvas;
-        private MindMap mindMap;
+        private Project project;
+        private MindMap activeMindmap;
+
         private bool selected = false;
 
         private string initialDir;
@@ -30,8 +31,8 @@ namespace MindSoft
             pbView.Height = this.Height;
             PnlPlayer.Hide();
             canvas = pbView.CreateGraphics();
-            mindMap = new MindMap();
-
+            project = new Project();
+            activeMindmap = project.mindmaplist.ElementAt<MindMap>(0);
             initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             
         }
@@ -106,9 +107,9 @@ namespace MindSoft
 
         private void pbView_MouseDown(object sender, MouseEventArgs e)
         {
-            if (mindMap != null && e.Button == MouseButtons.Left)
+            if (activeMindmap != null && e.Button == MouseButtons.Left)
             {
-                selected = mindMap.SearchObject(e.X, e.Y);
+                selected = activeMindmap.SearchObject(e.X, e.Y);
             }
         }
 
@@ -116,8 +117,8 @@ namespace MindSoft
         {
             if (selected)
             {
-                mindMap.MoveKnoop(e.X, e.Y);
-                mindMap.TekenObjecten(canvas);
+                activeMindmap.MoveKnoop(e.X, e.Y);
+                activeMindmap.TekenObjecten(canvas);
             }
         }
 
@@ -130,8 +131,8 @@ namespace MindSoft
         private void pbView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Knoop knoop = new Knoop(e.X, e.Y);
-            mindMap.knopenlist.Add(knoop);
-            mindMap.TekenObjecten(canvas);
+            activeMindmap.knopenlist.Add(knoop);
+            activeMindmap.TekenObjecten(canvas);
         }
         
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,6 +152,9 @@ namespace MindSoft
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            // deze even eruit gecomment
+            /*
             StreamWriter outputStream = File.CreateText(currentFile);
             if (currentFile == "")
             {
@@ -166,6 +170,7 @@ namespace MindSoft
             
 
             outputStream.Close();
+             */
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -180,6 +185,35 @@ namespace MindSoft
 
                 outputStream.Close();
             }
+        }
+
+
+
+        private void newToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void projectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mindmapToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            activeMindmap = project.createMindmap();
+            canvas.Clear(Color.White);
+        }
+
+        private void presentatieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            activeMindmap.CreatePresentatie();
+        }
+
+        private void tsmpresentation_Click(object sender, EventArgs e)
+        {
+            // nog te reviseren door leon van de broek
+            activeMindmap.presentatie.Display(canvas);
         }
 
 

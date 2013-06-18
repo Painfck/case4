@@ -106,6 +106,10 @@
       <Project>{419cb323-0bc2-4088-84e4-254b3280b937}</Project>
       <Name>BussinesLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ControlLayer\ControlLayer.csproj">
+      <Project>{6ba77524-1203-4226-bd00-67b09ccb0137}</Project>
+      <Name>ControlLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{1fc8599a-fd17-4a38-8d78-9bd6964b0fab}</Project>
       <Name>DataAccessLayer</Name>
