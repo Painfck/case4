@@ -27,13 +27,13 @@ namespace MindSoft
             switch(Insert_Name)
             {
                 case "Help":
-                this.Text = "Help";
-                infoTB.Text = File.ReadAllText("Help.MST");
+                    this.Text = "Help";
+                    infoTB.Text = File.ReadAllText("Help.MST");
                 break;
 
                 case "About":
-                this.Text = "About";
-                infoTB.Text = File.ReadAllText("About.MST");
+                    this.Text = "About";
+                    infoTB.Text = File.ReadAllText("About.MST");
                 break;
             }
         }
