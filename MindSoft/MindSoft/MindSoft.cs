@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BussinesLayer;
 using BussinesLayer.Mindmap;
 using System.IO;
+using DataAccessLayer;
 
 namespace MindSoft
 {
@@ -134,9 +135,11 @@ namespace MindSoft
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     currentFile = dialog.FileName;
+                    XMLStreamreader xmlStreamreader = new XMLStreamreader();
+                    xmlStreamreader.SerializeToXML(mindMap, @"c:\xml.xml");
                 }
             }
-            //hier het saven van XML
+            
 
             outputStream.Close();
         }
@@ -149,7 +152,7 @@ namespace MindSoft
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 currentFile = dialog.FileName;
-                //saven van XML hier
+ 
 
                 outputStream.Close();
             }
