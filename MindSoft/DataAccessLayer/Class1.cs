@@ -27,19 +27,19 @@ namespace DataAccessLayer
         {
             
         }
-        //public void SaveXML(string docname)
-        //{
-        //    XmlTextWriter xwriter = new XmlTextWriter(docname, Encoding.Unicode);
-        //    xwriter.WriteStartDocument();
-        //    xwriter.WriteStartElement("XMLFile");
-        //    xwriter.WriteStartElement("Knoop");
-        //   MindMap mind = new MindMap();
-        //    foreach (Knoop knoop in mind.knopenlist)
-        //    {
-        //        xwriter.WriteStartElement("Knooppositie");
-        //        xwriter.write;
-        //        xwriter.WriteEndElement();
-        //    }
-        //}
+        public void SaveXML(string docname)
+        {
+            XmlTextWriter xwriter = new XmlTextWriter(docname, Encoding.Unicode);
+            xwriter.WriteStartDocument();
+            xwriter.WriteStartElement("XMLFile");
+            xwriter.WriteStartElement("Knoop");
+            MindMap mind = new MindMap();
+            foreach (Knoop knoop in mind.knopenlist)
+            {
+                xwriter.WriteStartElement("Knoop");
+                xwriter.WriteString(Convert.ToString(knoop));
+                xwriter.WriteEndElement();
+            }
+        }
     }
 }
