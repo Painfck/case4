@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presenter.Designer.cs">
+      <DependentUpon>Presenter.cs</DependentUpon>
+    </Compile>
     <Compile Include="MindSoft.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Presenter.resx">
+      <DependentUpon>Presenter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InfoForm.resx">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </EmbeddedResource>
