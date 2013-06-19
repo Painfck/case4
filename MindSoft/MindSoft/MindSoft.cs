@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BussinesLayer;
 using BussinesLayer.Mindmap;
 using System.IO;
+using DataAccessLayer;
 
 namespace MindSoft
 {
@@ -175,7 +176,7 @@ namespace MindSoft
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StreamWriter outputStream = File.CreateText(currentFile);
+            //StreamWriter outputStream = File.CreateText(currentFile);
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.InitialDirectory = initialDir;
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -183,7 +184,7 @@ namespace MindSoft
                 currentFile = dialog.FileName;
                 XMLStreamreader streamreader = new XMLStreamreader();
                 streamreader.SaveXML(dialog.FileName);
-                outputStream.Close();
+                //outputStream.Close();
             }
         }
 
