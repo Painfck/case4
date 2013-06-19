@@ -21,6 +21,10 @@ namespace MindSoft
         private Project project;
         private MindMap activeMindmap;
 
+        private int originalKnoopHeight = 20;
+        private int originalKnoopWidth = 200;
+        private string zoom;
+
         private bool selected = false;
 
         private string initialDir;
@@ -35,7 +39,6 @@ namespace MindSoft
             project = new Project();
             activeMindmap = project.mindmaplist.ElementAt<MindMap>(0);
             initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -77,7 +80,6 @@ namespace MindSoft
         private void btnewknoop_Click(object sender, EventArgs e)
         {
             
-           
         }
 
         private void MindSoft_Resize(object sender, EventArgs e)
@@ -217,6 +219,71 @@ namespace MindSoft
         {
             // nog te reviseren door leon van de broek
             activeMindmap.presentatie.Display(canvas);
+        }
+
+        private void zoomCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            zoom = zoomCB.Text;
+
+            switch (zoom)
+            {
+                case "25%":
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
+                    {
+                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 0.25);
+                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 0.25);
+                    }
+                    activeMindmap.TekenObjecten(canvas);
+                    break;
+                case "50%":
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
+                    {
+                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 0.50);
+                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 0.50);
+                    }
+                    activeMindmap.TekenObjecten(canvas);
+                    break;
+                case "75%":
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
+                    {
+                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 0.75);
+                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 0.75);
+                    }
+                    activeMindmap.TekenObjecten(canvas);
+                    break;
+                case "100%":
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
+                    {
+                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 1.00);
+                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 1.00);
+                    }
+                    activeMindmap.TekenObjecten(canvas);
+                    break;
+                case "150%":
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
+                    {
+                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 1.50);
+                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 1.50);
+                    }
+                    activeMindmap.TekenObjecten(canvas);
+                    break;
+                case "200%":
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
+                    {
+                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 2.00);
+                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 2.00);
+                    }
+                    activeMindmap.TekenObjecten(canvas);
+                    break;
+                case "250%":
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
+                    {
+                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 2.50);
+                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 2.50);
+                    }
+                    activeMindmap.TekenObjecten(canvas);
+                    break;
+            }
         }
 
 
