@@ -141,6 +141,7 @@ namespace MindSoft
             StreamReader inputStream;
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.InitialDirectory = initialDir;
+            dialog.Filter = "xml files (*.xml)|*.xml";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 currentFile = dialog.FileName;
@@ -179,6 +180,7 @@ namespace MindSoft
             //StreamWriter outputStream = File.CreateText(currentFile);
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.InitialDirectory = initialDir;
+            dialog.Filter = "xml files (*.xml)|*.xml";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 currentFile = dialog.FileName;
