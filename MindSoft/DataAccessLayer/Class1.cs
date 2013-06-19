@@ -33,13 +33,14 @@ namespace DataAccessLayer
             xwriter.WriteStartDocument();
             xwriter.WriteStartElement("XMLFile");
             xwriter.WriteStartElement("Knoop");
-            MindMap mind = new MindMap();
+            MindMap mind = new MindMap("hier moet een naam voor de mindmap komen josh");
             foreach (Knoop knoop in mind.knopenlist)
             {
                 xwriter.WriteStartElement("Knoop");
                 xwriter.WriteString(Convert.ToString(knoop));
                 xwriter.WriteEndElement();
             }
+            
         }
     }
 }
