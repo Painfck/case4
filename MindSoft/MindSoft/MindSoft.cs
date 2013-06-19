@@ -163,8 +163,8 @@ namespace MindSoft
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     currentFile = dialog.FileName;
-                    XMLStreamreader xmlStreamreader = new XMLStreamreader();
-                    xmlStreamreader.SerializeToXML(mindMap, @"c:\xml.xml");
+                    XMLStreamreader streamreader = new XMLStreamreader();
+                    streamreader.SaveXML(dialog.FileName);
                 }
             }
             
@@ -181,8 +181,8 @@ namespace MindSoft
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 currentFile = dialog.FileName;
- 
-
+                XMLStreamreader streamreader = new XMLStreamreader();
+                streamreader.SaveXML(dialog.FileName);
                 outputStream.Close();
             }
         }
