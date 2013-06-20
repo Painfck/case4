@@ -16,6 +16,7 @@ namespace DataAccessLayer
 {
     public class XMLStreamreader
     {
+        private Project project;
         //public void SerializeToXML(MindMap mind, string path)
         //{
         //    XmlSerializer serializer = new XmlSerializer(typeof(Knoop));
@@ -27,26 +28,27 @@ namespace DataAccessLayer
         {
             
         }
-        public void SaveXML(string docname)
+        public void SaveXML(string docname, Project project)
         {
             XmlTextWriter xwriter = new XmlTextWriter(docname, Encoding.Unicode);
             xwriter.WriteStartDocument();
-            Project project = new Project();
-            MindMap mind = project.mindmaplist.ElementAt<MindMap>(0);
-            foreach (Knoop knoop in mind.knopenlist)
+            this.project = project;
+            xwriter.WriteStartElement("Knooppositie");
+            foreach (Knoop knoop in project.activeMindmap.knopenlist)
             {
-                xwriter.WriteStartElement("Knoop");
-                xwriter.WriteString(Convert.ToString(knoop));
-                xwriter.WriteEndElement();
+                xwriter.WriteString(Convert.ToString(knoop.positie));
             }
-            foreach (Relatie relatie in mind.relatieslist)
-            {
-                xwriter.WriteStartElement("Relatie");
-                xwriter.WriteString(Convert.ToString(relatie));
-                xwriter.WriteEndElement();
-            }
+            xwriter.WriteEndElement();
+
+            //xwriter.WriteStartElement("Relatie");
+            //foreach (Relatie relatie in project.activeMindmap.relatieslist)
+            //{
+            //    xwriter.WriteString(Convert.ToString(relatie));
+            //}
+            //xwriter.WriteEndElement();
             xwriter.WriteEndDocument();
             xwriter.Flush();
+            project.saved = true;
         }
     }
 }

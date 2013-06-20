@@ -10,13 +10,15 @@ namespace BussinesLayer
         #region attributen
 
         public IList<Mindmap.MindMap> mindmaplist;
-
+        public Mindmap.MindMap activeMindmap;
+        public bool saved;
         #endregion
 
         public Project()
         {
             mindmaplist = new List<Mindmap.MindMap>();
             mindmaplist.Add(new Mindmap.MindMap("Naamloos"));
+            activeMindmap = mindmaplist.ElementAt<Mindmap.MindMap>(0);
         }
 
         public Mindmap.MindMap createMindmap()
