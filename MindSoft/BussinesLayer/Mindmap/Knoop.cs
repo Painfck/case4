@@ -44,6 +44,12 @@ namespace BussinesLayer
             get { return size; }
             set { size = value; }
         }
+        public Size zoomedsize;
+        public Size zoomedSize
+        {
+            get { return zoomedSize; }
+            set { zoomedSize = value; }
+        }
         #endregion
 
         public Knoop()
@@ -54,14 +60,13 @@ namespace BussinesLayer
 
         }
 
-        public Knoop(int positieX, int positieY)
+        public Knoop(int positieX, int positieY, Size size)
         {
             kleur = Color.Black;
             pen = new Pen(kleur);
             this.positie.X = positieX;
             this.positie.Y = positieY;
-            this.size.Width = 200;
-            this.size.Height = 20;
+            this.size = size;
         }
 
         public void Teken(Graphics canvas)

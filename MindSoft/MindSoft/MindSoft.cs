@@ -16,8 +16,10 @@ namespace MindSoft
 {
     public partial class MindSoft : Form
     {
+        private Knoop knoop;
         private Graphics canvas;
         private Project project;
+        private MindMap activeMindmap;
 
         private int originalKnoopHeight = 20;
         private int originalKnoopWidth = 200;
@@ -35,6 +37,7 @@ namespace MindSoft
             PnlPlayer.Hide();
             canvas = pbView.CreateGraphics();
             project = new Project();
+            activeMindmap = project.mindmaplist.ElementAt<MindMap>(0);
             initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,6 +86,11 @@ namespace MindSoft
         {
             PnlPlayer.Width = pbView.Width;
             trbartimebar.Width = PnlPlayer.Width;
+            canvas.Dispose();
+            canvas = pbView.CreateGraphics();
+            activeMindmap.TekenObjecten(canvas);
+
+
         }
 
         private void playerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,9 +115,9 @@ namespace MindSoft
 
         private void pbView_MouseDown(object sender, MouseEventArgs e)
         {
-            if (project.activeMindmap != null && e.Button == MouseButtons.Left)
+            if (activeMindmap != null && e.Button == MouseButtons.Left)
             {
-                selected = project.activeMindmap.SearchObject(e.X, e.Y);
+                selected = activeMindmap.SearchObject(e.X, e.Y);
             }
         }
 
@@ -117,8 +125,8 @@ namespace MindSoft
         {
             if (selected)
             {
-                project.activeMindmap.MoveKnoop(e.X, e.Y);
-                project.activeMindmap.TekenObjecten(canvas);
+                activeMindmap.MoveKnoop(e.X, e.Y);
+                activeMindmap.TekenObjecten(canvas);
             }
         }
 
@@ -130,9 +138,9 @@ namespace MindSoft
 
         private void pbView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Knoop knoop = new Knoop(e.X, e.Y);
-            project.activeMindmap.knopenlist.Add(knoop);
-            project.activeMindmap.TekenObjecten(canvas);
+            Knoop knoop = new Knoop(e.X, e.Y, new Size(originalKnoopWidth, originalKnoopHeight));
+            activeMindmap.knopenlist.Add(knoop);
+            activeMindmap.TekenObjecten(canvas);
         }
         
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -203,19 +211,19 @@ namespace MindSoft
 
         private void mindmapToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            project.activeMindmap = project.createMindmap();
+            activeMindmap = project.createMindmap();
             canvas.Clear(Color.White);
         }
 
         private void presentatieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            project.activeMindmap.CreatePresentatie();
+            activeMindmap.CreatePresentatie();
         }
 
         private void tsmpresentation_Click(object sender, EventArgs e)
         {
             // nog te reviseren door leon van de broek
-            project.activeMindmap.presentatie.Display(canvas);
+            activeMindmap.presentatie.Display(canvas);
         }
 
         private void zoomCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -225,60 +233,74 @@ namespace MindSoft
             switch (zoom)
             {
                 case "25%":
-                    foreach (Knoop knoop in project.activeMindmap.knopenlist)
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
                         knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 0.25);
                         knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 0.25);
                     }
-                    project.activeMindmap.TekenObjecten(canvas);
+                    activeMindmap.TekenObjecten(canvas);
+                    originalKnoopHeight = Convert.ToInt32(originalKnoopHeight * 0.25);
+                    originalKnoopWidth = Convert.ToInt32(originalKnoopWidth * 0.25);
                     break;
                 case "50%":
-                    foreach (Knoop knoop in project.activeMindmap.knopenlist)
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
                         knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 0.50);
                         knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 0.50);
                     }
-                    project.activeMindmap.TekenObjecten(canvas);
+                    activeMindmap.TekenObjecten(canvas);
+                    originalKnoopHeight = Convert.ToInt32(originalKnoopHeight * 0.50);
+                    originalKnoopWidth = Convert.ToInt32(originalKnoopWidth * 0.50);
                     break;
                 case "75%":
-                    foreach (Knoop knoop in project.activeMindmap.knopenlist)
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
                         knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 0.75);
                         knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 0.75);
                     }
-                    project.activeMindmap.TekenObjecten(canvas);
+                    activeMindmap.TekenObjecten(canvas);
+                    originalKnoopHeight = Convert.ToInt32(originalKnoopHeight * 0.75);
+                    originalKnoopWidth = Convert.ToInt32(originalKnoopWidth * 0.75);
                     break;
                 case "100%":
-                    foreach (Knoop knoop in project.activeMindmap.knopenlist)
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
                         knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 1.00);
                         knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 1.00);
                     }
-                    project.activeMindmap.TekenObjecten(canvas);
+                    activeMindmap.TekenObjecten(canvas);
+                    originalKnoopHeight = Convert.ToInt32(originalKnoopHeight * 1.00);
+                    originalKnoopWidth = Convert.ToInt32(originalKnoopWidth * 1.00);
                     break;
                 case "150%":
-                    foreach (Knoop knoop in project.activeMindmap.knopenlist)
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
                         knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 1.50);
                         knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 1.50);
                     }
-                    project.activeMindmap.TekenObjecten(canvas);
+                    activeMindmap.TekenObjecten(canvas);
+                    originalKnoopHeight = Convert.ToInt32(originalKnoopHeight * 1.50);
+                    originalKnoopWidth = Convert.ToInt32(originalKnoopWidth * 1.50);
                     break;
                 case "200%":
-                    foreach (Knoop knoop in project.activeMindmap.knopenlist)
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
                         knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 2.00);
                         knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 2.00);
                     }
-                    project.activeMindmap.TekenObjecten(canvas);
+                    activeMindmap.TekenObjecten(canvas);
+                    originalKnoopHeight = Convert.ToInt32(originalKnoopHeight * 2.00);
+                    originalKnoopWidth = Convert.ToInt32(originalKnoopWidth * 2.00);
                     break;
                 case "250%":
-                    foreach (Knoop knoop in project.activeMindmap.knopenlist)
+                    foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
                         knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 2.50);
                         knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 2.50);
                     }
-                    project.activeMindmap.TekenObjecten(canvas);
+                    activeMindmap.TekenObjecten(canvas);
+                    originalKnoopHeight = Convert.ToInt32(originalKnoopHeight * 2.50);
+                    originalKnoopWidth = Convert.ToInt32(originalKnoopWidth * 2.50);
                     break;
             }
         }
