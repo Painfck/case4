@@ -61,6 +61,10 @@ namespace BussinesLayer
             kleur = Color.Black;
             pen = new Pen(kleur);
             positie = new Point(10, 10);
+            if (ToonDelegate != null)
+            {
+                ToonDelegate("Ik ben getekend bradda");
+            }
         }
 
         public Knoop(int positieX, int positieY, Size size)
@@ -76,11 +80,8 @@ namespace BussinesLayer
         {
             canvas.DrawRectangle(pen, positie.X, positie.Y, size.Width, size.Height);
             canvas.DrawString("Ik ben een knoop ", font, brush, positie.X, positie.Y);
-           
-            if (ToonDelegate != null)
-            {
-                ToonDelegate("Ik ben getekend bradda");
-            }
+      
+            
         }
 
         public bool Selected(int posX, int posY)

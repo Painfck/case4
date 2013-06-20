@@ -153,9 +153,10 @@ namespace MindSoft
             else
             {
                 Knoop knoop = new Knoop(e.X, e.Y, new Size(originalKnoopWidth, originalKnoopHeight));
+               knoop.ToonDelegate += EditKnoop;
                 activeMindmap.knopenlist.Add(knoop);
                 activeMindmap.TekenObjecten(canvas);
-                knoop.ToonDelegate = EditKnoop;
+                
             }
 
         }
