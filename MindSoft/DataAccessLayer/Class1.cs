@@ -30,44 +30,45 @@ namespace DataAccessLayer
         }
         public void SaveXML(string docname, Project project)
         {
-            XmlTextWriter xwriter = new XmlTextWriter(docname, Encoding.Unicode);
-            xwriter.WriteStartDocument();
             this.project = project;
-            xwriter.WriteStartElement("Knoop");
-            xwriter.WriteStartAttribute("positie");
+            XmlTextWriter writer = new XmlTextWriter(docname, Encoding.Unicode);
+            writer.WriteStartDocument(true);
+            writer.Formatting = Formatting.Indented;
+            writer.Indentation = 2;
+            writer.WriteStartElement("table");
+            int i = 1;
             foreach (Knoop knoop in project.activeMindmap.knopenlist)
             {
-                xwriter.WriteString(Convert.ToString(knoop.positie));
+                createNodeKnoop(i, Convert.ToString(knoop.size), Convert.ToString(knoop.positie), Convert.ToString(knoop.inhoudlist), Convert.ToString(knoop.opmaak), writer);
+                i++;
             }
-            xwriter.WriteEndAttribute();
-            xwriter.WriteStartAttribute("size");
-            foreach (Knoop knoop in project.activeMindmap.knopenlist)
-            {
-                xwriter.WriteString(Convert.ToString(knoop.size));
+            writer.WriteEndElement();
+            writer.WriteEndDocument();
+            writer.Close();
+
+        }
+
+
+            private void createNodeKnoop(int kID, string kSize, string kPosition, string kInhoud, string kOpmaak, XmlTextWriter writer)
+            {        
+                writer.WriteStartElement("Knoop");
+                writer.WriteStartElement("knoop_id");
+                writer.WriteString(Convert.ToString(kID));
+                writer.WriteEndElement();
+                writer.WriteStartElement("knoopsize");
+                writer.WriteString(kSize);
+                writer.WriteEndElement();
+                writer.WriteStartElement("knoopposition");
+                writer.WriteString(kPosition);
+                writer.WriteEndElement();
+                writer.WriteStartElement("knoopinhoud");
+                writer.WriteString(kInhoud);
+                writer.WriteEndElement();
+                writer.WriteStartElement("knoopopmaak");
+                writer.WriteString(kOpmaak);
+                writer.WriteEndElement();
+                writer.WriteEndElement();
             }
-            xwriter.WriteEndAttribute();
-            xwriter.WriteStartAttribute("opmaak");
-            foreach (Knoop knoop in project.activeMindmap.knopenlist)
-            {
-                xwriter.WriteString(Convert.ToString(knoop.opmaak));
-            }
-            xwriter.WriteEndAttribute();
-            xwriter.WriteStartAttribute("inhoud");
-            foreach (Knoop knoop in project.activeMindmap.knopenlist)
-            {
-                xwriter.WriteString(Convert.ToString(knoop.inhoudlist));
-            }
-            xwriter.WriteEndAttribute();
-            xwriter.WriteEndElement();
-            xwriter.WriteStartElement("Relatie");
-            foreach (Relatie relatie in project.activeMindmap.relatieslist)
-            {
-                xwriter.WriteString(Convert.ToString(relatie));
-            }
-            xwriter.WriteEndElement();
-            xwriter.WriteEndDocument();
-            xwriter.Flush();
-            project.saved = true;
         }
     }
-}
+
