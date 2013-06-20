@@ -138,6 +138,7 @@ namespace MindSoft
 
         private void pbView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            if
             Knoop knoop = new Knoop(e.X, e.Y, new Size(originalKnoopWidth, originalKnoopHeight));
             activeMindmap.knopenlist.Add(knoop);
             activeMindmap.TekenObjecten(canvas);
@@ -228,8 +229,13 @@ namespace MindSoft
 
         private void zoomCB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Comment by R.Hiensch
+            // Je moet hier nog even een check uitvoeren! Want als je knoop al 50% verkleind is
+            // en je dan op 25 duwt, blijft die kleiner worden, en als je een aantal keer op verkleinen duwt
+            // dan blijft hij ook kleiner worden. Dus even een slimme methode hiervoor maken en deze
+            // in een Class(!!!!) zetten! 
             zoom = zoomCB.Text;
-
+            
             switch (zoom)
             {
                 case "25%":
