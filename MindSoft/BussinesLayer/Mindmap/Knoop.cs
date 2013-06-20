@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using BussinesLayer.Mindmap;
 
 namespace BussinesLayer
 {
 
     public class Knoop
     {
+       
         #region attributen
 
         // Kenmerken van de knoop
@@ -16,7 +18,7 @@ namespace BussinesLayer
         protected Color kleur;
         protected Font font = new Font("Times New Roman", 12.0f);
         protected Brush brush = new SolidBrush(Color.Black);
-        public 
+        public MindMapDelegate.Toon ToonDelegate;
         
         //List voor het bijhouden van de inhoud.
         public IList<Inhoud> inhoudlist;
@@ -59,7 +61,6 @@ namespace BussinesLayer
             kleur = Color.Black;
             pen = new Pen(kleur);
             positie = new Point(10, 10);
-
         }
 
         public Knoop(int positieX, int positieY, Size size)
@@ -75,6 +76,11 @@ namespace BussinesLayer
         {
             canvas.DrawRectangle(pen, positie.X, positie.Y, size.Width, size.Height);
             canvas.DrawString("Ik ben een knoop ", font, brush, positie.X, positie.Y);
+           
+            if (ToonDelegate != null)
+            {
+                ToonDelegate("Ik ben getekend bradda");
+            }
         }
 
         public bool Selected(int posX, int posY)

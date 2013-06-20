@@ -16,7 +16,7 @@ namespace MindSoft
 {
     public partial class MindSoft : Form
     {
-        public EventHandler editKnoop;
+        
         private Knoop knoop;
         private Graphics canvas;
         private Project project;
@@ -148,20 +148,21 @@ namespace MindSoft
             if (selected)
             {
 
-                EditKnoop(sender,e);
+                
             }
             else
             {
                 Knoop knoop = new Knoop(e.X, e.Y, new Size(originalKnoopWidth, originalKnoopHeight));
                 activeMindmap.knopenlist.Add(knoop);
                 activeMindmap.TekenObjecten(canvas);
+                knoop.ToonDelegate = EditKnoop;
             }
 
         }
 
-        private void EditKnoop(object sender, EventArgs e)
+        private void EditKnoop(string name)
         {
-            btnewknoop.Text = "TROL";
+            MessageBox.Show(name);
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
