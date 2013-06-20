@@ -14,6 +14,8 @@ namespace BussinesLayer
         // Kenmerken van de knoop
         protected Pen pen;
         protected Color kleur;
+        protected Font font = new Font("Times New Roman", 12.0f);
+        protected Brush brush = new SolidBrush(Color.Black);
         
         
         //List voor het bijhouden van de inhoud.
@@ -69,9 +71,10 @@ namespace BussinesLayer
             this.size = size;
         }
 
-        public void Teken(Graphics canvas)
+        public virtual void Teken(Graphics canvas)
         {
             canvas.DrawRectangle(pen, positie.X, positie.Y, size.Width, size.Height);
+            canvas.DrawString("Ik ben een knoop ", font, brush, positie.X, positie.Y);
         }
 
         public bool Selected(int posX, int posY)

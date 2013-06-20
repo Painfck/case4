@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mindmap\MindMap.cs" />
+    <Compile Include="Mindmap\MindMapDelegate.cs" />
     <Compile Include="Presentatie\Dia.cs" />
     <Compile Include="Mindmap\Hyperlink.cs" />
     <Compile Include="Mindmap\Inhoud.cs" />

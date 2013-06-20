@@ -16,6 +16,7 @@ namespace MindSoft
 {
     public partial class MindSoft : Form
     {
+        public EventHandler editKnoop;
         private Knoop knoop;
         private Graphics canvas;
         private Project project;
@@ -138,12 +139,31 @@ namespace MindSoft
 
         private void pbView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if
-            Knoop knoop = new Knoop(e.X, e.Y, new Size(originalKnoopWidth, originalKnoopHeight));
-            activeMindmap.knopenlist.Add(knoop);
-            activeMindmap.TekenObjecten(canvas);
+
+            if (activeMindmap != null && e.Button == MouseButtons.Left)
+            {
+                selected = activeMindmap.SearchObject(e.X, e.Y);
+
+            }
+            if (selected)
+            {
+
+                EditKnoop(sender,e);
+            }
+            else
+            {
+                Knoop knoop = new Knoop(e.X, e.Y, new Size(originalKnoopWidth, originalKnoopHeight));
+                activeMindmap.knopenlist.Add(knoop);
+                activeMindmap.TekenObjecten(canvas);
+            }
+
         }
-        
+
+        private void EditKnoop(object sender, EventArgs e)
+        {
+            btnewknoop.Text = "TROL";
+        }
+
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamReader inputStream;
