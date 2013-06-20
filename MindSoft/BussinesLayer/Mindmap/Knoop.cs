@@ -16,7 +16,7 @@ namespace BussinesLayer
         protected Color kleur;
         protected Font font = new Font("Times New Roman", 12.0f);
         protected Brush brush = new SolidBrush(Color.Black);
-        
+        public 
         
         //List voor het bijhouden van de inhoud.
         public IList<Inhoud> inhoudlist;

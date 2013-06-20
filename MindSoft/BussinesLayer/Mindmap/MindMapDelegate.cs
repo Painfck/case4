@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BussinesLayer.Mindmap
 {
-    class MindMapDelegate
+    public class MindMapDelegate
     {
         public delegate void Toon(string message);
     }
