@@ -33,19 +33,38 @@ namespace DataAccessLayer
             XmlTextWriter xwriter = new XmlTextWriter(docname, Encoding.Unicode);
             xwriter.WriteStartDocument();
             this.project = project;
-            xwriter.WriteStartElement("Knooppositie");
+            xwriter.WriteStartElement("Knoop");
+            xwriter.WriteStartAttribute("positie");
             foreach (Knoop knoop in project.activeMindmap.knopenlist)
             {
                 xwriter.WriteString(Convert.ToString(knoop.positie));
             }
+            xwriter.WriteEndAttribute();
+            xwriter.WriteStartAttribute("size");
+            foreach (Knoop knoop in project.activeMindmap.knopenlist)
+            {
+                xwriter.WriteString(Convert.ToString(knoop.size));
+            }
+            xwriter.WriteEndAttribute();
+            xwriter.WriteStartAttribute("opmaak");
+            foreach (Knoop knoop in project.activeMindmap.knopenlist)
+            {
+                xwriter.WriteString(Convert.ToString(knoop.opmaak));
+            }
+            xwriter.WriteEndAttribute();
+            xwriter.WriteStartAttribute("inhoud");
+            foreach (Knoop knoop in project.activeMindmap.knopenlist)
+            {
+                xwriter.WriteString(Convert.ToString(knoop.inhoudlist));
+            }
+            xwriter.WriteEndAttribute();
             xwriter.WriteEndElement();
-
-            //xwriter.WriteStartElement("Relatie");
-            //foreach (Relatie relatie in project.activeMindmap.relatieslist)
-            //{
-            //    xwriter.WriteString(Convert.ToString(relatie));
-            //}
-            //xwriter.WriteEndElement();
+            xwriter.WriteStartElement("Relatie");
+            foreach (Relatie relatie in project.activeMindmap.relatieslist)
+            {
+                xwriter.WriteString(Convert.ToString(relatie));
+            }
+            xwriter.WriteEndElement();
             xwriter.WriteEndDocument();
             xwriter.Flush();
             project.saved = true;
