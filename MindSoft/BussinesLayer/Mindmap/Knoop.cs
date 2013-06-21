@@ -61,10 +61,6 @@ namespace BussinesLayer
             kleur = Color.Black;
             pen = new Pen(kleur);
             positie = new Point(10, 10);
-            if (ToonDelegate != null)
-            {
-                ToonDelegate("Ik ben getekend bradda");
-            }
         }
 
         public Knoop(int positieX, int positieY, Size size)

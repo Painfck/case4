@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BussinesLayer.Mindmap;
 
 namespace BussinesLayer
 {
@@ -21,7 +22,7 @@ namespace BussinesLayer
             activeMindmap = mindmaplist.ElementAt<Mindmap.MindMap>(0);
         }
 
-        public Mindmap.MindMap createMindmap()
+        public MindMap createMindmap()
         {
             mindmaplist.Add(new Mindmap.MindMap(String.Format("Naamloos{0}", (mindmaplist.Count() + 1))));
             return mindmaplist.Last<Mindmap.MindMap>();
