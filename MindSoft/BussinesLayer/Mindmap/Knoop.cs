@@ -10,7 +10,21 @@ namespace BussinesLayer
 
     public class Knoop
     {
-       
+
+        private enum PosSizableRect
+        {
+            UpMiddle,
+            LeftMiddle,
+            LeftBottom,
+            LeftUp,
+            RightUp,
+            RightMiddle,
+            RightBottom,
+            BottomMiddle,
+            None
+
+        }
+
         #region attributen
 
         // Kenmerken van de knoop
@@ -19,6 +33,8 @@ namespace BussinesLayer
         protected Font font = new Font("Times New Roman", 12.0f);
         protected Brush brush = new SolidBrush(Color.Black);
         public MindMapDelegate.Toon ToonDelegate;
+        private int sizeNodeRect = 5;
+        public Rectangle rect;
         
         //List voor het bijhouden van de inhoud.
         public IList<Inhoud> inhoudlist;
@@ -67,17 +83,21 @@ namespace BussinesLayer
         {
             kleur = Color.Black;
             pen = new Pen(kleur);
+            rect = new Rectangle(positieX, positieY, size.Width, size.Height);
             this.positie.X = positieX;
             this.positie.Y = positieY;
-            this.size = size;
         }
 
         public virtual void Teken(Graphics canvas)
         {
-            canvas.DrawRectangle(pen, positie.X, positie.Y, size.Width, size.Height);
+            canvas.DrawRectangle(pen, rect);
+            foreach (PosSizableRect pos in Enum.GetValues(typeof(PosSizableRect)))
+            {
+                canvas.DrawRectangle(new Pen(Color.Red), GetRect(pos));
+            }
             canvas.DrawString("Ik ben een knoop ", font, brush, positie.X, positie.Y);
       
-            
+  
         }
 
         public bool Selected(int posX, int posY)
@@ -85,6 +105,42 @@ namespace BussinesLayer
             return (posX >= positie.X && posX < positie.X + size.Width && posY >= positie.Y && posY < positie.Y + size.Height);
         }
 
+        private Rectangle CreateRectSizableNode(int x, int y)
+        {
+            return new Rectangle(x - sizeNodeRect / 2, y - sizeNodeRect / 2, sizeNodeRect, sizeNodeRect);
+        }
+
+        private Rectangle GetRect(PosSizableRect p)
+        {
+            switch (p)
+            {
+                case PosSizableRect.LeftUp:
+                    return CreateRectSizableNode(rect.X, rect.Y);
+
+                case PosSizableRect.LeftMiddle:
+                    return CreateRectSizableNode(rect.X, rect.Y + +rect.Height / 2);
+
+                case PosSizableRect.LeftBottom:
+                    return CreateRectSizableNode(rect.X, rect.Y + rect.Height);
+
+                case PosSizableRect.BottomMiddle:
+                    return CreateRectSizableNode(rect.X + rect.Width / 2, rect.Y + rect.Height);
+
+                case PosSizableRect.RightUp:
+                    return CreateRectSizableNode(rect.X + rect.Width, rect.Y);
+
+                case PosSizableRect.RightBottom:
+                    return CreateRectSizableNode(rect.X + rect.Width, rect.Y + rect.Height);
+
+                case PosSizableRect.RightMiddle:
+                    return CreateRectSizableNode(rect.X + rect.Width, rect.Y + rect.Height / 2);
+
+                case PosSizableRect.UpMiddle:
+                    return CreateRectSizableNode(rect.X + rect.Width / 2, rect.Y);
+                default:
+                    return new Rectangle();
+            }
+        }
     
     }
 }

@@ -29,7 +29,7 @@ namespace BussinesLayer.Mindmap
         //Teken de objecten op het canvas
         public void TekenObjecten(Graphics canvas)
         {
-           canvas.Clear(Color.White);
+            canvas.Clear(Color.White);
             foreach (Knoop knoop in knopenlist)
             {
                 knoop.Teken(canvas);
