@@ -106,6 +106,7 @@ namespace MindSoft
             activeMindmap.player.mindmap = activeMindmap;
             activeMindmap.player.updateAttributes();
             activeMindmap.player.drawField = canvas;
+            trbartimebar.TabIndex = activeMindmap.relatieslist.Count();
         }
 
         private void mindmapToolStripMenuItem_Click(object sender, EventArgs e)
