@@ -24,6 +24,7 @@ namespace BussinesLayer.Mindmap
             knopenlist = new List<Knoop>();
             relatieslist = new List<Relatie>();
             this.name = name;
+            player = new Player(this);
         }
 
         //Teken de objecten op het canvas

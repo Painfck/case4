@@ -42,7 +42,7 @@ namespace MindSoft
             project = new Project();
             activeMindmap = project.mindmaplist.ElementAt<MindMap>(0);
             initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            activeMindmap.player = new Player(activeMindmap, canvas);
+            activeMindmap.player.drawField = canvas;
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -103,6 +103,9 @@ namespace MindSoft
             PnlEdit.Hide();
             pbView.Width = this.Width;
             PnlPlayer.Width = this.Width;
+            activeMindmap.player.mindmap = activeMindmap;
+            activeMindmap.player.updateAttributes();
+            activeMindmap.player.drawField = canvas;
         }
 
         private void mindmapToolStripMenuItem_Click(object sender, EventArgs e)

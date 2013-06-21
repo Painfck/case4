@@ -17,72 +17,60 @@ namespace BussinesLayer
     {
         #region attributen
 
-        Mindmap.MindMap mindmap;
+        public Mindmap.MindMap mindmap;
         IList<Knoop> knopen;
         IList<Relatie> relaties;
         Timer timeBetweenDraw;
-        Graphics drawField;
+        public Graphics drawField { get; set; }
         playerState state = playerState.stop;
         private int listIndex = 1;
         int relatieCount;
         int knopencount;
         Relatie HuidigeRelatie;
-        Relatie VolgendeRelatie;
-        Relatie VorigeRelatie;
 
         #endregion
 
         #region constructors
 
-        public Player(Mindmap.MindMap mindmap, Graphics drawField)
+        public Player(Mindmap.MindMap mindmap)
         {
+            state = playerState.rewind;
             this.mindmap = mindmap;
             knopen = mindmap.knopenlist;
             relaties = mindmap.relatieslist;
             relatieCount = relaties.Count();
             knopencount = knopen.Count();
-            timeBetweenDraw = new Timer();
-            timeBetweenDraw.Interval = 1000;
-            timeBetweenDraw.Elapsed += new ElapsedEventHandler(timeBetweenDraw_Tick);
-            timeBetweenDraw.Start();
-            this.drawField = drawField;
+            //timeBetweenDraw = new Timer();
+            //timeBetweenDraw.Interval = 1000;
+            //timeBetweenDraw.Elapsed += new ElapsedEventHandler(timeBetweenDraw_Tick);
+            //timeBetweenDraw.Start();
         }
-
+        public void updateAttributes()
+        {
+            knopen = mindmap.knopenlist;
+            relaties = mindmap.relatieslist;
+            HuidigeRelatie = relaties.First<Relatie>();
+        }
 
         #endregion
 
         #region methods
 
-
-        private void timeBetweenDraw_Tick(object sender, ElapsedEventArgs e)
-        {
-            if (state == playerState.play)
-            {
-                play();
-                Draw();
-            }
-            else if (state == playerState.pauze)
-            {
-                Draw();
-            }
-            else if (state == playerState.stop)
-            {
-                stop();
-                Draw();
-            }
-            else if (state == playerState.rewind)
-            {
-                rewind();
-            }
-        }
-
         public void Draw()
         {
-            /*
-                HuidigeRelatie.Knoop1.Teken(drawField);
-                HuidigeRelatie.draw(drawField);
-                HuidigeRelatie.Knoop2.Teken(drawField);
-             */
+            try
+            {
+                foreach (Relatie relatie in relaties)
+                {
+                    relatie.Knoop1.Teken(drawField);
+                    System.Threading.Thread.Sleep(500);
+                    relatie.draw(drawField);
+                    System.Threading.Thread.Sleep(500);
+                    relatie.Knoop2.Teken(drawField);
+                }
+            }
+            catch (NullReferenceException exc1)
+            { }
         }
 
         public void play()
@@ -92,17 +80,11 @@ namespace BussinesLayer
             Draw();
             
             listIndex++;
-            timeBetweenDraw.Start();
         }
         public void rewind()
         {
             drawField.Clear(Color.White);
-            knopen.Clear();
-            relaties.Clear();
-            knopen = mindmap.knopenlist;
-            relaties = mindmap.relatieslist;
-            listIndex = 1;
-            timeBetweenDraw.Stop();
+            listIndex = 0;
         }
         public void stop()
         {
@@ -112,7 +94,6 @@ namespace BussinesLayer
                 relatie.Knoop2.Teken(drawField);
                 relatie.draw(drawField);
             }
-            timeBetweenDraw.Stop();
         }
 
 
