@@ -19,7 +19,12 @@ namespace BussinesLayer
         }
         public void draw(Graphics graphics)
         {
-            graphics.DrawLine(new Pen(new SolidBrush(Color.Black)), Knoop1.Positie, Knoop2.Positie);
+            try
+            {
+                graphics.DrawLine(new Pen(new SolidBrush(Color.Black)), Knoop1.Positie, Knoop2.Positie);
+            }
+            catch (NullReferenceException exc1)
+            { }
         }
 
     }

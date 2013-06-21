@@ -94,6 +94,10 @@ namespace BussinesLayer
                 relatie.Knoop2.Teken(drawField);
                 relatie.draw(drawField);
             }
+            foreach (Knoop knoop in knopen)
+            {
+                knoop.Teken(drawField);
+            }
         }
 
 
