@@ -42,7 +42,7 @@ namespace BussinesLayer
             relatieCount = relaties.Count();
             knopencount = knopen.Count();
             timeBetweenDraw = new Timer();
-            timeBetweenDraw.Interval = 20;
+            timeBetweenDraw.Interval = 1000;
             timeBetweenDraw.Elapsed += new ElapsedEventHandler(timeBetweenDraw_Tick);
             timeBetweenDraw.Start();
             this.drawField = drawField;
@@ -78,10 +78,9 @@ namespace BussinesLayer
 
         public void Draw()
         {
-            HuidigeRelatie.Knoop1.Teken(drawField);
-            HuidigeRelatie.draw(drawField);
-            HuidigeRelatie.Knoop2.Teken(drawField);
-
+                HuidigeRelatie.Knoop1.Teken(drawField);
+                HuidigeRelatie.draw(drawField);
+                HuidigeRelatie.Knoop2.Teken(drawField);
         }
 
         public void play()

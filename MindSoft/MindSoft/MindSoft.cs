@@ -40,6 +40,7 @@ namespace MindSoft
             project = new Project();
             activeMindmap = project.mindmaplist.ElementAt<MindMap>(0);
             initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            activeMindmap.player = new Player(activeMindmap, canvas);
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -336,22 +337,22 @@ namespace MindSoft
 
         private void btplay_Click(object sender, EventArgs e)
         {
-
+            activeMindmap.player.play();
         }
 
         private void btpauze_Click(object sender, EventArgs e)
         {
-
+            activeMindmap.player.stop();
         }
 
         private void btstop_Click(object sender, EventArgs e)
         {
-
+            activeMindmap.player.stop();
         }
 
         private void btrewind_Click(object sender, EventArgs e)
         {
-
+            activeMindmap.player.rewind();
         }
 
 
