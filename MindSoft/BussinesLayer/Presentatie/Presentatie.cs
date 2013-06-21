@@ -12,7 +12,7 @@ namespace BussinesLayer
     {
         #region attributen
         private Dia currentDia;
-        private IList<Dia> dialist;
+        public IList<Dia> dialist;
 
         #endregion
 

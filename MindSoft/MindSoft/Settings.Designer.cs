@@ -38,71 +38,65 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(288, 23);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBox1.Location = new System.Drawing.Point(144, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 279);
+            this.pictureBox1.Size = new System.Drawing.Size(175, 145);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(288, 313);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.textBox1.Location = new System.Drawing.Point(144, 163);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(346, 112);
+            this.textBox1.Size = new System.Drawing.Size(175, 60);
             this.textBox1.TabIndex = 1;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
             this.listBox1.Items.AddRange(new object[] {
             "Dia 1",
             "Dia 2",
             "Dia 3"});
-            this.listBox1.Location = new System.Drawing.Point(24, 17);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.listBox1.Location = new System.Drawing.Point(12, 9);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(236, 529);
+            this.listBox1.Size = new System.Drawing.Size(120, 277);
             this.listBox1.TabIndex = 2;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // generateBtn
             // 
-            this.generateBtn.Location = new System.Drawing.Point(276, 506);
-            this.generateBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.generateBtn.Location = new System.Drawing.Point(138, 263);
             this.generateBtn.Name = "generateBtn";
-            this.generateBtn.Size = new System.Drawing.Size(150, 44);
+            this.generateBtn.Size = new System.Drawing.Size(75, 23);
             this.generateBtn.TabIndex = 3;
             this.generateBtn.Text = "Generate";
             this.generateBtn.UseVisualStyleBackColor = true;
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(488, 506);
-            this.cancelBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.cancelBtn.Location = new System.Drawing.Point(244, 263);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(150, 44);
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
             this.cancelBtn.TabIndex = 4;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 579);
+            this.ClientSize = new System.Drawing.Size(331, 301);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.generateBtn);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Settings";
             this.Text = "Settings";
+            this.Load += new System.EventHandler(this.Settings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

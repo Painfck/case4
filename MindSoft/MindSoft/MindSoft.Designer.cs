@@ -179,21 +179,21 @@
             // mindmapToolStripMenuItem
             // 
             this.mindmapToolStripMenuItem.Name = "mindmapToolStripMenuItem";
-            this.mindmapToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.mindmapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mindmapToolStripMenuItem.Text = "Mindmap";
             this.mindmapToolStripMenuItem.Click += new System.EventHandler(this.mindmapToolStripMenuItem_Click);
             // 
             // playerToolStripMenuItem
             // 
             this.playerToolStripMenuItem.Name = "playerToolStripMenuItem";
-            this.playerToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.playerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.playerToolStripMenuItem.Text = "Player";
             this.playerToolStripMenuItem.Click += new System.EventHandler(this.playerToolStripMenuItem_Click);
             // 
             // tsmpresentation
             // 
             this.tsmpresentation.Name = "tsmpresentation";
-            this.tsmpresentation.Size = new System.Drawing.Size(140, 22);
+            this.tsmpresentation.Size = new System.Drawing.Size(152, 22);
             this.tsmpresentation.Text = "Presentation";
             this.tsmpresentation.Click += new System.EventHandler(this.tsmpresentation_Click);
             // 
@@ -325,7 +325,7 @@
             this.PnlPlayer.Controls.Add(this.btplay);
             this.PnlPlayer.Controls.Add(this.btpauze);
             this.PnlPlayer.Location = new System.Drawing.Point(0, 344);
-            this.PnlPlayer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PnlPlayer.Margin = new System.Windows.Forms.Padding(2);
             this.PnlPlayer.Name = "PnlPlayer";
             this.PnlPlayer.Size = new System.Drawing.Size(551, 60);
             this.PnlPlayer.TabIndex = 12;
@@ -333,7 +333,7 @@
             // trbartimebar
             // 
             this.trbartimebar.Location = new System.Drawing.Point(0, 29);
-            this.trbartimebar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.trbartimebar.Margin = new System.Windows.Forms.Padding(2);
             this.trbartimebar.Name = "trbartimebar";
             this.trbartimebar.Size = new System.Drawing.Size(551, 45);
             this.trbartimebar.TabIndex = 4;
@@ -341,42 +341,46 @@
             // btrewind
             // 
             this.btrewind.Location = new System.Drawing.Point(332, 3);
-            this.btrewind.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btrewind.Margin = new System.Windows.Forms.Padding(2);
             this.btrewind.Name = "btrewind";
             this.btrewind.Size = new System.Drawing.Size(100, 26);
             this.btrewind.TabIndex = 3;
             this.btrewind.Text = "rewind";
             this.btrewind.UseVisualStyleBackColor = true;
+            this.btrewind.Click += new System.EventHandler(this.btrewind_Click);
             // 
             // btstop
             // 
             this.btstop.Location = new System.Drawing.Point(225, 3);
-            this.btstop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btstop.Margin = new System.Windows.Forms.Padding(2);
             this.btstop.Name = "btstop";
             this.btstop.Size = new System.Drawing.Size(100, 26);
             this.btstop.TabIndex = 2;
             this.btstop.Text = "stop";
             this.btstop.UseVisualStyleBackColor = true;
+            this.btstop.Click += new System.EventHandler(this.btstop_Click);
             // 
             // btplay
             // 
             this.btplay.Location = new System.Drawing.Point(10, 3);
-            this.btplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btplay.Margin = new System.Windows.Forms.Padding(2);
             this.btplay.Name = "btplay";
             this.btplay.Size = new System.Drawing.Size(100, 26);
             this.btplay.TabIndex = 0;
             this.btplay.Text = "play";
             this.btplay.UseVisualStyleBackColor = true;
+            this.btplay.Click += new System.EventHandler(this.btplay_Click);
             // 
             // btpauze
             // 
             this.btpauze.Location = new System.Drawing.Point(118, 3);
-            this.btpauze.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btpauze.Margin = new System.Windows.Forms.Padding(2);
             this.btpauze.Name = "btpauze";
             this.btpauze.Size = new System.Drawing.Size(100, 26);
             this.btpauze.TabIndex = 1;
             this.btpauze.Text = "pauze";
             this.btpauze.UseVisualStyleBackColor = true;
+            this.btpauze.Click += new System.EventHandler(this.btpauze_Click);
             // 
             // PnlEdit
             // 
@@ -391,7 +395,7 @@
             this.PnlEdit.Controls.Add(this.bteditknoop);
             this.PnlEdit.Controls.Add(this.btnewknoop);
             this.PnlEdit.Location = new System.Drawing.Point(552, 27);
-            this.PnlEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PnlEdit.Margin = new System.Windows.Forms.Padding(2);
             this.PnlEdit.Name = "PnlEdit";
             this.PnlEdit.Size = new System.Drawing.Size(144, 378);
             this.PnlEdit.TabIndex = 13;
@@ -406,7 +410,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.PnlEdit);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MindSoft";
             this.Text = "Mindsoft";
             this.Resize += new System.EventHandler(this.MindSoft_Resize);

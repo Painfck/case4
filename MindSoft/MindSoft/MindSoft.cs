@@ -240,13 +240,14 @@ namespace MindSoft
 
         private void presentatieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            activeMindmap.CreatePresentatie();
+            Settings settings = new Settings(activeMindmap);
+            settings.Show();
         }
 
         private void tsmpresentation_Click(object sender, EventArgs e)
         {
-            // nog te reviseren door leon van de broek
-            activeMindmap.presentatie.Display(canvas);
+            Settings settings = new Settings(activeMindmap);
+            settings.Show();
         }
 
         private void zoomCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -331,6 +332,26 @@ namespace MindSoft
                     originalKnoopWidth = Convert.ToInt32(originalKnoopWidth * 2.50);
                     break;
             }
+        }
+
+        private void btplay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btpauze_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btstop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btrewind_Click(object sender, EventArgs e)
+        {
+
         }
 
 

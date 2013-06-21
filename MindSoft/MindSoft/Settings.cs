@@ -8,19 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinesLayer;
+
 namespace MindSoft
 {
     public partial class Settings : Form
     {
-        public Settings()
+        BussinesLayer.Mindmap.MindMap mindmap;
+
+        public Settings(BussinesLayer.Mindmap.MindMap mindmap)
         {
             InitializeComponent();
-            
+            this.mindmap = mindmap;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+            mindmap.presentatie = new Presentatie(mindmap);
+            listBox1.DataSource = mindmap.presentatie.dialist;
         }
     }
 }
