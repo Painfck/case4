@@ -75,6 +75,8 @@ namespace BussinesLayer.Mindmap
         {
             selected.positie.X = posX;
             selected.positie.Y = posY;
+            selected.rect.X = posX;
+            selected.rect.Y = posY;
         }
 
         public void CreatePresentatie()
