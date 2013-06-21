@@ -40,6 +40,7 @@ namespace MindSoft
             project = new Project();
             activeMindmap = project.mindmaplist.ElementAt<MindMap>(0);
             initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            activeMindmap.player = new Player(activeMindmap, canvas);
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -120,6 +121,11 @@ namespace MindSoft
             {
                 selected = activeMindmap.SearchObject(e.X, e.Y);
             }
+
+            if (activeMindmap != null && e.Button == MouseButtons.Right)
+            {
+                selectedkn1 = activeMindmap.Search(e.X, e.Y);
+            }
         }
 
         private void pbView_MouseMove(object sender, MouseEventArgs e)
@@ -134,6 +140,12 @@ namespace MindSoft
 
         private void pbView_MouseUp(object sender, MouseEventArgs e)
         {
+            if (activeMindmap != null && e.Button == MouseButtons.Right)
+            {
+                selectedkn2 = activeMindmap.Search(e.X, e.Y);
+                activeMindmap.relatieslist.Add(new Relatie(selectedkn1, selectedkn2));
+                activeMindmap.TekenObjecten(canvas);
+            }
             selected = false;
         }
 
@@ -240,13 +252,14 @@ namespace MindSoft
 
         private void presentatieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            activeMindmap.CreatePresentatie();
+            Settings settings = new Settings(activeMindmap);
+            settings.Show();
         }
 
         private void tsmpresentation_Click(object sender, EventArgs e)
         {
-            // nog te reviseren door leon van de broek
-            activeMindmap.presentatie.Display(canvas);
+            Settings settings = new Settings(activeMindmap);
+            settings.Show();
         }
 
         private void zoomCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -333,9 +346,33 @@ namespace MindSoft
             }
         }
 
+        private void btplay_Click(object sender, EventArgs e)
+        {
+            activeMindmap.player.play();
+        }
+
+        private void btpauze_Click(object sender, EventArgs e)
+        {
+            activeMindmap.player.stop();
+        }
+
+        private void btstop_Click(object sender, EventArgs e)
+        {
+            activeMindmap.player.stop();
+        }
+
+        private void btrewind_Click(object sender, EventArgs e)
+        {
+            activeMindmap.player.rewind();
+        }
 
 
 
 
+
+
+        public Knoop selectedkn1 { get; set; }
+
+        public Knoop selectedkn2 { get; set; }
     }
 }
