@@ -179,21 +179,21 @@
             // mindmapToolStripMenuItem
             // 
             this.mindmapToolStripMenuItem.Name = "mindmapToolStripMenuItem";
-            this.mindmapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mindmapToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.mindmapToolStripMenuItem.Text = "Mindmap";
             this.mindmapToolStripMenuItem.Click += new System.EventHandler(this.mindmapToolStripMenuItem_Click);
             // 
             // playerToolStripMenuItem
             // 
             this.playerToolStripMenuItem.Name = "playerToolStripMenuItem";
-            this.playerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.playerToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.playerToolStripMenuItem.Text = "Player";
             this.playerToolStripMenuItem.Click += new System.EventHandler(this.playerToolStripMenuItem_Click);
             // 
             // tsmpresentation
             // 
             this.tsmpresentation.Name = "tsmpresentation";
-            this.tsmpresentation.Size = new System.Drawing.Size(152, 22);
+            this.tsmpresentation.Size = new System.Drawing.Size(140, 22);
             this.tsmpresentation.Text = "Presentation";
             this.tsmpresentation.Click += new System.EventHandler(this.tsmpresentation_Click);
             // 
@@ -413,6 +413,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MindSoft";
             this.Text = "Mindsoft";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MindSoft_FormClosing);
             this.Resize += new System.EventHandler(this.MindSoft_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -30,6 +30,8 @@ namespace MindSoft
 
         private bool selected = false;
 
+        private bool isFileSaved = false;
+
         private string initialDir;
         private string currentFile = "";
 
@@ -126,11 +128,15 @@ namespace MindSoft
             if (activeMindmap != null && e.Button == MouseButtons.Left)
             {
                 selected = activeMindmap.SearchObject(e.X, e.Y);
+
+                isFileSaved = false;
             }
 
             if (activeMindmap != null && e.Button == MouseButtons.Right)
             {
                 selectedkn1 = activeMindmap.Search(e.X, e.Y);
+
+                isFileSaved = false;
             }
         }
 
@@ -140,6 +146,8 @@ namespace MindSoft
             {
                 activeMindmap.MoveKnoop(e.X, e.Y);
                 activeMindmap.TekenObjecten(canvas);
+
+                isFileSaved = false;
             }
         }
 
@@ -153,6 +161,8 @@ namespace MindSoft
                 activeMindmap.TekenObjecten(canvas);
             }
             selected = false;
+
+            isFileSaved = false;
         }
 
         private void pbView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -176,6 +186,7 @@ namespace MindSoft
                 activeMindmap.TekenObjecten(canvas);
                 
             }
+            isFileSaved = false;
 
         }
 
@@ -236,6 +247,7 @@ namespace MindSoft
                 streamreader.SaveXML(dialog.FileName, project);
                 //outputStream.Close();
             }
+            isFileSaved = true;
         }
 
 
@@ -380,5 +392,24 @@ namespace MindSoft
         public Knoop selectedkn1 { get; set; }
 
         public Knoop selectedkn2 { get; set; }
+
+        private void MindSoft_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isFileSaved)
+            {
+                if (MessageBox.Show("This file has not been saved yet. \r\n Do you want to save it now?", "Save Project", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
+                {
+                    SaveFileDialog dialog = new SaveFileDialog();
+                    dialog.InitialDirectory = initialDir;
+                    dialog.Filter = "xml files (*.xml)|*.xml";
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        currentFile = dialog.FileName;
+                        XMLStreamreader streamreader = new XMLStreamreader();
+                        streamreader.SaveXML(dialog.FileName, project);
+                    }
+                }
+            }
+        }
     }
 }
