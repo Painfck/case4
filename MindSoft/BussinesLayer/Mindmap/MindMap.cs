@@ -40,8 +40,7 @@ namespace BussinesLayer.Mindmap
             }
         }
 
-        //Zoek of de X en Y positie gelijk is aan een van de objecten om
-        // te kunnen bepalen of het object geselecteerd is.
+        //Controlleert of er een knoop is geselecteerd of niet.
         public bool SearchObject(int posX, int posY)
         {
             selected = Search(posX, posY);
@@ -54,6 +53,8 @@ namespace BussinesLayer.Mindmap
             return false;
         }
 
+        // zoekt aan de hand van de coordinaten of er een knoop staat op de
+        // desbetreffende plek.
         public Knoop Search(int posX, int posY)
         {
             Knoop knoopFound = null;
@@ -74,6 +75,7 @@ namespace BussinesLayer.Mindmap
             selected.positie.X = posX;
             selected.positie.Y = posY;
         }
+
         public void CreatePresentatie()
         {
             if (presentatie == null)
