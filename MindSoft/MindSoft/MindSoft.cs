@@ -121,6 +121,11 @@ namespace MindSoft
             {
                 selected = activeMindmap.SearchObject(e.X, e.Y);
             }
+
+            if (activeMindmap != null && e.Button == MouseButtons.Right)
+            {
+                selectedkn1 = activeMindmap.Search(e.X, e.Y);
+            }
         }
 
         private void pbView_MouseMove(object sender, MouseEventArgs e)
@@ -135,6 +140,12 @@ namespace MindSoft
 
         private void pbView_MouseUp(object sender, MouseEventArgs e)
         {
+            if (activeMindmap != null && e.Button == MouseButtons.Right)
+            {
+                selectedkn2 = activeMindmap.Search(e.X, e.Y);
+                activeMindmap.relatieslist.Add(new Relatie(selectedkn1, selectedkn2));
+                activeMindmap.TekenObjecten(canvas);
+            }
             selected = false;
         }
 
@@ -359,5 +370,9 @@ namespace MindSoft
 
 
 
+
+        public Knoop selectedkn1 { get; set; }
+
+        public Knoop selectedkn2 { get; set; }
     }
 }

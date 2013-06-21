@@ -34,6 +34,10 @@ namespace BussinesLayer.Mindmap
             {
                 knoop.Teken(canvas);
             }
+            foreach (Relatie relatie in relatieslist)
+            {
+                relatie.draw(canvas);
+            }
         }
 
         //Zoek of de X en Y positie gelijk is aan een van de objecten om
@@ -50,7 +54,7 @@ namespace BussinesLayer.Mindmap
             return false;
         }
 
-        private Knoop Search(int posX, int posY)
+        public Knoop Search(int posX, int posY)
         {
             Knoop knoopFound = null;
             foreach (Knoop knoop in knopenlist)

@@ -21,6 +21,7 @@ namespace BussinesLayer
         public Dia(Knoop knoop)
         {
             this.Knoop = knoop;
+            /*
             foreach (Inhoud inhoud in knoop.inhoudlist)
             {
                 if (inhoud is Hyperlink)
@@ -36,6 +37,7 @@ namespace BussinesLayer
                     medialist.Add(inhoud.content);
                 }
             }
+             */ 
         }
         #endregion 
 

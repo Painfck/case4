@@ -23,7 +23,7 @@ namespace BussinesLayer
         Timer timeBetweenDraw;
         Graphics drawField;
         playerState state = playerState.stop;
-        private int listIndex;
+        private int listIndex = 1;
         int relatieCount;
         int knopencount;
         Relatie HuidigeRelatie;
@@ -78,16 +78,16 @@ namespace BussinesLayer
 
         public void Draw()
         {
+            /*
                 HuidigeRelatie.Knoop1.Teken(drawField);
                 HuidigeRelatie.draw(drawField);
                 HuidigeRelatie.Knoop2.Teken(drawField);
+             */
         }
 
         public void play()
         {
             HuidigeRelatie = relaties.ElementAt<Relatie>(listIndex);
-            VorigeRelatie = relaties.ElementAt<Relatie>(listIndex - 1);
-            VolgendeRelatie = relaties.ElementAt<Relatie>(listIndex + 1);
 
             Draw();
             
@@ -101,7 +101,7 @@ namespace BussinesLayer
             relaties.Clear();
             knopen = mindmap.knopenlist;
             relaties = mindmap.relatieslist;
-            listIndex = 0;
+            listIndex = 1;
             timeBetweenDraw.Stop();
         }
         public void stop()
