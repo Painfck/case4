@@ -86,6 +86,7 @@ namespace BussinesLayer
             rect = new Rectangle(positieX, positieY, size.Width, size.Height);
             this.positie.X = positieX;
             this.positie.Y = positieY;
+            this.size = size;
         }
 
         public virtual void Teken(Graphics canvas)
@@ -96,8 +97,6 @@ namespace BussinesLayer
                 canvas.DrawRectangle(new Pen(Color.Red), GetRect(pos));
             }
             canvas.DrawString("Ik ben een knoop ", font, brush, positie.X, positie.Y);
-      
-  
         }
 
         public bool Selected(int posX, int posY)
@@ -105,11 +104,13 @@ namespace BussinesLayer
             return (posX >= positie.X && posX < positie.X + size.Width && posY >= positie.Y && posY < positie.Y + size.Height);
         }
 
+        //Draw methode voor aanmaken van anchor points
         private Rectangle CreateRectSizableNode(int x, int y)
         {
             return new Rectangle(x - sizeNodeRect / 2, y - sizeNodeRect / 2, sizeNodeRect, sizeNodeRect);
         }
 
+        //Maak de anchor points aan voor het resizen van de knoop
         private Rectangle GetRect(PosSizableRect p)
         {
             switch (p)
