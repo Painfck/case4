@@ -95,7 +95,7 @@ namespace MindSoft
             canvas.Dispose();
             canvas = pbView.CreateGraphics();
             activeMindmap.TekenObjecten(canvas);
-
+            activeMindmap.player.drawField = canvas;
 
         }
 
@@ -366,21 +366,25 @@ namespace MindSoft
 
         private void btplay_Click(object sender, EventArgs e)
         {
+            activeMindmap.player.drawField = canvas;
             activeMindmap.player.play();
         }
 
         private void btpauze_Click(object sender, EventArgs e)
         {
+            activeMindmap.player.drawField = canvas;
             activeMindmap.player.stop();
         }
 
         private void btstop_Click(object sender, EventArgs e)
         {
+            activeMindmap.player.drawField = canvas;
             activeMindmap.player.stop();
         }
 
         private void btrewind_Click(object sender, EventArgs e)
         {
+            activeMindmap.player.drawField = canvas;
             activeMindmap.player.rewind();
         }
 
