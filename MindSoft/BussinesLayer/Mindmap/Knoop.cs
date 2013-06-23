@@ -25,19 +25,17 @@ namespace BussinesLayer
 
         }
 
-        #region attributen
+        #region Attributen
 
         // Kenmerken van de knoop
         protected Pen pen;
         protected Color kleur;
-        protected Font font = new Font("Times New Roman", 12.0f);
-        protected Brush brush = new SolidBrush(Color.Black);
         public MindMapDelegate.Toon ToonDelegate;
         private int sizeNodeRect = 5;
         public Rectangle rect;
         
-        //List voor het bijhouden van de inhoud.
-        public IList<Inhoud> inhoudlist;
+        //List voor het bijhouden van de inhoud & maak hem gelijk aan zodra de class wordt aangeroepen.
+        public IList<Inhoud> inhoudlist = new List<Inhoud>();
 
 
         //Opmaak van de knoop
@@ -72,6 +70,8 @@ namespace BussinesLayer
         }
         #endregion
 
+
+        #region Methoden
         public Knoop()
         {
             kleur = Color.Black;
@@ -79,6 +79,7 @@ namespace BussinesLayer
             positie = new Point(10, 10);
         }
 
+        //Constructer
         public Knoop(int positieX, int positieY, Size size)
         {
             kleur = Color.Black;
@@ -87,18 +88,26 @@ namespace BussinesLayer
             this.positie.X = positieX;
             this.positie.Y = positieY;
             this.size = size;
+            Inhoud inhoudKnoop = new Text("Lorem ipsum", positie);
+            inhoudlist.Add(inhoudKnoop);
         }
 
+        //Teken methode om de knoop met al zijn attributen te tekenen op de canvas.
         public virtual void Teken(Graphics canvas)
         {
             canvas.DrawRectangle(pen, rect);
             foreach (PosSizableRect pos in Enum.GetValues(typeof(PosSizableRect)))
             {
-                canvas.DrawRectangle(new Pen(Color.Red), GetRect(pos));
+                canvas.DrawRectangle(pen, GetRect(pos));
             }
-            canvas.DrawString("Ik ben een knoop ", font, brush, positie.X, positie.Y);
+            foreach (Inhoud inhoud in inhoudlist)
+            {
+                inhoud.Draw(canvas);
+
+            }
         }
 
+        //Return de waarde van de geselecteerde knoop
         public bool Selected(int posX, int posY)
         {
             return (posX >= positie.X && posX < positie.X + size.Width && posY >= positie.Y && posY < positie.Y + size.Height);
@@ -142,6 +151,20 @@ namespace BussinesLayer
                     return new Rectangle();
             }
         }
-    
+
+        //Verplaats de knopen en zijn attributen
+        public void MoveKnoop(int posX, int posY)
+        {
+            positie.X = posX;
+            positie.Y = posY;
+            rect.X = posX;
+            rect.Y = posY;
+            foreach (Inhoud inhoud in inhoudlist)
+            {
+                inhoud.Move(posX, posY);
+            }
+        }
+
+        #endregion
     }
 }

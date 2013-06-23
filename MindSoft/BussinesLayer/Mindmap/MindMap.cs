@@ -71,12 +71,10 @@ namespace BussinesLayer.Mindmap
             return knoopFound;
         }
 
+        //Verplaats de knoop
         public void MoveKnoop(int posX, int posY)
         {
-            selected.positie.X = posX;
-            selected.positie.Y = posY;
-            selected.rect.X = posX;
-            selected.rect.Y = posY;
+            selected.MoveKnoop(posX, posY);
         }
 
         public void CreatePresentatie()
