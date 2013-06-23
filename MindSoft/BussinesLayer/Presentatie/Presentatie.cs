@@ -19,6 +19,7 @@ namespace BussinesLayer
         #region constructors
         public Presentatie(MindMap mindmap)
         {
+            dialist = new List<Dia>();
             foreach (Knoop knoop in mindmap.knopenlist)
             {
                 dialist.Add(new Dia(knoop));

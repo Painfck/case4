@@ -14,6 +14,7 @@ namespace MindSoft
     public partial class Settings : Form
     {
         BussinesLayer.Mindmap.MindMap mindmap;
+        private IList<string> dianaam;
 
         public Settings(BussinesLayer.Mindmap.MindMap mindmap)
         {
@@ -29,7 +30,6 @@ namespace MindSoft
         private void Settings_Load(object sender, EventArgs e)
         {
             mindmap.presentatie = new Presentatie(mindmap);
-            listBox1.DataSource = mindmap.presentatie.dialist;
         }
     }
 }
