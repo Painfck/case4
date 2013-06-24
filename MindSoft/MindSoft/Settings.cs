@@ -34,9 +34,14 @@ namespace MindSoft
             lbdialist.DataSource = dianame;
             lbdialist.ClearSelected();
             graphics.Clear(Color.White);
+            textBox1.Text = "";
             if (selected != null)
             {
                 selected.Draw(graphics);
+                if (selected.Notitie != null)
+                {
+                    textBox1.Text = selected.Notitie.tekst;
+                }
             }
         }
         private void Settings_Load(object sender, EventArgs e)
@@ -48,6 +53,7 @@ namespace MindSoft
         {
                 selected = mindmap.presentatie.searchDia(lbdialist.SelectedIndex);
                 updateForm();
+                
         }
 
         private void btomhoog_Click(object sender, EventArgs e)
@@ -67,12 +73,18 @@ namespace MindSoft
         private void generateBtn_Click(object sender, EventArgs e)
         {
              Presenter presenter = new Presenter(mindmap.presentatie);
-            presenter.Show();
+             presenter.Show();
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnoteconfirm_Click(object sender, EventArgs e)
+        {
+            selected.updateNotitie(textBox1.Text);
+            textBox1.Text = selected.Notitie.tekst;
         }
     }
 }

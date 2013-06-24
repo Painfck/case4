@@ -35,6 +35,7 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.btomhoog = new System.Windows.Forms.Button();
             this.btomlaag = new System.Windows.Forms.Button();
+            this.btnoteconfirm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbdiapreview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,11 +115,22 @@
             this.btomlaag.UseVisualStyleBackColor = true;
             this.btomlaag.Click += new System.EventHandler(this.btomlaag_Click);
             // 
+            // btnoteconfirm
+            // 
+            this.btnoteconfirm.Location = new System.Drawing.Point(288, 435);
+            this.btnoteconfirm.Name = "btnoteconfirm";
+            this.btnoteconfirm.Size = new System.Drawing.Size(346, 39);
+            this.btnoteconfirm.TabIndex = 7;
+            this.btnoteconfirm.Text = "Confirm Note";
+            this.btnoteconfirm.UseVisualStyleBackColor = true;
+            this.btnoteconfirm.Click += new System.EventHandler(this.btnoteconfirm_Click);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 579);
+            this.Controls.Add(this.btnoteconfirm);
             this.Controls.Add(this.btomlaag);
             this.Controls.Add(this.btomhoog);
             this.Controls.Add(this.cancelBtn);
@@ -145,5 +157,6 @@
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button btomhoog;
         private System.Windows.Forms.Button btomlaag;
+        private System.Windows.Forms.Button btnoteconfirm;
     }
 }

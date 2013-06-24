@@ -73,5 +73,17 @@ namespace BussinesLayer
         }
         #endregion
 
+
+        public void updateNotitie(string tekst)
+        {
+            if (Notitie == null)
+            {
+                Notitie = new Notitie(tekst);
+            }
+            else
+            {
+                Notitie.tekst = tekst;
+            }
+        }
     }
 }
