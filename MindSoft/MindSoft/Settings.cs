@@ -33,6 +33,11 @@ namespace MindSoft
             dianame = mindmap.presentatie.getDiaName();
             lbdialist.DataSource = dianame;
             lbdialist.ClearSelected();
+            graphics.Clear(Color.White);
+            if (selected != null)
+            {
+                selected.Draw(graphics);
+            }
         }
         private void Settings_Load(object sender, EventArgs e)
         {
@@ -41,16 +46,8 @@ namespace MindSoft
 
         private void lbdialist_MouseClick(object sender, MouseEventArgs e)
         {
-            if (selected == null)
-            {
                 selected = mindmap.presentatie.searchDia(lbdialist.SelectedIndex);
-
-            }
-            else
-            {
-
-            }
-            
+                updateForm();
         }
 
         private void btomhoog_Click(object sender, EventArgs e)

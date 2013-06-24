@@ -11,8 +11,8 @@ namespace BussinesLayer
 
         #region Attributen
 
-        protected Font font = new Font("Times New Roman", 12.0f);
-        protected Brush brush = new SolidBrush(Color.Black);
+        public Font font = new Font("Times New Roman", 12.0f);
+        public Brush brush = new SolidBrush(Color.Black);
         public string textInhoud;
         public Point positie;
 
