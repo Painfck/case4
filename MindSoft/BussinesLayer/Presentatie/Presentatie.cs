@@ -23,30 +23,42 @@ namespace BussinesLayer
             int index = 0;
             opvolgendeRelaties = new List<Relatie>();
             dialist = new List<Dia>();
-            for (int i = 0; i < mindmap.relatieslist.Count(); i++)
+            bool relatiefound = false;
+            Relatie relatie1 = null;
+            Relatie relatie2 = null;
+
+            while (!relatiefound)
             {
-                for (int j = 1; j < mindmap.relatieslist.Count(); j++)
+                for (int i = 0; i < mindmap.relatieslist.Count(); i++)
                 {
-                    if (mindmap.relatieslist.ElementAt(i).Knoop2
-                        == mindmap.relatieslist.ElementAt(j).Knoop1)
+                    if (i % 2 == 0 )
                     {
-                        opvolgendeRelaties.Add(mindmap.relatieslist.ElementAt(i));
-                        opvolgendeRelaties.Add(mindmap.relatieslist.ElementAt(j));
-                    }
-                    else if (mindmap.relatieslist.ElementAt(i).Knoop1
-                        == mindmap.relatieslist.ElementAt(j).Knoop2)
-                    {
-                        opvolgendeRelaties.Add(mindmap.relatieslist.ElementAt(j));
-                        opvolgendeRelaties.Add(mindmap.relatieslist.ElementAt(i));
+                        relatie1 = mindmap.relatieslist.ElementAt(i);
                     }
                     else
                     {
-                        dialist.Add(new Dia(opvolgendeRelaties, index));
-                        index++;
-                        opvolgendeRelaties = new List<Relatie>();
+                        relatie2 = mindmap.relatieslist.ElementAt((i - 1));
                     }
                 }
+                if (relatie1.Knoop1 == relatie2.Knoop1 || relatie1.Knoop2 == relatie2.Knoop2 || relatie1.Knoop1 == relatie2.Knoop1)
+                {
+                    opvolgendeRelaties.Add(relatie1);
+                    opvolgendeRelaties.Add(relatie2);
+                }
+                
+                index = 0;
             }
+
+
+
+
+
+
+
+
+
+
+
             currentDia = dialist.First<Dia>();
         }
 

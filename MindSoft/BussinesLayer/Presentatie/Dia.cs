@@ -47,11 +47,11 @@ namespace BussinesLayer
                 if (y < 600)
                 {
                     graphics.DrawString(text.textInhoud, diafont, text.brush, new PointF(x, y));
-                    y += 12;
+                    y += 30;
                 }
                 else
                 {
-                    y = 10;
+                    y = 50;
                     x += 100;
                     graphics.DrawString(text.textInhoud, diafont, text.brush, new PointF(x, y));
                 }
