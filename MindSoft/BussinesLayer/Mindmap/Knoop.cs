@@ -172,7 +172,7 @@ namespace BussinesLayer
             positie.X = posX;
             positie.Y = posY;
             //Rectangle
-            rect.X = rect.Width - posX;
+            rect.X = posX;
             rect.Y = posY;
             foreach (Inhoud inhoud in inhoudlist)
             {
