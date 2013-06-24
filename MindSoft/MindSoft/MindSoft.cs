@@ -21,6 +21,7 @@ namespace MindSoft
         private Graphics canvas;
         private Project project;
         private MindMap activeMindmap;
+        private Knoop SelectedKnoop;
 
         private int zoomedKnoopHeight = 20;
         private int zoomedKnoopWidth = 200;
@@ -120,46 +121,49 @@ namespace MindSoft
 
         private void pbView_MouseClick(object sender, MouseEventArgs e)
         {
-  
+           
+                //Knoop knopje;
+                //knopje = activeMindmap.Search(e.X, e.Y);
+                //knopje.knoopStatus = Knoop.KnoopStatus.Selected;  
+            
+            
         }
 
         private void pbView_MouseDown(object sender, MouseEventArgs e)
         {
+            //Verplaats knoop
             if (activeMindmap != null && e.Button == MouseButtons.Left)
             {
                 selected = activeMindmap.SearchObject(e.X, e.Y);
-
-                isFileSaved = false;
             }
-
+            //Relatie leggen kies knoop 1.
             if (activeMindmap != null && e.Button == MouseButtons.Right)
             {
                 selectedkn1 = activeMindmap.Search(e.X, e.Y);
-
-                isFileSaved = false;
             }
         }
 
         private void pbView_MouseMove(object sender, MouseEventArgs e)
         {
+            //Knoop bewegen
             if (selected)
             {
                 activeMindmap.MoveKnoop(e.X, e.Y);
                 activeMindmap.TekenObjecten(canvas);
-
-                isFileSaved = false;
             }
         }
 
 
         private void pbView_MouseUp(object sender, MouseEventArgs e)
         {
+            // Relatie leggen
             if (activeMindmap != null && e.Button == MouseButtons.Right)
             {
                 selectedkn2 = activeMindmap.Search(e.X, e.Y);
                 activeMindmap.relatieslist.Add(new Relatie(selectedkn1, selectedkn2));
                 activeMindmap.TekenObjecten(canvas);
             }
+            //Knoop move
             selected = false;
 
             isFileSaved = false;
@@ -175,24 +179,19 @@ namespace MindSoft
             }
             if (selected)
             {
-
+                
                 
             }
             else
             {
-                Knoop knoop = new Knoop(e.X, e.Y, new Size(zoomedKnoopWidth, zoomedKnoopHeight));
-               knoop.ToonDelegate += EditKnoop;
+                knoop = new Knoop(e.X, e.Y, new Size(zoomedKnoopWidth, zoomedKnoopHeight));
+                
                 activeMindmap.knopenlist.Add(knoop);
                 activeMindmap.TekenObjecten(canvas);
                 
             }
             isFileSaved = false;
 
-        }
-
-        private void EditKnoop(string name)
-        {
-            MessageBox.Show(name);
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -249,8 +248,6 @@ namespace MindSoft
             }
             isFileSaved = true;
         }
-
-
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -388,11 +385,7 @@ namespace MindSoft
             activeMindmap.player.rewind();
         }
 
-
-
-
-
-
+        
         public Knoop selectedkn1 { get; set; }
 
         public Knoop selectedkn2 { get; set; }

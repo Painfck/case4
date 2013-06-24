@@ -15,7 +15,7 @@ namespace BussinesLayer.Mindmap
         public Presentatie presentatie;
         public Player player;
         //Voor het bepalen van welk object geselecteerd is.
-        private Knoop selected;
+        private Knoop selectedKnoop;
         public string name;
 
         //Constructer
@@ -44,13 +44,11 @@ namespace BussinesLayer.Mindmap
         //Controlleert of er een knoop is geselecteerd of niet.
         public bool SearchObject(int posX, int posY)
         {
-            selected = Search(posX, posY);
-            if (selected != null)
+            selectedKnoop = Search(posX, posY);
+            if (selectedKnoop != null)
             {
-                
                 return true;
             }
-
             return false;
         }
 
@@ -59,11 +57,14 @@ namespace BussinesLayer.Mindmap
         public Knoop Search(int posX, int posY)
         {
             Knoop knoopFound = null;
+            
             foreach (Knoop knoop in knopenlist)
             {
-                if (knoop.Selected(posX,posY))
+                
+                if (knoop.isKnoopSelected(posX,posY))
                 {
                     knoopFound = knoop;
+                    knoopFound.knoopStatus = Knoop.KnoopStatus.Selected;
                     break;
                 }
                 
@@ -74,7 +75,7 @@ namespace BussinesLayer.Mindmap
         //Verplaats de knoop
         public void MoveKnoop(int posX, int posY)
         {
-            selected.MoveKnoop(posX, posY);
+            selectedKnoop.MoveKnoop(posX, posY);
         }
 
         public void CreatePresentatie()
