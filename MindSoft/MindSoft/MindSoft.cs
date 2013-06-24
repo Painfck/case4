@@ -122,11 +122,6 @@ namespace MindSoft
         private void pbView_MouseClick(object sender, MouseEventArgs e)
         {
            
-                //Knoop knopje;
-                //knopje = activeMindmap.Search(e.X, e.Y);
-                //knopje.knoopStatus = Knoop.KnoopStatus.Selected;  
-            
-            
         }
 
         private void pbView_MouseDown(object sender, MouseEventArgs e)

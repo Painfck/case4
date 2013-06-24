@@ -33,6 +33,14 @@ namespace BussinesLayer.Mindmap
             canvas.Clear(Color.White);
             foreach (Knoop knoop in knopenlist)
             {
+                if (knoop == selectedKnoop)
+                {
+                    knoop.knoopStatus = Knoop.KnoopStatus.Selected;
+                }
+                else
+                {
+                    knoop.knoopStatus = Knoop.KnoopStatus.None;
+                }
                 knoop.Teken(canvas);
             }
             foreach (Relatie relatie in relatieslist)
@@ -64,7 +72,7 @@ namespace BussinesLayer.Mindmap
                 if (knoop.isKnoopSelected(posX,posY))
                 {
                     knoopFound = knoop;
-                    knoopFound.knoopStatus = Knoop.KnoopStatus.Selected;
+                    
                     break;
                 }
                 
