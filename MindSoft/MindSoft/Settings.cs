@@ -63,5 +63,11 @@ namespace MindSoft
             updateForm();
             selected = null;
         }
+
+        private void generateBtn_Click(object sender, EventArgs e)
+        {
+             Presenter presenter = new Presenter(mindmap.presentatie);
+            presenter.Show();
+        }
     }
 }

@@ -41,14 +41,14 @@ namespace BussinesLayer
             {
                 if (y < 600)
                 {
-                    graphics.DrawString(text.textInhoud, text., new SolidBrush(Color.Black), new PointF(x, y));
+                    graphics.DrawString(text.textInhoud, text.font, text.brush, new PointF(x, y));
                     y += 12;
                 }
                 else
                 {
                     y = 10;
                     x += 100;
-                    graphics.DrawString(text.textInhoud, diafont, new SolidBrush(Color.Black), new PointF(x, y));
+                    graphics.DrawString(text.textInhoud, text.font, text.brush, new PointF(x, y));
                 }
             }
             //foreach (string obj in medialist)

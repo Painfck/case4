@@ -13,7 +13,7 @@ namespace BussinesLayer
         #region attributen
         private Dia currentDia;
         public IList<Dia> dialist;
-
+        private Dia endDia;
         #endregion
 
         #region constructors
@@ -26,6 +26,7 @@ namespace BussinesLayer
                 dialist.Add(new Dia(knoop, index));
                 index++;
             }
+            currentDia = dialist.First<Dia>();
         }
 
 
@@ -84,22 +85,30 @@ namespace BussinesLayer
             }
 
         }
-        public void nextDia()
+        public bool nextDia()
         {
-            if (dialist.IndexOf(currentDia) == dialist.Count())
+            if (dialist.IndexOf(currentDia) == (dialist.Count()-1))
             {
-                currentDia = dialist.ElementAt<Dia>(0);
+                Knoop knoop = new Knoop();
+                knoop.inhoudlist.Add(new Text("End of the Diashow", new Point(50, 50)));
+                endDia = new Dia(knoop, 999);
+                currentDia = endDia;
+                return false;
             }
-
+            if (currentDia == endDia)
+            {
+                return true;
+            }
             else
             {
-                for (int i = 0; i < dialist.Count(); i++)
+                for (int i = 0; i < (dialist.Count() - 1); i++)
                 {
 
                     if (dialist.ElementAt<Dia>(i) == currentDia)
                     {
                         currentDia = dialist.ElementAt<Dia>(i + 1);
                         break;
+                        return false;
                     }
                     else
                     {
@@ -107,6 +116,7 @@ namespace BussinesLayer
                     }
                 }
             }
+            return false;
         }
 
 

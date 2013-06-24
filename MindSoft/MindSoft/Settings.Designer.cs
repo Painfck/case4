@@ -81,6 +81,7 @@
             this.generateBtn.TabIndex = 3;
             this.generateBtn.Text = "Generate";
             this.generateBtn.UseVisualStyleBackColor = true;
+            this.generateBtn.Click += new System.EventHandler(this.generateBtn_Click);
             // 
             // cancelBtn
             // 

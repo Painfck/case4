@@ -26,8 +26,15 @@ namespace MindSoft
 
         private void pbdiaview_Click(object sender, EventArgs e)
         {
-            presentation.nextDia();
-            presentation.Display(graphics);
+            if (presentation.nextDia())
+            {
+                this.Close();
+            }
+            else
+            {
+                graphics.Clear(Color.White);
+                presentation.Display(graphics);
+            }
         }
 
 
