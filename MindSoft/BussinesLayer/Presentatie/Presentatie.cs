@@ -97,11 +97,12 @@ namespace BussinesLayer
             }
             if (currentDia == endDia)
             {
+                currentDia = dialist.First<Dia>();
                 return true;
             }
             else
             {
-                for (int i = 0; i < (dialist.Count() - 1); i++)
+                for (int i = 0; i < (dialist.Count()); i++)
                 {
 
                     if (dialist.ElementAt<Dia>(i) == currentDia)

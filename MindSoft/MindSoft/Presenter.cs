@@ -28,7 +28,7 @@ namespace MindSoft
         {
             if (presentation.nextDia())
             {
-                this.Close();
+                this.Dispose();
             }
             else
             {

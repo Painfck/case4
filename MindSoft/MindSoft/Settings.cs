@@ -69,5 +69,10 @@ namespace MindSoft
              Presenter presenter = new Presenter(mindmap.presentatie);
             presenter.Show();
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
