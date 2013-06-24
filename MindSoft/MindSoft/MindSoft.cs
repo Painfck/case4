@@ -401,7 +401,7 @@ namespace MindSoft
         {
             if (!isFileSaved)
             {
-                if (MessageBox.Show("This file has not been saved yet. \r\n Do you want to save it now?", "Save Project", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.OK)
+                if (MessageBox.Show("This file has not been saved yet. \r\n Do you want to save it now?", "Save Project", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     SaveFileDialog dialog = new SaveFileDialog();
                     dialog.InitialDirectory = initialDir;
