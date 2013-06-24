@@ -121,11 +121,15 @@ namespace MindSoft
 
         private void pbView_MouseClick(object sender, MouseEventArgs e)
         {
-           
+            if (activeMindmap != null)
+            {
+                activeMindmap.TekenObjecten(canvas);
+            }
         }
 
         private void pbView_MouseDown(object sender, MouseEventArgs e)
         {
+           
             //Verplaats knoop
             if (activeMindmap != null && e.Button == MouseButtons.Left)
             {
