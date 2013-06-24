@@ -9,23 +9,28 @@ namespace BussinesLayer
     {
         #region attributen
         private IList<Text> bullets;
-        private IList<Media> medialist;
-        private IList<Hyperlink> hyperlist;
-        private Font diafont = new Font("Arial", 11);
-        public Knoop Knoop;
+        private List<Relatie> diarelatielist;
+        private Font diafont = new Font("Arial", 24);
         public Notitie Notitie;
         public int diaid;
         #endregion
 
         #region constructors
-        public Dia(Knoop knoop, int diaid)
+        public Dia(List<Relatie> relaties, int diaid)
         {
-            this.Knoop = knoop;
+            this.diarelatielist = relaties;
             this.diaid = diaid;
             bullets = new List<Text>();
-            foreach (Text text in knoop.inhoudlist)
+            foreach (Relatie relatie in diarelatielist)
             {
-                bullets.Add(text);
+                foreach (Text text in relatie.Knoop1.inhoudlist)
+                {
+                    bullets.Add(text);
+                }
+                foreach (Text text in relatie.Knoop2.inhoudlist)
+                {
+                    bullets.Add(text);
+                }
             }
         }
         #endregion 
@@ -34,21 +39,21 @@ namespace BussinesLayer
         public void Draw(Graphics graphics)
         {
             float x, y;
-            x = 10;
-            y = 10;
+            x = 50;
+            y = 50;
 
             foreach(Text text in bullets)
             {
                 if (y < 600)
                 {
-                    graphics.DrawString(text.textInhoud, text.font, text.brush, new PointF(x, y));
+                    graphics.DrawString(text.textInhoud, diafont, text.brush, new PointF(x, y));
                     y += 12;
                 }
                 else
                 {
                     y = 10;
                     x += 100;
-                    graphics.DrawString(text.textInhoud, text.font, text.brush, new PointF(x, y));
+                    graphics.DrawString(text.textInhoud, diafont, text.brush, new PointF(x, y));
                 }
             }
             //foreach (string obj in medialist)

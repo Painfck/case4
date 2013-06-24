@@ -13,6 +13,7 @@ namespace BussinesLayer
         #region attributen
         private Dia currentDia;
         public IList<Dia> dialist;
+        public List<Relatie> opvolgendeRelaties;
         private Dia endDia;
         #endregion
 
@@ -20,11 +21,31 @@ namespace BussinesLayer
         public Presentatie(MindMap mindmap)
         {
             int index = 0;
+            opvolgendeRelaties = new List<Relatie>();
             dialist = new List<Dia>();
-            foreach (Knoop knoop in mindmap.knopenlist)
+            for (int i = 0; i < mindmap.relatieslist.Count(); i++)
             {
-                dialist.Add(new Dia(knoop, index));
-                index++;
+                for (int j = 1; j < mindmap.relatieslist.Count(); j++)
+                {
+                    if (mindmap.relatieslist.ElementAt(i).Knoop2
+                        == mindmap.relatieslist.ElementAt(j).Knoop1)
+                    {
+                        opvolgendeRelaties.Add(mindmap.relatieslist.ElementAt(i));
+                        opvolgendeRelaties.Add(mindmap.relatieslist.ElementAt(j));
+                    }
+                    else if (mindmap.relatieslist.ElementAt(i).Knoop1
+                        == mindmap.relatieslist.ElementAt(j).Knoop2)
+                    {
+                        opvolgendeRelaties.Add(mindmap.relatieslist.ElementAt(j));
+                        opvolgendeRelaties.Add(mindmap.relatieslist.ElementAt(i));
+                    }
+                    else
+                    {
+                        dialist.Add(new Dia(opvolgendeRelaties, index));
+                        index++;
+                        opvolgendeRelaties = new List<Relatie>();
+                    }
+                }
             }
             currentDia = dialist.First<Dia>();
         }
@@ -91,8 +112,6 @@ namespace BussinesLayer
             {
                 Knoop knoop = new Knoop();
                 knoop.inhoudlist.Add(new Text("End of the Diashow", new Point(50, 50)));
-                endDia = new Dia(knoop, 999);
-                currentDia = endDia;
                 return false;
             }
             if (currentDia == endDia)
