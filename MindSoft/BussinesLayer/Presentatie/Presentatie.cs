@@ -19,38 +19,70 @@ namespace BussinesLayer
         #region constructors
         public Presentatie(MindMap mindmap)
         {
+            int index = 0;
             dialist = new List<Dia>();
             foreach (Knoop knoop in mindmap.knopenlist)
             {
-                dialist.Add(new Dia(knoop));
+                dialist.Add(new Dia(knoop, index));
+                index++;
             }
         }
+
+
         #endregion
 
 
 
         #region arrangemethods
-        public void reArrange(Dia originalDia, Dia NewDia)
+        public void reArrangeup(Dia dia)
         {
-            int originaldiaindex = 0;
-            int newdiaindex = 0;
-            for (int i = 0; i < dialist.Count(); i++)
             {
-                if (dialist.ElementAt<Dia>(i) == NewDia)
+                bool found = false;
+                int i = 0;
+                while (!found)
                 {
-                    newdiaindex = i;
+                    if (dialist.ElementAt(i) == dialist.First<Dia>())
+                    {
+                        return;
+                    }
+                    else if (dialist.ElementAt(i) == dia)
+                    {
+                        found = true;
+
+                        dialist[i] = dialist[(i + 1)];
+                        dialist.RemoveAt(i);
+                        //dialist.RemoveAt(i);
+                        break;
+                    }
+
+                    i++;
                 }
-                else if (dialist.ElementAt<Dia>(i) == originalDia)
-                {
-                    originaldiaindex = i;
-                }
-                else
-                {
-                    continue;
-                }
+
             }
-            dialist.Insert(newdiaindex, originalDia);
-            dialist.Insert(originaldiaindex, NewDia);
+        }
+        public void reArrangedown(Dia dia)
+        {
+            bool found = false;
+            int i = 0;
+            while (!found)
+            {
+                if (dialist.ElementAt(i) == dialist.Last<Dia>())
+                {
+                    return;
+                }
+                else if (dialist.ElementAt(i) == dia)
+                    {
+                        found = true;
+
+                        dialist[i] = dialist[(i + 1)];
+                        dialist.RemoveAt(i);
+                        //dialist.RemoveAt(i);
+                        break;
+                    }
+                
+                i++;
+            }
+
         }
         public void nextDia()
         {
@@ -76,6 +108,50 @@ namespace BussinesLayer
                 }
             }
         }
+
+
+
+        //public Dia searchDia(int diaid)
+        //{
+        //    foreach (Dia dia in dialist)
+        //    {
+        //        if (dia.diaid == diaid)
+        //        {
+        //            return dia;
+        //        }
+        //        else
+        //        {
+        //            continue;
+        //        }
+        //        return null;
+        //    }
+        //    return null;
+        //}
+        public Dia searchDia(int diaid)
+        {
+            foreach (Dia dia in dialist)
+            {
+                if (dia.diaid == diaid)
+                {
+                    return dia;
+                }
+            }
+            return null;
+        }
+
+
+        public List<string> getDiaName()
+        {
+            List<string> tempdialist = new List<string>();
+
+            foreach (Dia dia in dialist)
+            {
+                tempdialist.Add(String.Format("dia: {0}", dia.diaid));
+            }
+            return tempdialist;
+        }
+
+
         #endregion
 
         #region displaymethods
