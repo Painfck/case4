@@ -168,9 +168,11 @@ namespace BussinesLayer
         //Verplaats de knopen en zijn attributen
         public void MoveKnoop(int posX, int posY)
         {
+            //String
             positie.X = posX;
             positie.Y = posY;
-            rect.X = posX;
+            //Rectangle
+            rect.X = rect.Width - posX;
             rect.Y = posY;
             foreach (Inhoud inhoud in inhoudlist)
             {

@@ -21,7 +21,6 @@ namespace MindSoft
         private Graphics canvas;
         private Project project;
         private MindMap activeMindmap;
-        private Knoop SelectedKnoop;
 
         private int zoomedKnoopHeight = 20;
         private int zoomedKnoopWidth = 200;
