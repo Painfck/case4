@@ -11,7 +11,11 @@ namespace BussinesLayer
     {
         public Knoop Knoop2;
         public Knoop Knoop1;
-        
+
+        private static Color kleur = Color.Red;
+        private static Brush brush = new SolidBrush(kleur);
+        private static Pen pen = new Pen(brush);
+
         public Relatie(Knoop knoop1, Knoop knoop2)
         {
             this.Knoop1 = knoop1;
@@ -21,7 +25,28 @@ namespace BussinesLayer
         {
             try
             {
-                graphics.DrawLine(new Pen(new SolidBrush(Color.Black)), Knoop1.Positie, Knoop2.Positie);
+                // Als knoop 1 links onder van knoop 2 staat
+                if (Knoop1.positie.X <= Knoop2.positie.X && Knoop1.positie.Y >= Knoop2.positie.Y)
+                    
+                {
+                    graphics.DrawLine(pen, Knoop1.positie.X + Knoop1.rect.Width, Knoop1.positie.Y, Knoop2.positie.X, Knoop2.positie.Y + Knoop2.rect.Height);
+                }
+                //Als knoop 1 linksboven knoop2 staat
+                else if (Knoop1.positie.X <= Knoop2.positie.X && Knoop1.positie.Y <= Knoop2.positie.Y)
+                {
+                    graphics.DrawLine(pen, Knoop1.positie.X + Knoop1.rect.Width, Knoop1.positie.Y + Knoop1.rect.Height, Knoop2.positie.X, Knoop2.positie.Y);
+                }
+                //Als knoop 1 rechtsboven knoop2 staat
+                else if (Knoop1.positie.X >= Knoop2.positie.X && Knoop1.positie.Y <= Knoop2.positie.Y)
+                {
+                    graphics.DrawLine(pen, Knoop1.positie.X, Knoop1.positie.Y + Knoop1.rect.Height, Knoop2.positie.X + Knoop2.rect.Width, Knoop2.positie.Y);
+                }
+                //Als knoop 1 rechts onder knoop 2 staat
+                else if (Knoop1.positie.X >= Knoop2.positie.X && Knoop1.positie.Y >= Knoop2.positie.Y)
+                {
+                    graphics.DrawLine(pen, Knoop1.positie.X, Knoop1.positie.Y, Knoop2.positie.X + Knoop2.rect.Width, Knoop2.positie.Y + Knoop2.rect.Height);
+                }
+               
             }
             catch (NullReferenceException)
             { }
