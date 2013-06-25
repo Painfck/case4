@@ -12,5 +12,6 @@ namespace BussinesLayer
 
         public abstract void Draw(Graphics canvas);
         public abstract void Move(int posX, int posY);
+        
     }
 }

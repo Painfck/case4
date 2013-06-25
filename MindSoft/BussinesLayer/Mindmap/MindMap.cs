@@ -85,6 +85,7 @@ namespace BussinesLayer.Mindmap
 
         public void SearchAnchor(int posX, int posY)
         {
+            
             selectedKnoop.AnchorSelected(posX, posY);
         }
 

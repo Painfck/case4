@@ -155,7 +155,6 @@ namespace MindSoft
                     activeMindmap.selectedKnoop.oldX = e.X;
                     activeMindmap.selectedKnoop.oldY = e.Y;
                     activeMindmap.SearchAnchor(e.X, e.Y);
-
                 }
 
             }
@@ -173,10 +172,6 @@ namespace MindSoft
             {
                 activeMindmap.MoveKnoop(e.X, e.Y);
                 activeMindmap.TekenObjecten(canvas);
-            }
-            else
-            {
-                //EDIT FUNCTION
             }
             
           
@@ -208,7 +203,7 @@ namespace MindSoft
             if (selected)
             {
 
-
+                activeMindmap.selectedKnoop.EditKnoop("edit");
             }
             else
             {

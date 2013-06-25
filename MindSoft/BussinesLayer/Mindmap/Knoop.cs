@@ -34,12 +34,11 @@ namespace BussinesLayer
         }
 
         #region Attributen
-        // public MindMapDelegate.Toon ToonDelegate;
         // Kenmerken van de knoop
         protected Pen pen;
         protected Color kleur;
 
-        private int sizeKnoopAnchor = 5;
+        private int sizeKnoopAnchor = 8;
         public KnoopAnchor activeAnchor = KnoopAnchor.None;
         public KnoopStatus knoopStatus = KnoopStatus.None;
         public int oldY, oldX;
@@ -96,9 +95,9 @@ namespace BussinesLayer
         {
             kleur = Color.Black;
             pen = new Pen(kleur);
-            rect = new Rectangle(positieX, positieY, size.Width, size.Height);
             this.positie.X = positieX;
             this.positie.Y = positieY;
+            rect = new Rectangle(positieX, positieY, size.Width, size.Height);
             this.size = size;
             Inhoud inhoudKnoop = new Text("Lorem ipsum", positie);
             inhoudlist.Add(inhoudKnoop);
@@ -107,14 +106,16 @@ namespace BussinesLayer
         //Teken methode om de knoop met al zijn attributen te tekenen op de canvas.
         public virtual void Teken(Graphics canvas)
         {
-            
+            rect.X = this.positie.X;
+            rect.Y = this.positie.Y;
             if (knoopStatus == KnoopStatus.Selected)
             {
                 
                 foreach (KnoopAnchor pos in Enum.GetValues(typeof(KnoopAnchor)))
                 {
                     canvas.DrawRectangle(pen, GetRect(pos));
-                } 
+                }
+
             }
             
             foreach (Inhoud inhoud in inhoudlist)
@@ -146,7 +147,7 @@ namespace BussinesLayer
                     return CreateAnchor(rect.X, rect.Y);
 
                 case KnoopAnchor.LeftMiddle:
-                    return CreateAnchor(rect.X, rect.Y + +rect.Height / 2);
+                    return CreateAnchor(rect.X, rect.Y + rect.Height / 2);
 
                 case KnoopAnchor.LeftBottom:
                     return CreateAnchor(rect.X, rect.Y + rect.Height);
@@ -170,8 +171,10 @@ namespace BussinesLayer
             }
         }
 
+        //Set de Anchorpoint
         public void AnchorSelected(int posX, int posY)
         {
+            this.activeAnchor = KnoopAnchor.None;
             Point p = new Point(posX,posY);
             foreach (KnoopAnchor anchor in Enum.GetValues(typeof(KnoopAnchor)))
             {
@@ -180,42 +183,29 @@ namespace BussinesLayer
                     this.activeAnchor = anchor;
                 }
             }
-            this.activeAnchor = KnoopAnchor.None;
+            
         }
        
-        //Verplaats de knopen en zijn attributen
+        //Bewerk de knopen en zijn attributen
         public void MoveKnoop(int posX, int posY)
         {
-            //String
-            //positie.X = posX;
-            //positie.Y = posY;
-            //Rectangle
-            //rect.X = posX;
-            //rect.Y = posY;
-            
-            //Verplaats de inhoud
-            //foreach (Inhoud inhoud in inhoudlist)
-            //{
-            //    inhoud.Move(posX, posY);
-            //}
-
-            Rectangle backupRect = rect;
+           Rectangle backupRect = rect;
 
             switch (activeAnchor)
             {
                 case KnoopAnchor.LeftUp:
-                    rect.X += posX - oldX;
+                    this.positie.X += posX - oldX;
                     rect.Width -= posX - oldX;
-                    rect.Y += posY - oldY;
+                    this.positie.Y += posY - oldY;
                     rect.Height -= posY - oldY;
                     break;
                 case KnoopAnchor.LeftMiddle:
-                    rect.X += posX - oldX;
+                    this.positie.X += posX - oldX;
                     rect.Width -= posX - oldX;
                     break;
                 case KnoopAnchor.LeftBottom:
                     rect.Width -= posX - oldX;
-                    rect.X += posX - oldX;
+                    this.positie.X += posX - oldX;
                     rect.Height += posY - oldY;
                     break;
                 case KnoopAnchor.BottomMiddle:
@@ -223,7 +213,7 @@ namespace BussinesLayer
                     break;
                 case KnoopAnchor.RightUp:
                     rect.Width += posX - oldX;
-                    rect.Y += posY - oldY;
+                    this.positie.Y += posY - oldY;
                     rect.Height -= posY - oldY;
                     break;
                 case KnoopAnchor.RightBottom:
@@ -235,14 +225,19 @@ namespace BussinesLayer
                     break;
 
                 case KnoopAnchor.UpMiddle:
-                    rect.Y += posY - oldY;
+                    this.positie.Y += posY - oldY;
                     rect.Height -= posY - oldY;
                     break;
                 default:
                     
                     {
-                        rect.X = rect.X + posX - oldX;
-                        rect.Y = rect.Y + posY - oldY;
+                        this.positie.X = rect.X + posX - oldX;
+                        this.positie.Y = rect.Y + posY - oldY;
+                        //Verplaats de inhoud
+                        foreach (Inhoud inhoud in inhoudlist)
+                        {
+                            inhoud.Move(rect.X + posX - oldX, rect.Y + posY - oldY);
+                        }
                     }
                     break;
             }
@@ -250,7 +245,11 @@ namespace BussinesLayer
             oldY = posY;
         }
 
-
+        //Edit de inhoud van een knoop
+        public void EditKnoop(string text)
+        {
+            
+        }
         #endregion
     }
 }
