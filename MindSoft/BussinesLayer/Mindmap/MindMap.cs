@@ -83,6 +83,11 @@ namespace BussinesLayer.Mindmap
             selectedKnoop.MoveKnoop(posX, posY);
         }
 
+        public void SearchAnchor(int posX, int posY)
+        {
+            selectedKnoop.AnchorSelected(posX, posY);
+        }
+
         public void CreatePresentatie()
         {
             if (presentatie == null)

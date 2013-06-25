@@ -154,12 +154,10 @@ namespace MindSoft
                 {
                     activeMindmap.selectedKnoop.oldX = e.X;
                     activeMindmap.selectedKnoop.oldY = e.Y;
-                    
+                    activeMindmap.SearchAnchor(e.X, e.Y);
+
                 }
-                if (selected && activeMindmap.selectedKnoop.knoopStatus == Knoop.KnoopStatus.Selected)
-                {
-                    activeMindmap.selectedKnoop.AnchorSelected(e.X, e.Y);
-                }
+
             }
             //Relatie leggen kies knoop 1.
             if (activeMindmap != null && e.Button == MouseButtons.Right)
@@ -178,7 +176,7 @@ namespace MindSoft
             }
             else
             {
-                
+                //EDIT FUNCTION
             }
             
           

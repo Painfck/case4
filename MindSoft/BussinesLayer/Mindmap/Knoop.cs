@@ -40,7 +40,7 @@ namespace BussinesLayer
         protected Color kleur;
 
         private int sizeKnoopAnchor = 5;
-        private KnoopAnchor activeAnchor = KnoopAnchor.None;
+        public KnoopAnchor activeAnchor = KnoopAnchor.None;
         public KnoopStatus knoopStatus = KnoopStatus.None;
         public int oldY, oldX;
 
@@ -170,24 +170,22 @@ namespace BussinesLayer
             }
         }
 
-        public KnoopAnchor AnchorSelected(int posX, int posY)
+        public void AnchorSelected(int posX, int posY)
         {
             Point p = new Point(posX,posY);
             foreach (KnoopAnchor anchor in Enum.GetValues(typeof(KnoopAnchor)))
             {
                 if (GetRect(anchor).Contains(p))
                 {
-                    return anchor;
+                    this.activeAnchor = anchor;
                 }
             }
-            return KnoopAnchor.None;
+            this.activeAnchor = KnoopAnchor.None;
         }
        
         //Verplaats de knopen en zijn attributen
         public void MoveKnoop(int posX, int posY)
         {
-            AnchorSelected(posX, posY);
-            
             //String
             //positie.X = posX;
             //positie.Y = posY;
