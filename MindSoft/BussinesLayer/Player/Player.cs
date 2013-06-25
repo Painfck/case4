@@ -64,7 +64,7 @@ namespace BussinesLayer
             knopen = mindmap.knopenlist;
             relaties = mindmap.relatieslist;
             HuidigeRelatie = relaties.First<Relatie>();
-        }7
+        }
 
         /// <summary>
         /// hieronder wordt de count van de knopenlijst gereturned
