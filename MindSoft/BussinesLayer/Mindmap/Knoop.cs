@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Windows.Forms;
 using BussinesLayer.Mindmap;
 
 namespace BussinesLayer
@@ -11,7 +12,7 @@ namespace BussinesLayer
     public class Knoop
     {
 
-        private enum KnoopAnchor
+        public enum KnoopAnchor
         {
             UpMiddle,
             LeftMiddle,
@@ -39,7 +40,7 @@ namespace BussinesLayer
         protected Color kleur;
 
         private int sizeKnoopAnchor = 5;
-        private KnoopAnchor activeAnchor = KnoopAnchor.BottomMiddle;
+        private KnoopAnchor activeAnchor = KnoopAnchor.None;
         public KnoopStatus knoopStatus = KnoopStatus.None;
         public int oldY, oldX;
 
@@ -106,9 +107,10 @@ namespace BussinesLayer
         //Teken methode om de knoop met al zijn attributen te tekenen op de canvas.
         public virtual void Teken(Graphics canvas)
         {
-            canvas.DrawRectangle(pen, rect);
+            
             if (knoopStatus == KnoopStatus.Selected)
             {
+                
                 foreach (KnoopAnchor pos in Enum.GetValues(typeof(KnoopAnchor)))
                 {
                     canvas.DrawRectangle(pen, GetRect(pos));
@@ -120,12 +122,13 @@ namespace BussinesLayer
                 inhoud.Draw(canvas);
 
             }
+            canvas.DrawRectangle(pen, rect);
         }
 
         //Return de waarde van de geselecteerde knoop
         public bool isKnoopSelected(int posX, int posY)
         {
-            return (posX >= positie.X && posX < positie.X + size.Width && posY >= positie.Y && posY < positie.Y + size.Height);
+            return (rect.Contains(new Point(posX, posY)));
         }
 
         //Draw methode voor aanmaken van anchor points
@@ -167,22 +170,24 @@ namespace BussinesLayer
             }
         }
 
-        private KnoopAnchor AnchorSelected(int posX, int posY)
+        public KnoopAnchor AnchorSelected(int posX, int posY)
         {
-            foreach (KnoopAnchor r in Enum.GetValues(typeof(KnoopAnchor)))
+            Point p = new Point(posX,posY);
+            foreach (KnoopAnchor anchor in Enum.GetValues(typeof(KnoopAnchor)))
             {
-                if (GetRect(r).Contains(p))
+                if (GetRect(anchor).Contains(p))
                 {
-                    return r;
+                    return anchor;
                 }
             }
-            
             return KnoopAnchor.None;
         }
        
         //Verplaats de knopen en zijn attributen
         public void MoveKnoop(int posX, int posY)
         {
+            AnchorSelected(posX, posY);
+            
             //String
             //positie.X = posX;
             //positie.Y = posY;
@@ -235,8 +240,18 @@ namespace BussinesLayer
                     rect.Y += posY - oldY;
                     rect.Height -= posY - oldY;
                     break;
+                default:
+                    
+                    {
+                        rect.X = rect.X + posX - oldX;
+                        rect.Y = rect.Y + posY - oldY;
+                    }
+                    break;
             }
+            oldX = posX;
+            oldY = posY;
         }
+
 
         #endregion
     }

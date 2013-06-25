@@ -68,14 +68,11 @@ namespace BussinesLayer.Mindmap
             
             foreach (Knoop knoop in knopenlist)
             {
-                
                 if (knoop.isKnoopSelected(posX,posY))
                 {
                     knoopFound = knoop;
-                    
                     break;
                 }
-                
             }
             return knoopFound;
         }

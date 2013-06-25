@@ -154,6 +154,11 @@ namespace MindSoft
                 {
                     activeMindmap.selectedKnoop.oldX = e.X;
                     activeMindmap.selectedKnoop.oldY = e.Y;
+                    
+                }
+                if (selected && activeMindmap.selectedKnoop.knoopStatus == Knoop.KnoopStatus.Selected)
+                {
+                    activeMindmap.selectedKnoop.AnchorSelected(e.X, e.Y);
                 }
             }
             //Relatie leggen kies knoop 1.
@@ -162,7 +167,7 @@ namespace MindSoft
                 selectedkn1 = activeMindmap.Search(e.X, e.Y);
             }
         }
-
+        
         private void pbView_MouseMove(object sender, MouseEventArgs e)
         {
             //Knoop bewegen
@@ -171,6 +176,11 @@ namespace MindSoft
                 activeMindmap.MoveKnoop(e.X, e.Y);
                 activeMindmap.TekenObjecten(canvas);
             }
+            else
+            {
+                
+            }
+            
           
         }
 
@@ -196,20 +206,18 @@ namespace MindSoft
             if (activeMindmap != null && e.Button == MouseButtons.Left)
             {
                 selected = activeMindmap.SearchObject(e.X, e.Y);
-
             }
             if (selected)
             {
-                
-                
+
+
             }
             else
             {
                 knoop = new Knoop(e.X, e.Y, new Size(zoomedKnoopWidth, zoomedKnoopHeight));
-                
+
                 activeMindmap.knopenlist.Add(knoop);
                 activeMindmap.TekenObjecten(canvas);
-                
             }
             isFileSaved = false;
 
