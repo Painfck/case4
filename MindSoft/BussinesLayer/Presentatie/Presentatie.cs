@@ -11,8 +11,6 @@ namespace BussinesLayer
     public class Presentatie
     {
         #region attributen
-
-        private static Presentatie _presentatie;
         private Dia currentDia;
         public IList<Dia> dialist;
         private Dia endDia;
@@ -20,14 +18,10 @@ namespace BussinesLayer
         #endregion
 
         #region constructors
-        private Presentatie()
-        {
-            
-        }
-        public void prepareAllContent(MindMap mindmap)
+        public Presentatie(MindMap mindmap)
         {
             this.mindmap = mindmap;
-            int index = -1;
+            int index = 0;
             dialist = new List<Dia>();
             foreach (Knoop knoop in mindmap.knopenlist)
             {
@@ -36,14 +30,7 @@ namespace BussinesLayer
             }
             currentDia = dialist.First<Dia>();
         }
-        public static Presentatie getPresentatie()
-        {
-            if (_presentatie == null)
-            {
-                _presentatie = new Presentatie();
-            }
-            return _presentatie;
-        }
+
         #endregion
 
 

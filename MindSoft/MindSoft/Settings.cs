@@ -21,6 +21,7 @@ namespace MindSoft
         public Settings(BussinesLayer.Mindmap.MindMap mindmap)
         {
             InitializeComponent();
+            mindmap.CreatePresentatie();
             this.mindmap = mindmap;
             graphics = pbdiapreview.CreateGraphics();
             updateForm();
