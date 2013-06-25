@@ -15,7 +15,7 @@ namespace BussinesLayer.Mindmap
         public Presentatie presentatie;
         public Player player;
         //Voor het bepalen van welk object geselecteerd is.
-        private Knoop selectedKnoop;
+        public Knoop selectedKnoop;
         public string name;
 
         //Constructer

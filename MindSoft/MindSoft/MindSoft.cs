@@ -146,6 +146,11 @@ namespace MindSoft
             if (activeMindmap != null && e.Button == MouseButtons.Left)
             {
                 selected = activeMindmap.SearchObject(e.X, e.Y);
+                if (selected)
+                {
+                    activeMindmap.selectedKnoop.oldX = e.X;
+                    activeMindmap.selectedKnoop.oldY = e.Y;
+                }
             }
             //Relatie leggen kies knoop 1.
             if (activeMindmap != null && e.Button == MouseButtons.Right)
@@ -162,6 +167,7 @@ namespace MindSoft
                 activeMindmap.MoveKnoop(e.X, e.Y);
                 activeMindmap.TekenObjecten(canvas);
             }
+          
         }
 
 

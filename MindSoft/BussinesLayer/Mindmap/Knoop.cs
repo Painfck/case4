@@ -39,8 +39,9 @@ namespace BussinesLayer
         protected Color kleur;
 
         private int sizeKnoopAnchor = 5;
-        private KnoopAnchor activeAnchor = KnoopAnchor.None;
+        private KnoopAnchor activeAnchor = KnoopAnchor.BottomMiddle;
         public KnoopStatus knoopStatus = KnoopStatus.None;
+        public int oldY, oldX;
 
         public Rectangle rect;
         //List voor het bijhouden van de inhoud & maak hem gelijk aan zodra de class wordt aangeroepen.
@@ -71,6 +72,7 @@ namespace BussinesLayer
             get { return size; }
             set { size = value; }
         }
+
         public Size zoomedsize;
         public Size zoomedSize
         {
@@ -169,59 +171,63 @@ namespace BussinesLayer
         public void MoveKnoop(int posX, int posY)
         {
             //String
-            positie.X = posX;
-            positie.Y = posY;
+            //positie.X = posX;
+            //positie.Y = posY;
             //Rectangle
-            rect.X = posX;
-            rect.Y = posY;
-            foreach (Inhoud inhoud in inhoudlist)
+            //rect.X = posX;
+            //rect.Y = posY;
+            
+            //Verplaats de inhoud
+            //foreach (Inhoud inhoud in inhoudlist)
+            //{
+            //    inhoud.Move(posX, posY);
+            //}
+
+            Rectangle backupRect = rect;
+
+            switch (activeAnchor)
             {
-                inhoud.Move(posX, posY);
+                case KnoopAnchor.LeftUp:
+                    rect.X += posX - oldX;
+                    rect.Width -= posX - oldX;
+                    rect.Y += posY - oldY;
+                    rect.Height -= posY - oldY;
+                    break;
+                case KnoopAnchor.LeftMiddle:
+                    rect.X += posX - oldX;
+                    rect.Width -= posX - oldX;
+                    break;
+                case KnoopAnchor.LeftBottom:
+                    rect.Width -= posX - oldX;
+                    rect.X += posX - oldX;
+                    rect.Height += posY - oldY;
+                    break;
+                case KnoopAnchor.BottomMiddle:
+                    rect.Height += posY - oldY;
+                    break;
+                case KnoopAnchor.RightUp:
+                    rect.Width += posX - oldX;
+                    rect.Y += posY - oldY;
+                    rect.Height -= posY - oldY;
+                    break;
+                case KnoopAnchor.RightBottom:
+                    rect.Width += posX - oldX;
+                    rect.Height += posY - oldY;
+                    break;
+                case KnoopAnchor.RightMiddle:
+                    rect.Width += posX - oldX;
+                    break;
+
+                case KnoopAnchor.UpMiddle:
+                    rect.Y += posY - oldY;
+                    rect.Height -= posY - oldY;
+                    break;
             }
         }
 
         public void ResizeKnoop(int posX, int posY)
         {
-            Rectangle backupRect = rect;
-
-            //switch (nodeSelected)
-            //{
-            //    case KnoopNodes.LeftUp:
-            //        rect.X += e.X - oldX;
-            //        rect.Width -= e.X - oldX;
-            //        rect.Y += e.Y - oldY;
-            //        rect.Height -= e.Y - oldY;
-            //        break;
-            //    case KnoopNodes.LeftMiddle:
-            //        rect.X += e.X - oldX;
-            //        rect.Width -= e.X - oldX;
-            //        break;
-            //    case KnoopNodes.LeftBottom:
-            //        rect.Width -= e.X - oldX;
-            //        rect.X += e.X - oldX;
-            //        rect.Height += e.Y - oldY;
-            //        break;
-            //    case KnoopNodes.BottomMiddle:
-            //        rect.Height += e.Y - oldY;
-            //        break;
-            //    case KnoopNodes.RightUp:
-            //        rect.Width += e.X - oldX;
-            //        rect.Y += e.Y - oldY;
-            //        rect.Height -= e.Y - oldY;
-            //        break;
-            //    case KnoopNodes.RightBottom:
-            //        rect.Width += e.X - oldX;
-            //        rect.Height += e.Y - oldY;
-            //        break;
-            //    case KnoopNodes.RightMiddle:
-            //        rect.Width += e.X - oldX;
-            //        break;
-
-            //    case KnoopNodes.UpMiddle:
-            //        rect.Y += e.Y - oldY;
-            //        rect.Height -= e.Y - oldY;
-            //        break;
-            //}
+            
         }
 
         #endregion
