@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pbdiapreview = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbnotitietekst = new System.Windows.Forms.TextBox();
             this.lbdialist = new System.Windows.Forms.ListBox();
             this.generateBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
@@ -48,14 +48,14 @@
             this.pbdiapreview.TabIndex = 0;
             this.pbdiapreview.TabStop = false;
             // 
-            // textBox1
+            // tbnotitietekst
             // 
-            this.textBox1.Location = new System.Drawing.Point(288, 313);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(346, 112);
-            this.textBox1.TabIndex = 1;
+            this.tbnotitietekst.Location = new System.Drawing.Point(288, 313);
+            this.tbnotitietekst.Margin = new System.Windows.Forms.Padding(6);
+            this.tbnotitietekst.Multiline = true;
+            this.tbnotitietekst.Name = "tbnotitietekst";
+            this.tbnotitietekst.Size = new System.Drawing.Size(346, 112);
+            this.tbnotitietekst.TabIndex = 1;
             // 
             // lbdialist
             // 
@@ -136,12 +136,11 @@
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.generateBtn);
             this.Controls.Add(this.lbdialist);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbnotitietekst);
             this.Controls.Add(this.pbdiapreview);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Settings";
             this.Text = "Settings";
-            this.Load += new System.EventHandler(this.Settings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbdiapreview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,7 +150,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbdiapreview;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbnotitietekst;
         private System.Windows.Forms.ListBox lbdialist;
         private System.Windows.Forms.Button generateBtn;
         private System.Windows.Forms.Button cancelBtn;

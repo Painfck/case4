@@ -8,8 +8,18 @@ using System.Windows.Forms;
 
 namespace BussinesLayer
 {
+    /// <summary>
+    /// deze klasse is gemaakt door Léon van de Broek ITI2A.
+    /// het doel van deze klasse is het object presentatie. Dit object regelt alle communicatie tussen de forms en de diverse dia's
+    /// ook houdt de presentatie een lijst bij van alle dia's evenals de huidige dia die getoond moet worden. Ook bevat de dia een 
+    /// tekenfunctie waarmee de huidige dia het seintje krijgt om zichzelf te tekenen.
+    /// </summary>
+    /// 
     public class Presentatie
     {
+        /// <summary>
+        /// alle benodigde attributen zijn hieronder in de regio opgenomen.
+        /// </summary>
         #region attributen
         private Dia currentDia;
         public IList<Dia> dialist;
@@ -18,6 +28,12 @@ namespace BussinesLayer
         #endregion
 
         #region constructors
+        /// <summary>
+        /// in deze constructor worden de knopen uit de mindmap allemaal toegewezen aan een apparte dia. 
+        /// De dia krijgt een knoop mee, waarmee de dia aan de slag gaat en alle noodzakelijke data uit de knoop
+        /// scheidt van de rest. (zie klasse: Dia). Ook wordt hier de eerste dia als huidigedia gezet. Zodat wanneer
+        /// de presentatie begint, meteen de eerste dia wordt weergegeven.
+        /// </summary>
         public Presentatie(MindMap mindmap)
         {
             this.mindmap = mindmap;
@@ -30,12 +46,15 @@ namespace BussinesLayer
             }
             currentDia = dialist.First<Dia>();
         }
-
         #endregion
 
 
 
         #region arrangemethods
+        /// <summary>
+        /// deze onderstaande reArrangeup en reArrangedown functies zijn deels af. Dit komt doordat het wijzigen van een object
+        /// naar een andere plaats in de list lastiger is dan het lijkt. Door tijdgebrek ben ik hier niet/nauwelijks aan toe gekomen.
+        /// </summary>
         public void reArrangeup(Dia dia)
         {
             {
@@ -86,32 +105,69 @@ namespace BussinesLayer
             }
 
         }
+
+
+
+
+        /// <summary>
+        /// deze methdoe returned een dia die geselecteerd is aan de hand van het diaid
+        /// </summary>
+        public Dia searchDia(int diaid)
+        {
+            foreach (Dia dia in dialist)
+            {
+                if (dia.diaid == diaid)
+                {
+                    return dia;
+                }
+                else
+                {
+                    continue;
+                }
+                return null;
+            }
+            return null;
+        }
+
+
+
+
+        /// <summary>
+        /// deze onderstaande nextDia methode zorgt ervoro dat de volgende dia in de dialist wordt weergegeven. Daarbij wordt gekeken of 
+        /// de dia de een-na-laatste dia betreft (ja: dan wordt een nieuwe dia aangemaakt als EINDDIA met de text End of the diashow. Nee:
+        /// dan wordt de volgende dia uit de lijst weergegeven). Ook returned deze methode een true of false waarde waardoor het form weet
+        /// of deze zichzelf moet sluiten of niet (wanneer de enddia is weergegeven).
+        /// </summary>
+        /// <returns></returns>
         public bool nextDia()
         {
-            if (dialist.IndexOf(currentDia) == (dialist.Count()-1))
+            if (dialist.IndexOf(currentDia) == (dialist.Count() - 1))
             {
+                //enddia wordt aangemaakt en klaargezet
                 Knoop knoop = new Knoop();
                 knoop.inhoudlist.Add(new Text("End of the Diashow", new Point(150, 150)));
                 endDia = new Dia(knoop, 999);
                 currentDia = endDia;
-                
+
                 return true;
             }
             if (currentDia == endDia)
             {
+                //presentatie wordt gereset en form krijgt het sein dat er geen volgende dia's zijn.
                 currentDia = dialist.First();
                 return false;
             }
             else
             {
+                // volgende dia wordt opgezocht uit de lijst.
                 for (int i = 0; i < (dialist.Count()); i++)
                 {
 
                     if (dialist.ElementAt<Dia>(i) == currentDia)
                     {
-                            currentDia = dialist.ElementAt<Dia>(i + 1);
-                            break;
-                            return true;
+                        currentDia = dialist.ElementAt<Dia>(i + 1);
+                        break;
+                        return true;
                     }
                     else
                     {
@@ -124,35 +180,15 @@ namespace BussinesLayer
 
 
 
-        //public Dia searchDia(int diaid)
-        //{
-        //    foreach (Dia dia in dialist)
-        //    {
-        //        if (dia.diaid == diaid)
-        //        {
-        //            return dia;
-        //        }
-        //        else
-        //        {
-        //            continue;
-        //        }
-        //        return null;
-        //    }
-        //    return null;
-        //}
-        public Dia searchDia(int diaid)
-        {
-            foreach (Dia dia in dialist)
-            {
-                if (dia.diaid == diaid)
-                {
-                    return dia;
-                }
-            }
-            return null;
-        }
 
-
+        /// <summary>
+        /// deze methode wordt gebruikt om een list van dia-namen aan het form mee te geven. 
+        /// Dit gebeurt in dezelfde volgorde als hoe de dialist is opgebouwd zodat de volgorde
+        /// van de namen en de onderliggende dia's hetzelfde is. Voor nu is ervoor gekozen om 
+        /// de dianaam met een getal te laten oplopen (in de release-versie zal dit zijn aangepast,
+        /// zodat de dianaam de echte naam van de dia is en geen oplopend getal).
+        /// </summary>
+        /// <returns></returns>
         public List<string> getDiaName()
         {
             List<string> tempdialist = new List<string>();
@@ -163,11 +199,13 @@ namespace BussinesLayer
             }
             return tempdialist;
         }
-
-
         #endregion
 
         #region displaymethods
+        /// <summary>
+        /// hier wordt een methode beschreven die de huidigedia de opdracht geeft om zichzelf te tekenen
+        /// </summary>
+        /// <param name="graphics"></param>
         public void Display(Graphics graphics)
         {
             currentDia.Draw(graphics);
