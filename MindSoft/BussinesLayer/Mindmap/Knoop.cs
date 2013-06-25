@@ -102,7 +102,6 @@ namespace BussinesLayer
             Inhoud inhoudKnoop = new Text("Lorem ipsum", positie);
             inhoudlist.Add(inhoudKnoop);
         }
-
         //Teken methode om de knoop met al zijn attributen te tekenen op de canvas.
         public virtual void Teken(Graphics canvas)
         {

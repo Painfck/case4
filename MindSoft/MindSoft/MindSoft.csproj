@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditKnoop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditKnoop.Designer.cs">
+      <DependentUpon>EditKnoop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presenter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,12 +70,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.cs">
+    <Compile Include="EditPresentatie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <Compile Include="EditPresentatie.Designer.cs">
+      <DependentUpon>EditPresentatie.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditKnoop.resx">
+      <DependentUpon>EditKnoop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presenter.resx">
       <DependentUpon>Presenter.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,8 +97,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <EmbeddedResource Include="EditPresentatie.resx">
+      <DependentUpon>EditPresentatie.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="About.MST">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

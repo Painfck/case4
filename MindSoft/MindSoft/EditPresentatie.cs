@@ -17,7 +17,7 @@ namespace MindSoft
     /// Hier worden de event-handlers gedefinieerd en worden de events ook afgehandeld. Er is getracht zo min mogelijk intelligentie
     /// in het form te brengen. En ben van mening dat dit ook aardig gelukt is.
     /// </summary>
-    public partial class Settings : Form
+    public partial class EditPresentatie : Form
     {
         /// <summary>
         /// hieronder de attributen voor het form
@@ -33,7 +33,7 @@ namespace MindSoft
         /// Zo kan  1 mindmap slechts 1 en minimaal 0 presentaties bevatten.
         /// </summary>
         /// <param name="mindmap"></param>
-        public Settings(BussinesLayer.Mindmap.MindMap mindmap)
+        public EditPresentatie(BussinesLayer.Mindmap.MindMap mindmap)
         {
             InitializeComponent();
             mindmap.CreatePresentatie();

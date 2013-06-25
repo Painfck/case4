@@ -8,15 +8,18 @@ namespace BussinesLayer
 {
     public class Media : Inhoud
     {
-        public string content;
+        public string name;
+        public Bitmap content;
         public override void Draw(Graphics canvas)
         {
-            throw new NotImplementedException();
+            canvas.DrawImage(content, 0, 0);
         }
 
         public override void Move(int posX, int posY)
         {
             throw new NotImplementedException();
         }
+
+        public string path { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MindSoft
 {
-    partial class Settings
+    partial class EditPresentatie
     {
         /// <summary>
         /// Required designer variable.

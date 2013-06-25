@@ -8,7 +8,8 @@ namespace BussinesLayer
 {
     public class Hyperlink : Inhoud
     {
-        public string content;
+        public string name;
+        public string url;
         public override void Draw(Graphics canvas)
         {
             throw new NotImplementedException();

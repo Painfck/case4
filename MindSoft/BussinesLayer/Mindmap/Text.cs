@@ -14,6 +14,7 @@ namespace BussinesLayer
         public Font font = new Font("Times New Roman", 12.0f);
         public Brush brush = new SolidBrush(Color.Black);
         public string textInhoud;
+        public string name;
         public Point positie;
 
         //Textinhoud
@@ -38,6 +39,7 @@ namespace BussinesLayer
         {
             this.textInhoud = text;
             this.positie = positie;
+            this.name = text;
         }
         public override void Draw(Graphics canvas)
         {

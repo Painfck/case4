@@ -31,7 +31,7 @@ namespace MindSoft
         private int originalKnoopHeight = 20;
         private int originalKnoopWidth = 200;
         private string zoom;
-
+        private EditKnoop editknoop;
         private bool selected = false;
 
         private bool isFileSaved = false;
@@ -202,8 +202,10 @@ namespace MindSoft
             }
             if (selected)
             {
-                activeMindmap.selectedKnoop.EditKnoop("edit");
-                activeMindmap.TekenObjecten(canvas);
+                editknoop = new EditKnoop(activeMindmap.selectedKnoop);
+                editknoop.Show();
+                //activeMindmap.selectedKnoop.EditKnoop("edit");
+                //activeMindmap.TekenObjecten(canvas);
 
             }
             else
@@ -216,7 +218,7 @@ namespace MindSoft
             isFileSaved = false;
 
         }
-
+        
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamReader inputStream;
@@ -296,7 +298,7 @@ namespace MindSoft
             }
             else
             {
-                Settings settings = new Settings(activeMindmap);
+                EditPresentatie settings = new EditPresentatie(activeMindmap);
                 settings.Show();
             }
         }
@@ -309,7 +311,7 @@ namespace MindSoft
             }
             else
             {
-                Settings settings = new Settings(activeMindmap);
+                EditPresentatie settings = new EditPresentatie(activeMindmap);
                 settings.Show();
             }
         }
