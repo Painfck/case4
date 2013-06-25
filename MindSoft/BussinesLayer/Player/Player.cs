@@ -30,7 +30,6 @@ namespace BussinesLayer
         int knopencount;
         
         Relatie HuidigeRelatie;
-        Relatie vorigeRelatie;
 
         private int playspeed;
         #endregion
@@ -109,7 +108,7 @@ namespace BussinesLayer
                     HuidigeRelatie.Knoop2.Teken(drawField);
                     System.Threading.Thread.Sleep(playspeed);
             }
-            catch (NullReferenceException exc1)
+            catch (NullReferenceException)
             { }
         }
 

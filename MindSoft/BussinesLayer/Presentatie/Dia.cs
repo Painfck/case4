@@ -14,7 +14,6 @@ namespace BussinesLayer
     {
         #region attributen
         private IList<Text> bullets;
-        private List<Relatie> diarelatielist;
         public Font diafont = new Font("Arial", 24);
         public Font dianotefont = new Font("Arial", 20);
         public Font smalldisplayfont = new Font("Arial", 9);
