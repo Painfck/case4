@@ -167,6 +167,14 @@ namespace BussinesLayer
             }
         }
 
+        private KnoopAnchor AnchorSelected(int posX, int posY)
+        {
+            //foreach (KnoopAnchor knoopAnchor in KnoopAnchor.Enum)
+            //{
+                
+            //}
+            return KnoopAnchor.None;
+        }
         //Verplaats de knopen en zijn attributen
         public void MoveKnoop(int posX, int posY)
         {
