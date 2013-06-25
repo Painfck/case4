@@ -15,7 +15,9 @@ namespace BussinesLayer
         #region attributen
         private IList<Text> bullets;
         private List<Relatie> diarelatielist;
-        private Font diafont = new Font("Arial", 24);
+        public Font diafont = new Font("Arial", 24);
+        public Font dianotefont = new Font("Arial", 20);
+        public Font smalldisplayfont = new Font("Arial", 9);
         public Notitie Notitie;
         public int diaid;
         #endregion
@@ -80,6 +82,27 @@ namespace BussinesLayer
             //        graphics.DrawString(obj, diafont, new SolidBrush(Color.Black), new PointF(x, y));
             //    }
             //}
+        }
+        public void SmallDisplay(Graphics graphics)
+        {
+            float x, y;
+            x = 10;
+            y = 10;
+
+            foreach (Text text in bullets)
+            {
+                if (y < 300)
+                {
+                    graphics.DrawString(text.textInhoud, smalldisplayfont, text.brush, new PointF(x, y));
+                    y += 12;
+                }
+                else
+                {
+                    y = 30;
+                    x += 30;
+                    graphics.DrawString(text.textInhoud, smalldisplayfont, text.brush, new PointF(x, y));
+                }
+            }
         }
         #endregion
 

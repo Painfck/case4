@@ -54,7 +54,7 @@ namespace MindSoft
             tbnotitietekst.Text = "";
             if (selected != null)
             {
-                selected.Draw(graphics);
+                selected.SmallDisplay(graphics);
                 if (selected.Notitie != null)
                 {
                     tbnotitietekst.Text = selected.Notitie.tekst;
