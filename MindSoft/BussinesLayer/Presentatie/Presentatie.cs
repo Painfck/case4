@@ -24,41 +24,6 @@ namespace BussinesLayer
             opvolgendeRelaties = new List<Relatie>();
             dialist = new List<Dia>();
             bool relatiefound = false;
-            Relatie relatie1 = null;
-            Relatie relatie2 = null;
-
-            while (!relatiefound)
-            {
-                for (int i = 0; i < mindmap.relatieslist.Count(); i++)
-                {
-                    if (i % 2 == 0 )
-                    {
-                        relatie1 = mindmap.relatieslist.ElementAt(i);
-                    }
-                    else
-                    {
-                        relatie2 = mindmap.relatieslist.ElementAt((i - 1));
-                    }
-                }
-                if (relatie1.Knoop1 == relatie2.Knoop1 || relatie1.Knoop2 == relatie2.Knoop2 || relatie1.Knoop1 == relatie2.Knoop1)
-                {
-                    opvolgendeRelaties.Add(relatie1);
-                    opvolgendeRelaties.Add(relatie2);
-                }
-                
-                index = 0;
-            }
-
-
-
-
-
-
-
-
-
-
-
             currentDia = dialist.First<Dia>();
         }
 

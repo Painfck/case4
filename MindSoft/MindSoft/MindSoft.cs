@@ -21,7 +21,7 @@ namespace MindSoft
         private Graphics canvas;
         private Project project;
         private MindMap activeMindmap;
-
+        private System.Threading.Thread playerthread;
         private int zoomedKnoopHeight = 20;
         private int zoomedKnoopWidth = 200;
         private int originalKnoopHeight = 20;
@@ -96,7 +96,6 @@ namespace MindSoft
             canvas = pbView.CreateGraphics();
             activeMindmap.TekenObjecten(canvas);
             activeMindmap.player.drawField = canvas;
-
         }
 
         private void playerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,6 +108,7 @@ namespace MindSoft
             activeMindmap.player.updateAttributes();
             activeMindmap.player.drawField = canvas;
             trbartimebar.TabIndex = activeMindmap.relatieslist.Count();
+            playerthread = new System.Threading.Thread(activeMindmap.player.play);
         }
 
         private void mindmapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -362,19 +362,33 @@ namespace MindSoft
         private void btplay_Click(object sender, EventArgs e)
         {
             activeMindmap.player.drawField = canvas;
-            activeMindmap.player.play();
+            if (playerthread.ThreadState == System.Threading.ThreadState.Unstarted)
+            {
+                playerthread.Start();
+            }
+            if (playerthread.ThreadState == System.Threading.ThreadState.Suspended)
+            {
+                playerthread.Resume();
+            }
+            if (playerthread.ThreadState == System.Threading.ThreadState.Aborted)
+            {
+                playerthread = new System.Threading.Thread(activeMindmap.player.play);
+                playerthread.Start();
+            }
+
         }
 
         private void btpauze_Click(object sender, EventArgs e)
         {
             activeMindmap.player.drawField = canvas;
-            activeMindmap.player.stop();
+            playerthread.Suspend();
         }
 
         private void btstop_Click(object sender, EventArgs e)
         {
             activeMindmap.player.drawField = canvas;
             activeMindmap.player.stop();
+            playerthread.Abort();
         }
 
         private void btrewind_Click(object sender, EventArgs e)

@@ -21,7 +21,12 @@ namespace MindSoft
         private Graphics canvas;
         private Project project;
         private MindMap activeMindmap;
+<<<<<<< HEAD
 
+=======
+        private Knoop SelectedKnoop;
+        private System.Threading.Thread playerthread;
+>>>>>>> multi-threading toegepast voor het player element, let op! player is hierdoor vrij instabiel geworden. dit is iets dat morgen gaat verbeteren tijdens de programmeer-rage!
         private int zoomedKnoopHeight = 20;
         private int zoomedKnoopWidth = 200;
         private int originalKnoopHeight = 20;
@@ -29,6 +34,8 @@ namespace MindSoft
         private string zoom;
 
         private bool selected = false;
+
+        private bool isFileSaved = false;
 
         private string initialDir;
         private string currentFile = "";
@@ -42,7 +49,7 @@ namespace MindSoft
             project = new Project();
             activeMindmap = project.mindmaplist.ElementAt<MindMap>(0);
             initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            activeMindmap.player = new Player(activeMindmap, canvas);
+            activeMindmap.player.drawField = canvas;
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -93,8 +100,7 @@ namespace MindSoft
             canvas.Dispose();
             canvas = pbView.CreateGraphics();
             activeMindmap.TekenObjecten(canvas);
-
-
+            activeMindmap.player.drawField = canvas;
         }
 
         private void playerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,6 +109,11 @@ namespace MindSoft
             PnlEdit.Hide();
             pbView.Width = this.Width;
             PnlPlayer.Width = this.Width;
+            activeMindmap.player.mindmap = activeMindmap;
+            activeMindmap.player.updateAttributes();
+            activeMindmap.player.drawField = canvas;
+            trbartimebar.TabIndex = activeMindmap.relatieslist.Count();
+            playerthread = new System.Threading.Thread(activeMindmap.player.play);
         }
 
         private void mindmapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,16 +125,21 @@ namespace MindSoft
 
         private void pbView_MouseClick(object sender, MouseEventArgs e)
         {
-  
+            if (activeMindmap != null)
+            {
+                activeMindmap.TekenObjecten(canvas);
+            }
         }
 
         private void pbView_MouseDown(object sender, MouseEventArgs e)
         {
+           
+            //Verplaats knoop
             if (activeMindmap != null && e.Button == MouseButtons.Left)
             {
                 selected = activeMindmap.SearchObject(e.X, e.Y);
             }
-
+            //Relatie leggen kies knoop 1.
             if (activeMindmap != null && e.Button == MouseButtons.Right)
             {
                 selectedkn1 = activeMindmap.Search(e.X, e.Y);
@@ -132,6 +148,7 @@ namespace MindSoft
 
         private void pbView_MouseMove(object sender, MouseEventArgs e)
         {
+            //Knoop bewegen
             if (selected)
             {
                 activeMindmap.MoveKnoop(e.X, e.Y);
@@ -142,13 +159,17 @@ namespace MindSoft
 
         private void pbView_MouseUp(object sender, MouseEventArgs e)
         {
+            // Relatie leggen
             if (activeMindmap != null && e.Button == MouseButtons.Right)
             {
                 selectedkn2 = activeMindmap.Search(e.X, e.Y);
                 activeMindmap.relatieslist.Add(new Relatie(selectedkn1, selectedkn2));
                 activeMindmap.TekenObjecten(canvas);
             }
+            //Knoop move
             selected = false;
+
+            isFileSaved = false;
         }
 
         private void pbView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -161,22 +182,18 @@ namespace MindSoft
             }
             if (selected)
             {
-
+                
                 
             }
             else
             {
-<<<<<<< HEAD
-                Knoop knoop = new Knoop(e.X, e.Y, new Size(originalKnoopWidth, originalKnoopHeight));
-               
-=======
-                Knoop knoop = new Knoop(e.X, e.Y, new Size(zoomedKnoopWidth, zoomedKnoopHeight));
-               knoop.ToonDelegate += EditKnoop;
->>>>>>> 47a0d2ec98a7d8bdd77e7f25afcc47526499006c
+                knoop = new Knoop(e.X, e.Y, new Size(zoomedKnoopWidth, zoomedKnoopHeight));
+                
                 activeMindmap.knopenlist.Add(knoop);
                 activeMindmap.TekenObjecten(canvas);
                 
             }
+            isFileSaved = false;
 
         }
 
@@ -232,9 +249,8 @@ namespace MindSoft
                 streamreader.SaveXML(dialog.FileName, project);
                 //outputStream.Close();
             }
+            isFileSaved = true;
         }
-
-
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -350,31 +366,64 @@ namespace MindSoft
 
         private void btplay_Click(object sender, EventArgs e)
         {
-            activeMindmap.player.play();
+            activeMindmap.player.drawField = canvas;
+            if (playerthread.ThreadState == System.Threading.ThreadState.Unstarted)
+            {
+                playerthread.Start();
+            }
+            if (playerthread.ThreadState == System.Threading.ThreadState.Suspended)
+            {
+                playerthread.Resume();
+            }
+            if (playerthread.ThreadState == System.Threading.ThreadState.Aborted)
+            {
+                playerthread = new System.Threading.Thread(activeMindmap.player.play);
+                playerthread.Start();
+            }
+
         }
 
         private void btpauze_Click(object sender, EventArgs e)
         {
-            activeMindmap.player.stop();
+            activeMindmap.player.drawField = canvas;
+            playerthread.Suspend();
         }
 
         private void btstop_Click(object sender, EventArgs e)
         {
+            activeMindmap.player.drawField = canvas;
             activeMindmap.player.stop();
+            playerthread.Abort();
         }
 
         private void btrewind_Click(object sender, EventArgs e)
         {
+            activeMindmap.player.drawField = canvas;
             activeMindmap.player.rewind();
         }
 
-
-
-
-
-
+        
         public Knoop selectedkn1 { get; set; }
 
         public Knoop selectedkn2 { get; set; }
+
+        private void MindSoft_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if (!isFileSaved)
+            //{
+            //    if (MessageBox.Show("This file has not been saved yet. \r\n Do you want to save it now?", "Save Project", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            //    {
+            //        SaveFileDialog dialog = new SaveFileDialog();
+            //        dialog.InitialDirectory = initialDir;
+            //        dialog.Filter = "xml files (*.xml)|*.xml";
+            //        if (dialog.ShowDialog() == DialogResult.OK)
+            //        {
+            //            currentFile = dialog.FileName;
+            //            XMLStreamreader streamreader = new XMLStreamreader();
+            //            streamreader.SaveXML(dialog.FileName, project);
+            //        }
+            //    }
+            //}
+        }
     }
 }

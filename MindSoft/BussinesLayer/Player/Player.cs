@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Timers;
+using System.Threading;
+
 namespace BussinesLayer
 {
     public enum playerState
@@ -16,16 +18,16 @@ namespace BussinesLayer
     public class Player
     {
         #region attributen
-
         public Mindmap.MindMap mindmap;
         IList<Knoop> knopen;
         IList<Relatie> relaties;
-        Timer timeBetweenDraw;
+
         public Graphics drawField { get; set; }
         playerState state = playerState.stop;
         private int listIndex = 1;
         int relatieCount;
         int knopencount;
+        
         Relatie HuidigeRelatie;
 
         #endregion
@@ -63,9 +65,9 @@ namespace BussinesLayer
                 foreach (Relatie relatie in relaties)
                 {
                     relatie.Knoop1.Teken(drawField);
-                    System.Threading.Thread.Sleep(500);
+                    System.Threading.Thread.Sleep(200);
                     relatie.draw(drawField);
-                    System.Threading.Thread.Sleep(500);
+                    System.Threading.Thread.Sleep(200);
                     relatie.Knoop2.Teken(drawField);
                 }
             }
