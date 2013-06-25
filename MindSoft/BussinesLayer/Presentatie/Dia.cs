@@ -16,22 +16,14 @@ namespace BussinesLayer
         #endregion
 
         #region constructors
-        public Dia(List<Relatie> relaties, int diaid)
+        public Dia(Knoop knoop, int diaid)
         {
-            this.diarelatielist = relaties;
             this.diaid = diaid;
             bullets = new List<Text>();
-            foreach (Relatie relatie in diarelatielist)
-            {
-                foreach (Text text in relatie.Knoop1.inhoudlist)
+                foreach (Text text in knoop.inhoudlist)
                 {
                     bullets.Add(text);
                 }
-                foreach (Text text in relatie.Knoop2.inhoudlist)
-                {
-                    bullets.Add(text);
-                }
-            }
         }
         #endregion 
 
@@ -39,8 +31,8 @@ namespace BussinesLayer
         public void Draw(Graphics graphics)
         {
             float x, y;
-            x = 50;
-            y = 50;
+            x = 100;
+            y = 100;
 
             foreach(Text text in bullets)
             {

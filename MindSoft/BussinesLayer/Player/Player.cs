@@ -16,12 +16,14 @@ namespace BussinesLayer
         IList<Relatie> relaties;
 
         public Graphics drawField { get; set; }
-        private int listIndex = 1;
+        private int listIndex = 0;
         int relatieCount;
         int knopencount;
         
         Relatie HuidigeRelatie;
+        Relatie vorigeRelatie;
 
+        private int playspeed;
         #endregion
 
         #region constructors
@@ -60,14 +62,30 @@ namespace BussinesLayer
         {
             try
             {
-                foreach (Relatie relatie in relaties)
-                {
-                    relatie.Knoop1.Teken(drawField);
-                    System.Threading.Thread.Sleep(200);
-                    relatie.draw(drawField);
-                    System.Threading.Thread.Sleep(200);
-                    relatie.Knoop2.Teken(drawField);
-                }
+                //if (volgendeRelatie.Knoop1 == HuidigeRelatie.Knoop1)
+                //{
+                //  
+                //    HuidigeRelatie.draw(drawField);
+                //    System.Threading.Thread.Sleep(1000);
+                //    HuidigeRelatie.Knoop2.Teken(drawField);
+                //    
+                //}
+                //else if (volgendeRelatie.Knoop1 == HuidigeRelatie.Knoop2)
+                //{
+                //    System.Threading.Thread.Sleep(1000);
+                //    HuidigeRelatie.Knoop2.Teken(drawField);
+                //}
+                //else
+                //{
+                //
+                //}
+
+                    HuidigeRelatie.Knoop1.Teken(drawField);
+                    System.Threading.Thread.Sleep(playspeed);
+                    HuidigeRelatie.draw(drawField);
+                    System.Threading.Thread.Sleep(playspeed);
+                    HuidigeRelatie.Knoop2.Teken(drawField);
+                    System.Threading.Thread.Sleep(playspeed);
             }
             catch (NullReferenceException exc1)
             { }
@@ -75,16 +93,26 @@ namespace BussinesLayer
 
         public void play()
         {
-            HuidigeRelatie = relaties.ElementAt<Relatie>(listIndex);
+            playspeed = 200;
 
-            Draw();
-            
-            listIndex++;
+            for (listIndex = 0; listIndex < relaties.Count(); listIndex++)
+            {
+                if (listIndex == 0)
+                {
+                    HuidigeRelatie = relaties.ElementAt<Relatie>(listIndex);
+                    Draw();
+                }
+                else if (listIndex > 0)
+                {
+                    vorigeRelatie = relaties.ElementAt<Relatie>((listIndex - 1));
+                    HuidigeRelatie = relaties.ElementAt<Relatie>(listIndex);
+                    Draw();
+                }
+            }
         }
         public void rewind()
         {
             drawField.Clear(Color.White);
-            listIndex = 0;
         }
         public void stop()
         {

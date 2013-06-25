@@ -18,12 +18,11 @@ namespace MindSoft
         private IList<string> dianame;
         private Dia selected;
 
-
         public Settings(BussinesLayer.Mindmap.MindMap mindmap)
         {
             InitializeComponent();
+            mindmap.CreatePresentatie();
             this.mindmap = mindmap;
-            mindmap.presentatie = new Presentatie(mindmap);
             graphics = pbdiapreview.CreateGraphics();
             updateForm();
         }
@@ -74,6 +73,7 @@ namespace MindSoft
         {
              Presenter presenter = new Presenter(mindmap.presentatie);
              presenter.Show();
+             this.Close();
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
