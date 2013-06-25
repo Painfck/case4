@@ -246,9 +246,12 @@ namespace BussinesLayer
         }
 
         //Edit de inhoud van een knoop
-        public void EditKnoop(string text)
+        public void EditKnoop(string editText)
         {
-            
+            foreach (Text text in inhoudlist)
+            {
+                text.textInhoud = editText;
+            }
         }
         #endregion
     }
