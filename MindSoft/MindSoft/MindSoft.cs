@@ -103,7 +103,7 @@ namespace MindSoft
                 activeMindmap.TekenObjecten(canvas);
                 activeMindmap.player.drawField = canvas;
             }
-            catch (NullReferenceException exc1)
+            catch (NullReferenceException)
             {
 
             }
@@ -424,7 +424,7 @@ namespace MindSoft
                     playerthread.Start();
                 }
             }
-            catch (System.Threading.ThreadStateException exc1)
+            catch (System.Threading.ThreadStateException)
             { 
             
             }
@@ -441,7 +441,7 @@ namespace MindSoft
             {
                 playerthread.Suspend();
             }
-            catch (System.Threading.ThreadStateException exc1)
+            catch (System.Threading.ThreadStateException)
             {
 
             }
@@ -461,7 +461,7 @@ namespace MindSoft
             {
             playerthread.Abort();
             }
-            catch (System.Threading.ThreadStateException exc1)
+            catch (System.Threading.ThreadStateException)
             {
 
             }

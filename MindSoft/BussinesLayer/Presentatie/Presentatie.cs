@@ -124,7 +124,7 @@ namespace BussinesLayer
                 {
                     continue;
                 }
-                return null;
+                
             }
             return null;
         }
@@ -141,7 +141,7 @@ namespace BussinesLayer
         /// <returns></returns>
         public bool nextDia()
         {
-            if (dialist.IndexOf(currentDia) == (dialist.Count() - 1))
+            if (dialist.IndexOf(currentDia) == (dialist.Count()-1))
             {
                 //enddia wordt aangemaakt en klaargezet
                 Knoop knoop = new Knoop();
@@ -166,8 +166,8 @@ namespace BussinesLayer
                     if (dialist.ElementAt<Dia>(i) == currentDia)
                     {
                         currentDia = dialist.ElementAt<Dia>(i + 1);
-                        break;
                         return true;
+                        
                     }
                     else
                     {

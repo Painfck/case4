@@ -23,7 +23,7 @@ namespace BussinesLayer
             {
                 graphics.DrawLine(new Pen(new SolidBrush(Color.Black)), Knoop1.Positie, Knoop2.Positie);
             }
-            catch (NullReferenceException exc1)
+            catch (NullReferenceException)
             { }
         }
 
