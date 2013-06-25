@@ -42,7 +42,7 @@ namespace MindSoft
             PnlPlayer.Hide();
             canvas = pbView.CreateGraphics();
             project = new Project();
-            activeMindmap = project.mindmaplist.ElementAt<MindMap>(0);
+            activeMindmap = project.mindmaplist.First();
             initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             activeMindmap.player.drawField = canvas;
         }
@@ -90,26 +90,38 @@ namespace MindSoft
 
         private void MindSoft_Resize(object sender, EventArgs e)
         {
-            PnlPlayer.Width = pbView.Width;
-            trbartimebar.Width = PnlPlayer.Width;
-            canvas.Dispose();
-            canvas = pbView.CreateGraphics();
-            activeMindmap.TekenObjecten(canvas);
-            activeMindmap.player.drawField = canvas;
+            try
+            {
+                PnlPlayer.Width = pbView.Width;
+                trbartimebar.Width = PnlPlayer.Width;
+                canvas.Dispose();
+                canvas = pbView.CreateGraphics();
+                activeMindmap.TekenObjecten(canvas);
+                activeMindmap.player.drawField = canvas;
+            }
+            catch (NullReferenceException exc1)
+            {
+
+            }
         }
 
         private void playerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PnlPlayer.Show();
-            PnlEdit.Hide();
-            pbView.Width = this.Width;
-            PnlPlayer.Width = this.Width;
-            activeMindmap.player.mindmap = activeMindmap;
-            activeMindmap.player.updateAttributes();
-            activeMindmap.player.drawField = canvas;
-            trbartimebar.TabIndex = (activeMindmap.player.getRleatieCount() * 2);
-            playerthread = new System.Threading.Thread(activeMindmap.player.play);
-
+            if (activeMindmap.relatieslist.Count() < 1)
+            {
+                MessageBox.Show("Er zijn geen relaties aanwezig in deze mindmap, \r\nmaak een relatie aan en probeer opnieuw");
+            }
+            else
+            {
+                PnlPlayer.Show();
+                PnlEdit.Hide();
+                pbView.Width = this.Width;
+                PnlPlayer.Width = this.Width;
+                activeMindmap.player.mindmap = activeMindmap;
+                activeMindmap.player.updateAttributes();
+                activeMindmap.player.drawField = canvas;
+                playerthread = new System.Threading.Thread(activeMindmap.player.play);
+            }
         }
 
         private void mindmapToolStripMenuItem_Click(object sender, EventArgs e)

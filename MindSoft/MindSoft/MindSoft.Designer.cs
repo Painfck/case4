@@ -205,7 +205,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbView.BackColor = System.Drawing.Color.White;
             this.pbView.Location = new System.Drawing.Point(0, 52);
-            this.pbView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbView.Margin = new System.Windows.Forms.Padding(6);
             this.pbView.Name = "pbView";
             this.pbView.Size = new System.Drawing.Size(1102, 610);
             this.pbView.TabIndex = 1;
@@ -221,7 +221,7 @@
             this.btnewknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnewknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnewknoop.Location = new System.Drawing.Point(16, 115);
-            this.btnewknoop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnewknoop.Margin = new System.Windows.Forms.Padding(6);
             this.btnewknoop.Name = "btnewknoop";
             this.btnewknoop.Size = new System.Drawing.Size(254, 44);
             this.btnewknoop.TabIndex = 2;
@@ -242,7 +242,7 @@
             "200%",
             "250%"});
             this.zoomCB.Location = new System.Drawing.Point(148, 656);
-            this.zoomCB.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.zoomCB.Margin = new System.Windows.Forms.Padding(6);
             this.zoomCB.Name = "zoomCB";
             this.zoomCB.Size = new System.Drawing.Size(130, 33);
             this.zoomCB.TabIndex = 5;
@@ -265,7 +265,7 @@
             this.bteditknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bteditknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bteditknoop.Location = new System.Drawing.Point(16, 171);
-            this.bteditknoop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.bteditknoop.Margin = new System.Windows.Forms.Padding(6);
             this.bteditknoop.Name = "bteditknoop";
             this.bteditknoop.Size = new System.Drawing.Size(254, 44);
             this.bteditknoop.TabIndex = 8;
@@ -278,7 +278,7 @@
             this.btnewrelatie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnewrelatie.BackColor = System.Drawing.SystemColors.Info;
             this.btnewrelatie.Location = new System.Drawing.Point(16, 6);
-            this.btnewrelatie.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnewrelatie.Margin = new System.Windows.Forms.Padding(6);
             this.btnewrelatie.Name = "btnewrelatie";
             this.btnewrelatie.Size = new System.Drawing.Size(254, 44);
             this.btnewrelatie.TabIndex = 7;
@@ -291,7 +291,7 @@
             this.btopmaakknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btopmaakknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btopmaakknoop.Location = new System.Drawing.Point(16, 229);
-            this.btopmaakknoop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btopmaakknoop.Margin = new System.Windows.Forms.Padding(6);
             this.btopmaakknoop.Name = "btopmaakknoop";
             this.btopmaakknoop.Size = new System.Drawing.Size(254, 44);
             this.btopmaakknoop.TabIndex = 10;
@@ -304,7 +304,7 @@
             this.bteditrelatie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bteditrelatie.BackColor = System.Drawing.SystemColors.Info;
             this.bteditrelatie.Location = new System.Drawing.Point(16, 54);
-            this.bteditrelatie.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.bteditrelatie.Margin = new System.Windows.Forms.Padding(6);
             this.bteditrelatie.Name = "bteditrelatie";
             this.bteditrelatie.Size = new System.Drawing.Size(254, 44);
             this.bteditrelatie.TabIndex = 9;
@@ -317,7 +317,7 @@
             this.btcontentknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btcontentknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btcontentknoop.Location = new System.Drawing.Point(16, 285);
-            this.btcontentknoop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btcontentknoop.Margin = new System.Windows.Forms.Padding(6);
             this.btcontentknoop.Name = "btcontentknoop";
             this.btcontentknoop.Size = new System.Drawing.Size(254, 44);
             this.btcontentknoop.TabIndex = 11;
@@ -335,7 +335,7 @@
             this.PnlPlayer.Controls.Add(this.btplay);
             this.PnlPlayer.Controls.Add(this.btpauze);
             this.PnlPlayer.Location = new System.Drawing.Point(0, 662);
-            this.PnlPlayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PnlPlayer.Margin = new System.Windows.Forms.Padding(4);
             this.PnlPlayer.Name = "PnlPlayer";
             this.PnlPlayer.Size = new System.Drawing.Size(1102, 115);
             this.PnlPlayer.TabIndex = 12;
@@ -343,8 +343,8 @@
             // trbartimebar
             // 
             this.trbartimebar.Enabled = false;
-            this.trbartimebar.Location = new System.Drawing.Point(0, 56);
-            this.trbartimebar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trbartimebar.Location = new System.Drawing.Point(0, 64);
+            this.trbartimebar.Margin = new System.Windows.Forms.Padding(4);
             this.trbartimebar.Name = "trbartimebar";
             this.trbartimebar.Size = new System.Drawing.Size(1102, 90);
             this.trbartimebar.TabIndex = 4;
@@ -352,7 +352,7 @@
             // btrewind
             // 
             this.btrewind.Location = new System.Drawing.Point(664, 6);
-            this.btrewind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btrewind.Margin = new System.Windows.Forms.Padding(4);
             this.btrewind.Name = "btrewind";
             this.btrewind.Size = new System.Drawing.Size(200, 50);
             this.btrewind.TabIndex = 3;
@@ -363,7 +363,7 @@
             // btstop
             // 
             this.btstop.Location = new System.Drawing.Point(450, 6);
-            this.btstop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btstop.Margin = new System.Windows.Forms.Padding(4);
             this.btstop.Name = "btstop";
             this.btstop.Size = new System.Drawing.Size(200, 50);
             this.btstop.TabIndex = 2;
@@ -374,7 +374,7 @@
             // btplay
             // 
             this.btplay.Location = new System.Drawing.Point(20, 6);
-            this.btplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btplay.Margin = new System.Windows.Forms.Padding(4);
             this.btplay.Name = "btplay";
             this.btplay.Size = new System.Drawing.Size(200, 50);
             this.btplay.TabIndex = 0;
@@ -385,7 +385,7 @@
             // btpauze
             // 
             this.btpauze.Location = new System.Drawing.Point(236, 6);
-            this.btpauze.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btpauze.Margin = new System.Windows.Forms.Padding(4);
             this.btpauze.Name = "btpauze";
             this.btpauze.Size = new System.Drawing.Size(200, 50);
             this.btpauze.TabIndex = 1;
@@ -406,7 +406,7 @@
             this.PnlEdit.Controls.Add(this.bteditknoop);
             this.PnlEdit.Controls.Add(this.btnewknoop);
             this.PnlEdit.Location = new System.Drawing.Point(1104, 52);
-            this.PnlEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PnlEdit.Margin = new System.Windows.Forms.Padding(4);
             this.PnlEdit.Name = "PnlEdit";
             this.PnlEdit.Size = new System.Drawing.Size(288, 727);
             this.PnlEdit.TabIndex = 13;
@@ -421,7 +421,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.PnlEdit);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MindSoft";
             this.Text = "Mindsoft";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MindSoft_FormClosing);

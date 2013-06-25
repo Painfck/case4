@@ -16,7 +16,7 @@ namespace BussinesLayer
         IList<Relatie> relaties;
 
         public Graphics drawField { get; set; }
-        private int listIndex = 0;
+        private int listIndex = 1;
         int relatieCount;
         int knopencount;
         
