@@ -135,9 +135,9 @@ namespace BussinesLayer
         }
 
         //Maak de anchor points aan voor het resizen van de knoop
-        private Rectangle GetRect(KnoopAnchor p)
+        private Rectangle GetRect(KnoopAnchor anchor)
         {
-            switch (p)
+            switch (anchor)
             {
                 case KnoopAnchor.LeftUp:
                     return CreateAnchor(rect.X, rect.Y);
@@ -169,12 +169,17 @@ namespace BussinesLayer
 
         private KnoopAnchor AnchorSelected(int posX, int posY)
         {
-            //foreach (KnoopAnchor knoopAnchor in KnoopAnchor.Enum)
-            //{
-                
-            //}
+            foreach (KnoopAnchor r in Enum.GetValues(typeof(KnoopAnchor)))
+            {
+                if (GetRect(r).Contains(p))
+                {
+                    return r;
+                }
+            }
+            
             return KnoopAnchor.None;
         }
+       
         //Verplaats de knopen en zijn attributen
         public void MoveKnoop(int posX, int posY)
         {
@@ -231,11 +236,6 @@ namespace BussinesLayer
                     rect.Height -= posY - oldY;
                     break;
             }
-        }
-
-        public void ResizeKnoop(int posX, int posY)
-        {
-            
         }
 
         #endregion
