@@ -26,7 +26,7 @@ namespace MindSoft
 
         private void pbdiaview_Click(object sender, EventArgs e)
         {
-            if (presentation.nextDia())
+            if (!presentation.nextDia())
             {
                 this.Dispose();
             }

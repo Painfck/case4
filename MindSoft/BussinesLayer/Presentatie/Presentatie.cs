@@ -11,23 +11,39 @@ namespace BussinesLayer
     public class Presentatie
     {
         #region attributen
+
+        private static Presentatie _presentatie;
         private Dia currentDia;
         public IList<Dia> dialist;
-        public List<Relatie> opvolgendeRelaties;
         private Dia endDia;
+        public MindMap mindmap;
         #endregion
 
         #region constructors
-        public Presentatie(MindMap mindmap)
+        private Presentatie()
         {
-            int index = 0;
-            opvolgendeRelaties = new List<Relatie>();
+            
+        }
+        public void prepareAllContent(MindMap mindmap)
+        {
+            this.mindmap = mindmap;
+            int index = -1;
             dialist = new List<Dia>();
-            bool relatiefound = false;
+            foreach (Knoop knoop in mindmap.knopenlist)
+            {
+                dialist.Add(new Dia(knoop, index));
+                index++;
+            }
             currentDia = dialist.First<Dia>();
         }
-
-
+        public static Presentatie getPresentatie()
+        {
+            if (_presentatie == null)
+            {
+                _presentatie = new Presentatie();
+            }
+            return _presentatie;
+        }
         #endregion
 
 
@@ -88,13 +104,15 @@ namespace BussinesLayer
             if (dialist.IndexOf(currentDia) == (dialist.Count()-1))
             {
                 Knoop knoop = new Knoop();
-                knoop.inhoudlist.Add(new Text("End of the Diashow", new Point(50, 50)));
-                return false;
+                knoop.inhoudlist.Add(new Text("End of the Diashow", new Point(150, 150)));
+                endDia = new Dia(knoop, 999);
+                currentDia = endDia;
+                
+                return true;
             }
             if (currentDia == endDia)
             {
-                currentDia = dialist.First<Dia>();
-                return true;
+                return false;
             }
             else
             {
@@ -103,9 +121,9 @@ namespace BussinesLayer
 
                     if (dialist.ElementAt<Dia>(i) == currentDia)
                     {
-                        currentDia = dialist.ElementAt<Dia>(i + 1);
-                        break;
-                        return false;
+                            currentDia = dialist.ElementAt<Dia>(i + 1);
+                            break;
+                            return true;
                     }
                     else
                     {
@@ -113,7 +131,7 @@ namespace BussinesLayer
                     }
                 }
             }
-            return false;
+            return true;
         }
 
 
