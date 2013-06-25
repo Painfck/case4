@@ -203,6 +203,8 @@ namespace MindSoft
             if (selected)
             {
                 activeMindmap.selectedKnoop.EditKnoop("edit");
+                activeMindmap.TekenObjecten(canvas);
+
             }
             else
             {
