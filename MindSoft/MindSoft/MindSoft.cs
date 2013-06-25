@@ -14,6 +14,10 @@ using DataAccessLayer;
 
 namespace MindSoft
 {
+
+    /// <summary>
+    /// eerste opzet van dit form door wesley (aangevuld met events door rob, aangevuld met player en presentatie door leon, aangevuld met xml deels door josh)
+    /// </summary>
     public partial class MindSoft : Form
     {
         
@@ -284,14 +288,28 @@ namespace MindSoft
 
         private void presentatieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings(activeMindmap);
-            settings.Show();
+            if (activeMindmap.knopenlist.Count() < 1)
+            {
+                MessageBox.Show("Voeg eerst knopen toe aan deze mindmap \r\nvoordat je de presentatie probeert te genereren!");
+            }
+            else
+            {
+                Settings settings = new Settings(activeMindmap);
+                settings.Show();
+            }
         }
 
         private void tsmpresentation_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings(activeMindmap);
-            settings.Show();
+            if (activeMindmap.knopenlist.Count() < 1)
+            {
+                MessageBox.Show("Voeg eerst knopen toe aan deze mindmap \r\nvoordat je de presentatie probeert te genereren!");
+            }
+            else
+            {
+                Settings settings = new Settings(activeMindmap);
+                settings.Show();
+            }
         }
 
         private void zoomCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -377,7 +395,10 @@ namespace MindSoft
                     break;
             }
         }
-
+        /// <summary>
+        /// in deze onderstaande methode wordt de thread nagekeken die speciaal voro de player is aangemaak, in deze thread wordt de play() methode van de player
+        /// gedelegeerd. hieronder zijn alle mogelijke stata van de diverse threadstates te vinden en de afhandeling door de playknop. leon
+        /// </summary>
         private void btplay_Click(object sender, EventArgs e)
         {
             activeMindmap.player.drawField = canvas;
@@ -403,6 +424,10 @@ namespace MindSoft
             }
         }
 
+
+        /// <summary>
+        /// als er op pauze wordt geklikt in de player wordt de thread ook op pauze gezet, hierdoor lijkt het alsof alles op pauze staat (op het canvas) leon
+        /// </summary>
         private void btpauze_Click(object sender, EventArgs e)
         {
             activeMindmap.player.drawField = canvas;
@@ -416,6 +441,12 @@ namespace MindSoft
             }
         }
 
+
+
+        /// <summary>
+        /// hier worden de stopacties voor de player gedefinieerd. de thread wordt afgebroken en de player krijgt het sein dat hij moet stoppen (alle objecten 
+        /// opnieuw op het canvas tekenen die zijn aangemaakt zodat het lijkt of de gebruiker verder gaat waar hij gebleven was in de editor). leon
+        /// </summary>
         private void btstop_Click(object sender, EventArgs e)
         {
             activeMindmap.player.drawField = canvas;
@@ -430,13 +461,20 @@ namespace MindSoft
             }
         }
 
+
+        /// <summary>
+        /// hier wordt het rewind knopje afgehandeld. er wordt niets gedaan met de thread (wanneer abbort aanroepen doet de thread niets, fout),
+        /// door de rewind methdoe van de player aan te roepen wordt het canvas geleegd en wordt gewacht tot de player op "play" klikt.
+        /// </summary>
         private void btrewind_Click(object sender, EventArgs e)
         {
             activeMindmap.player.drawField = canvas;
             activeMindmap.player.rewind();
         }
 
-        
+        /// <summary>
+        /// geselecteerde knopen voor het afhandelen van het leggen van relaties.
+        /// </summary>
         private Knoop selectedkn1 { get; set; }
         private Knoop selectedkn2 { get; set; }
 
