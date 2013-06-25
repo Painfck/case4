@@ -8,13 +8,6 @@ using System.Threading;
 
 namespace BussinesLayer
 {
-    public enum playerState
-    {
-        play,
-        stop,
-        rewind,
-        pauze
-    }
     public class Player
     {
         #region attributen
@@ -23,8 +16,7 @@ namespace BussinesLayer
         IList<Relatie> relaties;
 
         public Graphics drawField { get; set; }
-        playerState state = playerState.stop;
-        private int listIndex = 1;
+        private int listIndex = 0;
         int relatieCount;
         int knopencount;
         
@@ -36,16 +28,11 @@ namespace BussinesLayer
 
         public Player(Mindmap.MindMap mindmap)
         {
-            state = playerState.rewind;
             this.mindmap = mindmap;
             knopen = mindmap.knopenlist;
             relaties = mindmap.relatieslist;
             relatieCount = relaties.Count();
             knopencount = knopen.Count();
-            //timeBetweenDraw = new Timer();
-            //timeBetweenDraw.Interval = 1000;
-            //timeBetweenDraw.Elapsed += new ElapsedEventHandler(timeBetweenDraw_Tick);
-            //timeBetweenDraw.Start();
         }
         public void updateAttributes()
         {
@@ -53,7 +40,18 @@ namespace BussinesLayer
             relaties = mindmap.relatieslist;
             HuidigeRelatie = relaties.First<Relatie>();
         }
-
+        public int getElementCount()
+        {
+            return knopencount;
+        }
+        public int getRleatieCount()
+        {
+            return knopencount;
+        }
+        public int getCurrentIndex()
+        {
+            return listIndex;
+        }
         #endregion
 
         #region methods
@@ -90,16 +88,7 @@ namespace BussinesLayer
         }
         public void stop()
         {
-            foreach (Relatie relatie in relaties)
-            {
-                relatie.Knoop1.Teken(drawField);
-                relatie.Knoop2.Teken(drawField);
-                relatie.draw(drawField);
-            }
-            foreach (Knoop knoop in knopen)
-            {
-                knoop.Teken(drawField);
-            }
+            mindmap.TekenObjecten(drawField);
         }
 
 

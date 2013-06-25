@@ -107,8 +107,9 @@ namespace MindSoft
             activeMindmap.player.mindmap = activeMindmap;
             activeMindmap.player.updateAttributes();
             activeMindmap.player.drawField = canvas;
-            trbartimebar.TabIndex = activeMindmap.relatieslist.Count();
+            trbartimebar.TabIndex = (activeMindmap.player.getRleatieCount() * 2);
             playerthread = new System.Threading.Thread(activeMindmap.player.play);
+
         }
 
         private void mindmapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -362,33 +363,53 @@ namespace MindSoft
         private void btplay_Click(object sender, EventArgs e)
         {
             activeMindmap.player.drawField = canvas;
-            if (playerthread.ThreadState == System.Threading.ThreadState.Unstarted)
+            try
             {
-                playerthread.Start();
+                if (playerthread.ThreadState == System.Threading.ThreadState.Unstarted)
+                {
+                    playerthread.Start();
+                }
+                if (playerthread.ThreadState == System.Threading.ThreadState.Suspended)
+                {
+                    playerthread.Resume();
+                }
+                if (playerthread.ThreadState == System.Threading.ThreadState.Aborted)
+                {
+                    playerthread = new System.Threading.Thread(activeMindmap.player.play);
+                    playerthread.Start();
+                }
             }
-            if (playerthread.ThreadState == System.Threading.ThreadState.Suspended)
-            {
-                playerthread.Resume();
+            catch (System.Threading.ThreadStateException exc1)
+            { 
+            
             }
-            if (playerthread.ThreadState == System.Threading.ThreadState.Aborted)
-            {
-                playerthread = new System.Threading.Thread(activeMindmap.player.play);
-                playerthread.Start();
-            }
-
         }
 
         private void btpauze_Click(object sender, EventArgs e)
         {
             activeMindmap.player.drawField = canvas;
-            playerthread.Suspend();
+            try
+            {
+                playerthread.Suspend();
+            }
+            catch (System.Threading.ThreadStateException exc1)
+            {
+
+            }
         }
 
         private void btstop_Click(object sender, EventArgs e)
         {
             activeMindmap.player.drawField = canvas;
             activeMindmap.player.stop();
+            try
+            {
             playerthread.Abort();
+            }
+            catch (System.Threading.ThreadStateException exc1)
+            {
+
+            }
         }
 
         private void btrewind_Click(object sender, EventArgs e)
@@ -398,9 +419,8 @@ namespace MindSoft
         }
 
         
-        public Knoop selectedkn1 { get; set; }
-
-        public Knoop selectedkn2 { get; set; }
+        private Knoop selectedkn1 { get; set; }
+        private Knoop selectedkn2 { get; set; }
 
         private void MindSoft_FormClosing(object sender, FormClosingEventArgs e)
         {
