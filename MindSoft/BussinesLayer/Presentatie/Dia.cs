@@ -31,8 +31,8 @@ namespace BussinesLayer
         public void Draw(Graphics graphics)
         {
             float x, y;
-            x = 50;
-            y = 50;
+            x = 100;
+            y = 100;
 
             foreach(Text text in bullets)
             {

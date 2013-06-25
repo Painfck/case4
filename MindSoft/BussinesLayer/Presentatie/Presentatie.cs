@@ -99,6 +99,7 @@ namespace BussinesLayer
             }
             if (currentDia == endDia)
             {
+                currentDia = dialist.First();
                 return false;
             }
             else
