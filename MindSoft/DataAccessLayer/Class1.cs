@@ -52,21 +52,29 @@ namespace DataAccessLayer
             private void createNodeKnoop(int kID, string kSize, string kPosition, string kInhoud, string kOpmaak, XmlTextWriter writer)
             {        
                 writer.WriteStartElement("Knoop");
-                writer.WriteStartElement("knoop_id");
-                writer.WriteString(Convert.ToString(kID));
-                writer.WriteEndElement();
-                writer.WriteStartElement("knoopsize");
-                writer.WriteString(kSize);
-                writer.WriteEndElement();
-                writer.WriteStartElement("knoopposition");
-                writer.WriteString(kPosition);
-                writer.WriteEndElement();
-                writer.WriteStartElement("knoopinhoud");
-                writer.WriteString(kInhoud);
-                writer.WriteEndElement();
-                writer.WriteStartElement("knoopopmaak");
-                writer.WriteString(kOpmaak);
-                writer.WriteEndElement();
+
+                    writer.WriteStartElement("knoop_id");
+                        writer.WriteString(Convert.ToString(kID));
+                    writer.WriteEndElement();
+
+                    writer.WriteStartElement("knoopsize");
+                        writer.WriteStartElement("width");
+                            writer.WriteString(kSize);
+                        writer.WriteEndElement();
+                        
+                    writer.WriteEndElement();
+                    
+                    writer.WriteStartElement("knoopposition");
+                        writer.WriteString(kPosition);
+                    writer.WriteEndElement();
+                
+                    writer.WriteStartElement("knoopinhoud");
+                        writer.WriteString(kInhoud);
+                    writer.WriteEndElement();
+                
+                    writer.WriteStartElement("knoopopmaak");
+                        writer.WriteString(kOpmaak);
+                    writer.WriteEndElement();
                 writer.WriteEndElement();
             }
         }

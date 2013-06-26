@@ -131,10 +131,6 @@ namespace MindSoft
                     updateTekst(text);
                     break;
                 }
-                else
-                {
-                    continue;
-                }
             }
         }
 
