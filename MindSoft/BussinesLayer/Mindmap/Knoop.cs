@@ -116,12 +116,17 @@ namespace BussinesLayer
                 }
 
             }
-            
+
+            foreach (var item in collection)
+            {
+                
+            }
             foreach (Inhoud inhoud in inhoudlist)
             {
                 inhoud.Draw(canvas);
-
+                
             }
+
             canvas.DrawRectangle(pen, rect);
         }
 
