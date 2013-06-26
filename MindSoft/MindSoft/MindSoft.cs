@@ -491,7 +491,8 @@ namespace MindSoft
 
         private void btverwijder_Click(object sender, EventArgs e)
         {
-            toDelete = true;
+            activeMindmap.RemoveActiveKnoop();
+            activeMindmap.TekenObjecten(canvas);
         }
 
         private void mindmapToolStripMenuItem2_Click(object sender, EventArgs e)
