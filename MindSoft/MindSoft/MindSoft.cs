@@ -135,11 +135,6 @@ namespace MindSoft
             {
                 activeMindmap.TekenObjecten(canvas);
             }
-            if (selected)
-            {
-                
-
-            }
         }
 
         private void pbView_MouseDown(object sender, MouseEventArgs e)
