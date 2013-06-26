@@ -33,7 +33,7 @@ namespace MindSoft
         private string zoom;
         private EditKnoop editknoop;
         private bool selected = false;
-
+        private bool toDelete = true;
         private bool isFileSaved = false;
 
         private string initialDir;
@@ -42,10 +42,10 @@ namespace MindSoft
         public MindSoft()
         {
             InitializeComponent();
+            project = Project.projectInstance();
             pbView.Height = this.Height;
             PnlPlayer.Hide();
             canvas = pbView.CreateGraphics();
-            project = new Project();
             activeMindmap = project.mindmaplist.First();
             initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             activeMindmap.player.drawField = canvas;
@@ -68,11 +68,6 @@ namespace MindSoft
         }
 
         private void btopmaakknoop_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btcontentknoop_Click(object sender, EventArgs e)
         {
 
         }
@@ -141,6 +136,11 @@ namespace MindSoft
             {
                 activeMindmap.TekenObjecten(canvas);
             }
+            if (selected && toDelete)
+            {
+                activeMindmap.RemoveActiveKnoop();
+                toDelete = false;
+            }
         }
 
         private void pbView_MouseDown(object sender, MouseEventArgs e)
@@ -180,11 +180,15 @@ namespace MindSoft
 
         private void pbView_MouseUp(object sender, MouseEventArgs e)
         {
+            Relatie candidate = new Relatie(selectedkn1, selectedkn2);
             // Relatie leggen
             if (activeMindmap != null && e.Button == MouseButtons.Right)
             {
                 selectedkn2 = activeMindmap.Search(e.X, e.Y);
-                activeMindmap.relatieslist.Add(new Relatie(selectedkn1, selectedkn2));
+                if (!activeMindmap.checkIfRelatieExist(candidate) && selectedkn1 != selectedkn2)
+                {
+                    activeMindmap.relatieslist.Add(candidate);
+                }
                 activeMindmap.TekenObjecten(canvas);
             }
             //Knoop move
@@ -217,22 +221,6 @@ namespace MindSoft
             }
             isFileSaved = false;
 
-        }
-        
-        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            StreamReader inputStream;
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.InitialDirectory = initialDir;
-            dialog.Filter = "xml files (*.xml)|*.xml";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                currentFile = dialog.FileName;
-                inputStream = File.OpenText(currentFile);
-                //hier komt het laden van de xml in het project
-
-                inputStream.Close();
-            }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -499,6 +487,33 @@ namespace MindSoft
             //        }
             //    }
             //}
+        }
+
+        private void btverwijder_Click(object sender, EventArgs e)
+        {
+            toDelete = true;
+        }
+
+        private void mindmapToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            SelectMindmap selectbox = new SelectMindmap();
+            selectbox.Show();
+        }
+
+        private void projectToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            StreamReader inputStream;
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = initialDir;
+            dialog.Filter = "xml files (*.xml)|*.xml";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                currentFile = dialog.FileName;
+                inputStream = File.OpenText(currentFile);
+                //hier komt het laden van de xml in het project
+
+                inputStream.Close();
+            }
         }
     }
 }

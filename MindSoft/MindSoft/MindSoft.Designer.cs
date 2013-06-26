@@ -45,14 +45,9 @@
             this.playerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmpresentation = new System.Windows.Forms.ToolStripMenuItem();
             this.pbView = new System.Windows.Forms.PictureBox();
-            this.btnewknoop = new System.Windows.Forms.Button();
             this.zoomCB = new System.Windows.Forms.ComboBox();
             this.lbzoom = new System.Windows.Forms.Label();
-            this.bteditknoop = new System.Windows.Forms.Button();
-            this.btnewrelatie = new System.Windows.Forms.Button();
-            this.btopmaakknoop = new System.Windows.Forms.Button();
-            this.bteditrelatie = new System.Windows.Forms.Button();
-            this.btcontentknoop = new System.Windows.Forms.Button();
+            this.btverwijder = new System.Windows.Forms.Button();
             this.PnlPlayer = new System.Windows.Forms.Panel();
             this.trbartimebar = new System.Windows.Forms.TrackBar();
             this.btrewind = new System.Windows.Forms.Button();
@@ -60,6 +55,8 @@
             this.btplay = new System.Windows.Forms.Button();
             this.btpauze = new System.Windows.Forms.Button();
             this.PnlEdit = new System.Windows.Forms.Panel();
+            this.projectToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mindmapToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbView)).BeginInit();
             this.PnlPlayer.SuspendLayout();
@@ -125,11 +122,12 @@
             // 
             // loadToolStripMenuItem
             // 
+            this.loadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.projectToolStripMenuItem1,
+            this.mindmapToolStripMenuItem2});
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
-            this.loadToolStripMenuItem.Text = "Load";
-            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
-            // 
+            this.loadToolStripMenuItem.Text = "Load";            // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
@@ -207,7 +205,7 @@
             this.pbView.Location = new System.Drawing.Point(0, 52);
             this.pbView.Margin = new System.Windows.Forms.Padding(6);
             this.pbView.Name = "pbView";
-            this.pbView.Size = new System.Drawing.Size(1102, 610);
+            this.pbView.Size = new System.Drawing.Size(1158, 610);
             this.pbView.TabIndex = 1;
             this.pbView.TabStop = false;
             this.pbView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbView_MouseClick);
@@ -215,19 +213,6 @@
             this.pbView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbView_MouseDown);
             this.pbView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbView_MouseMove);
             this.pbView.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbView_MouseUp);
-            // 
-            // btnewknoop
-            // 
-            this.btnewknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnewknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnewknoop.Location = new System.Drawing.Point(16, 115);
-            this.btnewknoop.Margin = new System.Windows.Forms.Padding(6);
-            this.btnewknoop.Name = "btnewknoop";
-            this.btnewknoop.Size = new System.Drawing.Size(254, 44);
-            this.btnewknoop.TabIndex = 2;
-            this.btnewknoop.Text = "Nieuwe Knoop";
-            this.btnewknoop.UseVisualStyleBackColor = false;
-            this.btnewknoop.Click += new System.EventHandler(this.btnewknoop_Click);
             // 
             // zoomCB
             // 
@@ -241,7 +226,7 @@
             "150%",
             "200%",
             "250%"});
-            this.zoomCB.Location = new System.Drawing.Point(148, 656);
+            this.zoomCB.Location = new System.Drawing.Point(98, 656);
             this.zoomCB.Margin = new System.Windows.Forms.Padding(6);
             this.zoomCB.Name = "zoomCB";
             this.zoomCB.Size = new System.Drawing.Size(130, 33);
@@ -253,77 +238,25 @@
             // 
             this.lbzoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbzoom.AutoSize = true;
-            this.lbzoom.Location = new System.Drawing.Point(62, 662);
+            this.lbzoom.Location = new System.Drawing.Point(12, 662);
             this.lbzoom.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbzoom.Name = "lbzoom";
             this.lbzoom.Size = new System.Drawing.Size(74, 26);
             this.lbzoom.TabIndex = 6;
             this.lbzoom.Text = "Zoom:";
             // 
-            // bteditknoop
+            // btverwijder
             // 
-            this.bteditknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bteditknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bteditknoop.Location = new System.Drawing.Point(16, 171);
-            this.bteditknoop.Margin = new System.Windows.Forms.Padding(6);
-            this.bteditknoop.Name = "bteditknoop";
-            this.bteditknoop.Size = new System.Drawing.Size(254, 44);
-            this.bteditknoop.TabIndex = 8;
-            this.bteditknoop.Text = "Wijzig Knoop";
-            this.bteditknoop.UseVisualStyleBackColor = false;
-            this.bteditknoop.Click += new System.EventHandler(this.bteditknoop_Click);
-            // 
-            // btnewrelatie
-            // 
-            this.btnewrelatie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnewrelatie.BackColor = System.Drawing.SystemColors.Info;
-            this.btnewrelatie.Location = new System.Drawing.Point(16, 6);
-            this.btnewrelatie.Margin = new System.Windows.Forms.Padding(6);
-            this.btnewrelatie.Name = "btnewrelatie";
-            this.btnewrelatie.Size = new System.Drawing.Size(254, 44);
-            this.btnewrelatie.TabIndex = 7;
-            this.btnewrelatie.Text = "Nieuwe Relatie";
-            this.btnewrelatie.UseVisualStyleBackColor = false;
-            this.btnewrelatie.Click += new System.EventHandler(this.btnewrelatie_Click);
-            // 
-            // btopmaakknoop
-            // 
-            this.btopmaakknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btopmaakknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btopmaakknoop.Location = new System.Drawing.Point(16, 229);
-            this.btopmaakknoop.Margin = new System.Windows.Forms.Padding(6);
-            this.btopmaakknoop.Name = "btopmaakknoop";
-            this.btopmaakknoop.Size = new System.Drawing.Size(254, 44);
-            this.btopmaakknoop.TabIndex = 10;
-            this.btopmaakknoop.Text = "Opmaak wijzigen";
-            this.btopmaakknoop.UseVisualStyleBackColor = false;
-            this.btopmaakknoop.Click += new System.EventHandler(this.btopmaakknoop_Click);
-            // 
-            // bteditrelatie
-            // 
-            this.bteditrelatie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bteditrelatie.BackColor = System.Drawing.SystemColors.Info;
-            this.bteditrelatie.Location = new System.Drawing.Point(16, 54);
-            this.bteditrelatie.Margin = new System.Windows.Forms.Padding(6);
-            this.bteditrelatie.Name = "bteditrelatie";
-            this.bteditrelatie.Size = new System.Drawing.Size(254, 44);
-            this.bteditrelatie.TabIndex = 9;
-            this.bteditrelatie.Text = "Wijzig Relatie";
-            this.bteditrelatie.UseVisualStyleBackColor = false;
-            this.bteditrelatie.Click += new System.EventHandler(this.bteditrelatie_Click);
-            // 
-            // btcontentknoop
-            // 
-            this.btcontentknoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btcontentknoop.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btcontentknoop.Location = new System.Drawing.Point(16, 285);
-            this.btcontentknoop.Margin = new System.Windows.Forms.Padding(6);
-            this.btcontentknoop.Name = "btcontentknoop";
-            this.btcontentknoop.Size = new System.Drawing.Size(254, 44);
-            this.btcontentknoop.TabIndex = 11;
-            this.btcontentknoop.Text = "Inhoud wijzigen";
-            this.btcontentknoop.UseVisualStyleBackColor = false;
-            this.btcontentknoop.Click += new System.EventHandler(this.btcontentknoop_Click);
+            this.btverwijder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btverwijder.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btverwijder.Location = new System.Drawing.Point(27, 23);
+            this.btverwijder.Margin = new System.Windows.Forms.Padding(6);
+            this.btverwijder.Name = "btverwijder";
+            this.btverwijder.Size = new System.Drawing.Size(164, 44);
+            this.btverwijder.TabIndex = 11;
+            this.btverwijder.Text = "Verwijderen";
+            this.btverwijder.UseVisualStyleBackColor = false;
+            this.btverwijder.Click += new System.EventHandler(this.btverwijder_Click);
             // 
             // PnlPlayer
             // 
@@ -337,13 +270,13 @@
             this.PnlPlayer.Location = new System.Drawing.Point(0, 662);
             this.PnlPlayer.Margin = new System.Windows.Forms.Padding(4);
             this.PnlPlayer.Name = "PnlPlayer";
-            this.PnlPlayer.Size = new System.Drawing.Size(1102, 115);
+            this.PnlPlayer.Size = new System.Drawing.Size(1158, 115);
             this.PnlPlayer.TabIndex = 12;
             // 
             // trbartimebar
             // 
             this.trbartimebar.Enabled = false;
-            this.trbartimebar.Location = new System.Drawing.Point(0, 64);
+            this.trbartimebar.Location = new System.Drawing.Point(20, 64);
             this.trbartimebar.Margin = new System.Windows.Forms.Padding(4);
             this.trbartimebar.Name = "trbartimebar";
             this.trbartimebar.Size = new System.Drawing.Size(1102, 90);
@@ -397,19 +330,28 @@
             // 
             this.PnlEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PnlEdit.Controls.Add(this.btnewrelatie);
             this.PnlEdit.Controls.Add(this.lbzoom);
             this.PnlEdit.Controls.Add(this.zoomCB);
-            this.PnlEdit.Controls.Add(this.btcontentknoop);
-            this.PnlEdit.Controls.Add(this.btopmaakknoop);
-            this.PnlEdit.Controls.Add(this.bteditrelatie);
-            this.PnlEdit.Controls.Add(this.bteditknoop);
-            this.PnlEdit.Controls.Add(this.btnewknoop);
-            this.PnlEdit.Location = new System.Drawing.Point(1104, 52);
+            this.PnlEdit.Controls.Add(this.btverwijder);
+            this.PnlEdit.Location = new System.Drawing.Point(1154, 52);
             this.PnlEdit.Margin = new System.Windows.Forms.Padding(4);
             this.PnlEdit.Name = "PnlEdit";
-            this.PnlEdit.Size = new System.Drawing.Size(288, 727);
+            this.PnlEdit.Size = new System.Drawing.Size(238, 727);
             this.PnlEdit.TabIndex = 13;
+            // 
+            // projectToolStripMenuItem1
+            // 
+            this.projectToolStripMenuItem1.Name = "projectToolStripMenuItem1";
+            this.projectToolStripMenuItem1.Size = new System.Drawing.Size(197, 40);
+            this.projectToolStripMenuItem1.Text = "Project";
+            this.projectToolStripMenuItem1.Click += new System.EventHandler(this.projectToolStripMenuItem1_Click);
+            // 
+            // mindmapToolStripMenuItem2
+            // 
+            this.mindmapToolStripMenuItem2.Name = "mindmapToolStripMenuItem2";
+            this.mindmapToolStripMenuItem2.Size = new System.Drawing.Size(197, 40);
+            this.mindmapToolStripMenuItem2.Text = "Mindmap";
+            this.mindmapToolStripMenuItem2.Click += new System.EventHandler(this.mindmapToolStripMenuItem2_Click);
             // 
             // MindSoft
             // 
@@ -445,7 +387,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.PictureBox pbView;
-        private System.Windows.Forms.Button btnewknoop;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
@@ -454,11 +395,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ComboBox zoomCB;
         private System.Windows.Forms.Label lbzoom;
-        private System.Windows.Forms.Button bteditknoop;
-        private System.Windows.Forms.Button btnewrelatie;
-        private System.Windows.Forms.Button btopmaakknoop;
-        private System.Windows.Forms.Button bteditrelatie;
-        private System.Windows.Forms.Button btcontentknoop;
+        private System.Windows.Forms.Button btverwijder;
         private System.Windows.Forms.Panel PnlPlayer;
         private System.Windows.Forms.ToolStripMenuItem presentationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mindmapToolStripMenuItem;
@@ -473,6 +410,8 @@
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mindmapToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem presentatieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem mindmapToolStripMenuItem2;
 
     }
 }

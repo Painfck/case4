@@ -26,7 +26,22 @@ namespace BussinesLayer.Mindmap
             this.name = name;
             player = new Player(this);
         }
-
+        //controleer of een relatie al is aangemaakt
+        public bool checkIfRelatieExist(Relatie candidate)
+        {
+            foreach (Relatie relatie in relatieslist)
+            {
+                if (relatie.Knoop1 == candidate.Knoop1 && relatie.Knoop2 == candidate.Knoop2)
+                {
+                    return true;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return false;
+        }
         //Teken de objecten op het canvas
         public void TekenObjecten(Graphics canvas)
         {
@@ -99,6 +114,26 @@ namespace BussinesLayer.Mindmap
             {
 
             }
+        }
+
+        public void RemoveActiveKnoop()
+        {
+            List<Relatie> toDelete = new List<Relatie>();
+
+            foreach (Relatie relatie in relatieslist)
+            {
+                if (relatie.Knoop1 == selectedKnoop || relatie.Knoop2 == selectedKnoop)
+                {
+                    toDelete.Add(relatie);
+                }
+            }
+
+            foreach (Relatie relatie in toDelete)
+            {
+                relatieslist.Remove(relatie);
+            }
+            knopenlist.Remove(selectedKnoop);
+
         }
     }
 }

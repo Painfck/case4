@@ -76,6 +76,12 @@
     <Compile Include="EditPresentatie.Designer.cs">
       <DependentUpon>EditPresentatie.cs</DependentUpon>
     </Compile>
+    <Compile Include="SelectMindmap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectMindmap.Designer.cs">
+      <DependentUpon>SelectMindmap.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EditKnoop.resx">
       <DependentUpon>EditKnoop.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="EditPresentatie.resx">
       <DependentUpon>EditPresentatie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectMindmap.resx">
+      <DependentUpon>SelectMindmap.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="About.MST">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
