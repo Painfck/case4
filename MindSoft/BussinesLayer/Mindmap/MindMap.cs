@@ -27,21 +27,7 @@ namespace BussinesLayer.Mindmap
             player = new Player(this);
         }
         //controleer of een relatie al is aangemaakt
-        public bool checkIfRelatieExist(Relatie candidate)
-        {
-            foreach (Relatie relatie in relatieslist)
-            {
-                if (relatie.Knoop1 == candidate.Knoop1 && relatie.Knoop2 == candidate.Knoop2)
-                {
-                    return true;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            return false;
-        }
+     
         //Teken de objecten op het canvas
         public void TekenObjecten(Graphics canvas)
         {
@@ -134,6 +120,39 @@ namespace BussinesLayer.Mindmap
             }
             knopenlist.Remove(selectedKnoop);
 
+        }
+
+        public void CreateRelationship(Knoop knoop1, Knoop knoop2)
+        {
+            if (CheckRelationship(knoop1, knoop2))
+            {
+                relatieslist.Add(new Relatie(knoop1, knoop2));
+            }
+        }
+
+        private bool CheckRelationship(Knoop knoop1, Knoop knoop2)
+        {
+
+            if (knoop1 != knoop2)
+            {
+                foreach (Relatie relatie in relatieslist)
+                {
+                    if ((relatie.Knoop1 == knoop1 && relatie.Knoop2 == knoop2)
+                        ||( relatie.Knoop2 == knoop1 && relatie.Knoop1 == knoop2))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

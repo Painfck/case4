@@ -33,7 +33,6 @@ namespace MindSoft
         private string zoom;
         private EditKnoop editknoop;
         private bool selected = false;
-        private bool toDelete = true;
         private bool isFileSaved = false;
 
         private string initialDir;
@@ -136,10 +135,10 @@ namespace MindSoft
             {
                 activeMindmap.TekenObjecten(canvas);
             }
-            if (selected && toDelete)
+            if (selected)
             {
-                activeMindmap.RemoveActiveKnoop();
-                toDelete = false;
+                
+
             }
         }
 
@@ -180,15 +179,11 @@ namespace MindSoft
 
         private void pbView_MouseUp(object sender, MouseEventArgs e)
         {
-            Relatie candidate = new Relatie(selectedkn1, selectedkn2);
             // Relatie leggen
             if (activeMindmap != null && e.Button == MouseButtons.Right)
             {
                 selectedkn2 = activeMindmap.Search(e.X, e.Y);
-                if (!activeMindmap.checkIfRelatieExist(candidate))
-                {
-                    activeMindmap.relatieslist.Add(candidate);
-                }
+                activeMindmap.CreateRelationship(selectedkn1, selectedkn2);
                 activeMindmap.TekenObjecten(canvas);
             }
             //Knoop move
