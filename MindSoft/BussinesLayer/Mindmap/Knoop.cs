@@ -11,7 +11,6 @@ namespace BussinesLayer
 
     public class Knoop
     {
-
         public enum KnoopAnchor
         {
             UpMiddle,
@@ -35,6 +34,7 @@ namespace BussinesLayer
 
         #region Attributen
         // Kenmerken van de knoop
+        private Size stringSize;
         protected Pen pen;
         protected Color kleur;
 
@@ -105,6 +105,20 @@ namespace BussinesLayer
         //Teken methode om de knoop met al zijn attributen te tekenen op de canvas.
         public virtual void Teken(Graphics canvas)
         {
+            foreach (Text text in inhoudlist.OfType<Text>())
+            {
+                stringSize.Height = Convert.ToInt32(canvas.MeasureString(text.textInhoud, text.font).Height);
+                stringSize.Width = Convert.ToInt32(canvas.MeasureString(text.textInhoud, text.font).Width);
+            }
+
+            if (rect.Height < stringSize.Height)
+            {
+                rect.Height = stringSize.Height;
+            }
+            if (rect.Width < stringSize.Width)
+            {
+                rect.Width = stringSize.Width;
+            }
             rect.X = this.positie.X;
             rect.Y = this.positie.Y;
             if (knoopStatus == KnoopStatus.Selected)
@@ -117,14 +131,10 @@ namespace BussinesLayer
 
             }
 
-            foreach (var item in collection)
-            {
-                
-            }
+
             foreach (Inhoud inhoud in inhoudlist)
             {
                 inhoud.Draw(canvas);
-                
             }
 
             canvas.DrawRectangle(pen, rect);
