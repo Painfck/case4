@@ -185,7 +185,7 @@ namespace MindSoft
             if (activeMindmap != null && e.Button == MouseButtons.Right)
             {
                 selectedkn2 = activeMindmap.Search(e.X, e.Y);
-                if (!activeMindmap.checkIfRelatieExist(candidate) && selectedkn1 != selectedkn2)
+                if (!activeMindmap.checkIfRelatieExist(candidate))
                 {
                     activeMindmap.relatieslist.Add(candidate);
                 }
@@ -210,7 +210,6 @@ namespace MindSoft
                 editknoop.Show();
                 //activeMindmap.selectedKnoop.EditKnoop("edit");
                 //activeMindmap.TekenObjecten(canvas);
-
             }
             else
             {
