@@ -306,24 +306,27 @@ namespace MindSoft
             // dan blijft hij ook kleiner worden. Dus even een slimme methode hiervoor maken en deze
             // in een Class(!!!!) zetten! 
             zoom = zoomCB.Text;
-            
+
             switch (zoom)
             {
                 case "25%":
+
                     foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
-                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 0.25);
-                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 0.25);
+                        knoop.rect.Height = Convert.ToInt32(originalKnoopHeight * 0.25);
+                        knoop.rect.Width = Convert.ToInt32(originalKnoopWidth * 0.25);
+
                     }
                     activeMindmap.TekenObjecten(canvas);
+
                     zoomedKnoopHeight = Convert.ToInt32(originalKnoopHeight * 0.25);
                     zoomedKnoopWidth = Convert.ToInt32(originalKnoopWidth * 0.25);
                     break;
                 case "50%":
                     foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
-                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 0.50);
-                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 0.50);
+                        knoop.rect.Height = Convert.ToInt32(originalKnoopHeight * 0.50);
+                        knoop.rect.Width = Convert.ToInt32(originalKnoopWidth * 0.50);
                     }
                     activeMindmap.TekenObjecten(canvas);
                     zoomedKnoopHeight = Convert.ToInt32(originalKnoopHeight * 0.50);
@@ -332,8 +335,8 @@ namespace MindSoft
                 case "75%":
                     foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
-                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 0.75);
-                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 0.75);
+                        knoop.rect.Height = Convert.ToInt32(originalKnoopHeight * 0.75);
+                        knoop.rect.Width = Convert.ToInt32(originalKnoopWidth * 0.75);
                     }
                     activeMindmap.TekenObjecten(canvas);
                     zoomedKnoopHeight = Convert.ToInt32(originalKnoopHeight * 0.75);
@@ -342,8 +345,8 @@ namespace MindSoft
                 case "100%":
                     foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
-                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 1.00);
-                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 1.00);
+                        knoop.rect.Height = Convert.ToInt32(originalKnoopHeight * 1.00);
+                        knoop.rect.Width = Convert.ToInt32(originalKnoopWidth * 1.00);
                     }
                     activeMindmap.TekenObjecten(canvas);
                     zoomedKnoopHeight = Convert.ToInt32(originalKnoopHeight * 1.00);
@@ -352,8 +355,8 @@ namespace MindSoft
                 case "150%":
                     foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
-                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 1.50);
-                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 1.50);
+                        knoop.rect.Height = Convert.ToInt32(originalKnoopHeight * 1.50);
+                        knoop.rect.Width = Convert.ToInt32(originalKnoopWidth * 1.50);
                     }
                     activeMindmap.TekenObjecten(canvas);
                     zoomedKnoopHeight = Convert.ToInt32(originalKnoopHeight * 1.50);
@@ -362,8 +365,8 @@ namespace MindSoft
                 case "200%":
                     foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
-                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 2.00);
-                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 2.00);
+                        knoop.rect.Height = Convert.ToInt32(originalKnoopHeight * 2.00);
+                        knoop.rect.Width = Convert.ToInt32(originalKnoopWidth * 2.00);
                     }
                     activeMindmap.TekenObjecten(canvas);
                     zoomedKnoopHeight = Convert.ToInt32(originalKnoopHeight * 2.00);
@@ -372,8 +375,8 @@ namespace MindSoft
                 case "250%":
                     foreach (Knoop knoop in activeMindmap.knopenlist)
                     {
-                        knoop.size.Height = Convert.ToInt32(originalKnoopHeight * 2.50);
-                        knoop.size.Width = Convert.ToInt32(originalKnoopWidth * 2.50);
+                        knoop.rect.Height = Convert.ToInt32(originalKnoopHeight * 2.50);
+                        knoop.rect.Width = Convert.ToInt32(originalKnoopWidth * 2.50);
                     }
                     activeMindmap.TekenObjecten(canvas);
                     zoomedKnoopHeight = Convert.ToInt32(originalKnoopHeight * 2.50);
