@@ -61,30 +61,6 @@ namespace MindSoft
             About.Show();
         }
 
-        private void bteditknoop_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btopmaakknoop_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bteditrelatie_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnewrelatie_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnewknoop_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void MindSoft_Resize(object sender, EventArgs e)
         {
