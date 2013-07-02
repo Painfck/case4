@@ -3,21 +3,33 @@
   <Class Name="BussinesLayer.Presentatie">
     <Position X="11.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAQAAAEBAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAkAQAAAIAAAgAAAAAAAAAEBCA=</HashCode>
       <FileName>Presentatie\Presentatie.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BussinesLayer.Player">
     <Position X="14.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAwAAAAAQAgAAAAAAEAAAAICoAQAEEAAQACAAUAA=</HashCode>
+      <HashCode>AAACAgAAAAAQAgCAAAAAEAAAAICoABAAEAAAAAAAUAA=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BussinesLayer.Knoop">
     <Position X="2.75" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="BussinesLayer.Knoop.KnoopAnchor" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Mindmap\Knoop.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="BussinesLayer.Knoop.KnoopStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Mindmap\Knoop.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>BAIAAASAAgAAoAIAAIgAAAAAAAAAQAAAAAAAAEQAAAI=</HashCode>
+      <HashCode>BAAAIASACgCAgAIAA4gAIAAAABAIQABAAAEAAEQDEAA=</HashCode>
       <FileName>Mindmap\Knoop.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -25,37 +37,37 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="BussinesLayer.Opmaak">
-    <Position X="7.25" Y="4.25" Width="1.5" />
+    <Position X="5.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Mindmap\Opmaak.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BussinesLayer.Inhoud">
-    <Position X="9.25" Y="4.5" Width="1.5" />
+    <Position X="9.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Mindmap\Inhoud.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BussinesLayer.Media">
     <Position X="7.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAIAAAgAAAAACAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Mindmap\Media.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BussinesLayer.Hyperlink">
     <Position X="9.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAgAAAAAAAAAAAAAMAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Mindmap\Hyperlink.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BussinesLayer.Text">
     <Position X="11" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAAAoAAAgICAAAAAgAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Mindmap\Text.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -72,7 +84,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAgAAAAAAAAoAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>Mindmap\Relatie.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -83,32 +95,31 @@
   <Class Name="BussinesLayer.Dia">
     <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAIAIAgQAAAAAAAAAAAAAAQAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAQAAAAIAIBgEAAAAAAAAAAAAAIAAAgAAgAAAAAAA=</HashCode>
       <FileName>Presentatie\Dia.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="Knoop" />
       <Field Name="Notitie" />
     </ShowAsAssociation>
   </Class>
   <Class Name="BussinesLayer.Notitie">
     <Position X="1" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Presentatie\Notitie.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BussinesLayer.Project">
-    <Position X="9.5" Y="1" Width="1.5" />
+    <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACAAAAAAAAAAAACAAAEAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAADAAAAAAAAAABACAgAEAABAAAAAAAAAAA=</HashCode>
       <FileName>Project.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BussinesLayer.Mindmap.MindMap" Collapsed="true">
     <Position X="5.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAAABAAAoAAAAAAAAEAAABAAEAAgAigAA=</HashCode>
+      <HashCode>AAAACAAAAAEAAABAAAqAAAAAAAAEAAEBAAEAAAAigBA=</HashCode>
       <FileName>Mindmap\MindMap.cs</FileName>
     </TypeIdentifier>
   </Class>

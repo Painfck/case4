@@ -442,21 +442,21 @@ namespace MindSoft
 
         private void MindSoft_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if (!isFileSaved)
-            //{
-            //    if (MessageBox.Show("This file has not been saved yet. \r\n Do you want to save it now?", "Save Project", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            //    {
-            //        SaveFileDialog dialog = new SaveFileDialog();
-            //        dialog.InitialDirectory = initialDir;
-            //        dialog.Filter = "xml files (*.xml)|*.xml";
-            //        if (dialog.ShowDialog() == DialogResult.OK)
-            //        {
-            //            currentFile = dialog.FileName;
-            //            XMLStreamreader streamreader = new XMLStreamreader();
-            //            streamreader.SaveXML(dialog.FileName, project);
-            //        }
-            //    }
-            //}
+            if (!isFileSaved)
+            {
+                if (MessageBox.Show("This file has not been saved yet. \r\n Do you want to save it now?", "Save Project", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    SaveFileDialog dialog = new SaveFileDialog();
+                    dialog.InitialDirectory = initialDir;
+                    dialog.Filter = "xml files (*.xml)|*.xml";
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        currentFile = dialog.FileName;
+                        XMLStreamreader streamreader = new XMLStreamreader();
+                        streamreader.SaveXML(dialog.FileName, project);
+                    }
+                }
+            }
         }
 
         private void btverwijder_Click(object sender, EventArgs e)
