@@ -54,7 +54,10 @@ namespace BussinesLayer
             mindmaplist.Add(new Mindmap.MindMap(String.Format("Naamloos{0}", (mindmaplist.Count() + 1))));
             return mindmaplist.Last<Mindmap.MindMap>();
         }
-
+        public void SetActiveMindmap(MindMap mindmap)
+        {
+            activeMindmap = mindmap;
+        }
 
     }
 }

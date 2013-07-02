@@ -56,11 +56,12 @@
             this.tabControl1.Controls.Add(this.tabtext);
             this.tabControl1.Controls.Add(this.tabimage);
             this.tabControl1.Controls.Add(this.tabHyperlink);
-            this.tabControl1.Location = new System.Drawing.Point(12, 13);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(730, 467);
+            this.tabControl1.Size = new System.Drawing.Size(766, 498);
             this.tabControl1.TabIndex = 0;
             // 
             // tabtext
@@ -107,7 +108,7 @@
             this.tabimage.Margin = new System.Windows.Forms.Padding(4);
             this.tabimage.Name = "tabimage";
             this.tabimage.Padding = new System.Windows.Forms.Padding(4);
-            this.tabimage.Size = new System.Drawing.Size(722, 429);
+            this.tabimage.Size = new System.Drawing.Size(758, 460);
             this.tabimage.TabIndex = 1;
             this.tabimage.Text = "Plaatje inhoud";
             this.tabimage.UseVisualStyleBackColor = true;

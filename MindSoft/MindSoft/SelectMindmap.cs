@@ -27,7 +27,7 @@ namespace MindSoft
 
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            Project.project.activeMindmap = Project.project.searchMindmap(Convert.ToString(listBox1.SelectedValue));
+            Project.project.SetActiveMindmap(Project.project.searchMindmap(Convert.ToString(listBox1.SelectedValue)));
             this.Close();
         }
     }
