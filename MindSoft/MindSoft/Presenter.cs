@@ -33,8 +33,6 @@ namespace MindSoft
             graphics = pbdiaview.CreateGraphics();
         }
 
-
-
         //Dit event wordt afgevuurd wanneer er op het form wordt geklikt, hierdoor wordt er 
         //er gekeken naar de nextdia() deze wordt dan aangeroepen en de presentatieklasse doet zijn werk
         //wnaneer deze methode true aangeeft wordt het form gesloten, als het false aangeeft wordt de graphics
@@ -51,6 +49,7 @@ namespace MindSoft
                 graphics.Clear(Color.White);
                 presentation.Display(graphics);
             }
+
         }
 
 

@@ -21,10 +21,11 @@ namespace BussinesLayer
         /// alle benodigde attributen zijn hieronder in de regio opgenomen.
         /// </summary>
         #region attributen
-        private Dia currentDia;
+        public Dia currentDia;
         public IList<Dia> dialist;
         private Dia endDia;
         public MindMap mindmap;
+        public int indexdia = 0;
         #endregion
 
         #region constructors
@@ -44,7 +45,7 @@ namespace BussinesLayer
                 dialist.Add(new Dia(knoop, index));
                 index++;
             }
-            currentDia = dialist.First<Dia>();
+            currentDia = dialist.First();
         }
         #endregion
 
@@ -141,41 +142,52 @@ namespace BussinesLayer
         /// <returns></returns>
         public bool nextDia()
         {
-            if (dialist.IndexOf(currentDia) == (dialist.Count()-1))
+            if (indexdia == 0)
             {
-                //enddia wordt aangemaakt en klaargezet
-                Knoop knoop = new Knoop();
-                knoop.inhoudlist.Add(new Text("End of the Diashow", new Point(150, 150)));
-                endDia = new Dia(knoop, 999);
-                currentDia = endDia;
-
-                return true;
-            }
-            if (currentDia == endDia)
-            {
-                //presentatie wordt gereset en form krijgt het sein dat er geen volgende dia's zijn.
                 currentDia = dialist.First();
-                return false;
+                indexdia++;
+                return true;
             }
             else
             {
-                // volgende dia wordt opgezocht uit de lijst.
-                for (int i = 0; i < (dialist.Count()); i++)
+                if (dialist.IndexOf(currentDia) == (dialist.Count() - 1))
                 {
+                    //enddia wordt aangemaakt en klaargezet
+                    Knoop knoop = new Knoop();
+                    knoop.inhoudlist.Add(new Text("End of the Diashow", new Point(150, 150)));
+                    endDia = new Dia(knoop, 999);
+                    endDia.Notitie = new Notitie("thanks for listening!");
+                    currentDia = endDia;
 
-                    if (dialist.ElementAt<Dia>(i) == currentDia)
+                    return true;
+                }
+                if (currentDia == endDia)
+                {
+                    //presentatie wordt gereset en form krijgt het sein dat er geen volgende dia's zijn.
+                    currentDia = dialist.First();
+                    return false;
+                }
+                else
+                {
+                    // volgende dia wordt opgezocht uit de lijst.
+                    for (int i = 0; i < (dialist.Count()); i++)
                     {
-                        currentDia = dialist.ElementAt<Dia>(i + 1);
-                        return true;
-                        
-                    }
-                    else
-                    {
-                        continue;
+
+                        if (dialist.ElementAt<Dia>(i) == currentDia)
+                        {
+                            currentDia = dialist.ElementAt<Dia>(i + 1);
+                            return true;
+
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
                 }
             }
             return true;
+
         }
 
 
@@ -202,13 +214,16 @@ namespace BussinesLayer
         #endregion
 
         #region displaymethods
+
+
+
         /// <summary>
         /// hier wordt een methode beschreven die de huidigedia de opdracht geeft om zichzelf te tekenen
         /// </summary>
         /// <param name="graphics"></param>
         public void Display(Graphics graphics)
         {
-            currentDia.Draw(graphics);
+                currentDia.Draw(graphics);
         }
         #endregion
     }

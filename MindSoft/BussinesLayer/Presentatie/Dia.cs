@@ -53,6 +53,10 @@ namespace BussinesLayer
                 if (y < 600)
                 {
                     graphics.DrawString(text.textInhoud, diafont, text.brush, new PointF(x, y));
+                    if (Notitie != null)
+                    {
+                        graphics.DrawString(Notitie.tekst, dianotefont, text.brush, new PointF(x, (y + 30)));
+                    }
                     y += 30;
                 }
                 else
@@ -60,6 +64,10 @@ namespace BussinesLayer
                     y = 50;
                     x += 100;
                     graphics.DrawString(text.textInhoud, diafont, text.brush, new PointF(x, y));
+                    if (Notitie != null)
+                    {
+                        graphics.DrawString(Notitie.tekst, dianotefont, text.brush, new PointF(x, (y + 30)));
+                    }
                 }
             }
             //foreach (string obj in medialist)
