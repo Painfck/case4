@@ -152,7 +152,10 @@ namespace MindSoft
             if (activeMindmap != null && e.Button == MouseButtons.Right)
             {
                 selectedkn2 = activeMindmap.Search(e.X, e.Y);
-                activeMindmap.CreateRelationship(selectedkn1, selectedkn2);
+                if (selectedkn1 != null && selectedkn2 != null)
+                {
+                    activeMindmap.CreateRelationship(selectedkn1, selectedkn2);
+                }
                 activeMindmap.TekenObjecten(canvas);
             }
             //Knoop move
