@@ -18,7 +18,7 @@ namespace BussinesLayer
         public Project()
         {
             mindmaplist = new List<Mindmap.MindMap>();
-            mindmaplist.Add(new Mindmap.MindMap("Naamloos"));
+            mindmaplist.Add(new Mindmap.MindMap("Mindmap 1"));
             activeMindmap = mindmaplist.ElementAt<Mindmap.MindMap>(0);
         }
 
@@ -51,7 +51,7 @@ namespace BussinesLayer
         }
         public MindMap createMindmap()
         {
-            mindmaplist.Add(new Mindmap.MindMap(String.Format("Naamloos{0}", (mindmaplist.Count() + 1))));
+            mindmaplist.Add(new Mindmap.MindMap(String.Format("Mindmap {0}", (mindmaplist.Count() + 1))));
             return mindmaplist.Last<Mindmap.MindMap>();
         }
         public void SetActiveMindmap(MindMap mindmap)
