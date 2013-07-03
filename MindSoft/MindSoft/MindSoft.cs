@@ -219,21 +219,7 @@ namespace MindSoft
              */
         }
 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //StreamWriter outputStream = File.CreateText(currentFile);
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.InitialDirectory = initialDir;
-            dialog.Filter = "xml files (*.xml)|*.xml";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                currentFile = dialog.FileName;
-                XMLStreamreader streamreader = new XMLStreamreader();
-                streamreader.SaveXML(dialog.FileName, project);
-                //outputStream.Close();
-            }
-            isFileSaved = true;
-        }
+
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -472,6 +458,48 @@ namespace MindSoft
             }
         }
 
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //StreamWriter outputStream = File.CreateText(currentFile);
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.InitialDirectory = initialDir;
+            dialog.Filter = "xml files (*.xml)|*.xml";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                currentFile = dialog.FileName;
+                XMLStreamreader streamreader = new XMLStreamreader();
+                streamreader.SaveXML(dialog.FileName, project);
+                //outputStream.Close();
+            }
+            isFileSaved = true;
+        }
+
+        private void projectToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //StreamReader inputStream;
+            //OpenFileDialog dialog = new OpenFileDialog();
+            //dialog.InitialDirectory = initialDir;
+            //dialog.Filter = "xml files (*.xml)|*.xml";
+            //if (dialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    currentFile = dialog.FileName;
+            //    inputStream = File.OpenText(currentFile);
+            //    //hier komt het laden van de xml in het project
+
+            //    inputStream.Close();
+            //}
+            XMLStreamreader streamreader = new XMLStreamreader();
+            streamreader.LoadXML();
+
+
+        }
+
+        private void lbminmapselect_Click(object sender, EventArgs e)
+        {
+            Project.project.SetActiveMindmap(Project.project.searchMindmap(Convert.ToString(lbminmapselect.SelectedValue)));
+            canvas.Clear(Color.White);
+            Project.project.activeMindmap.TekenObjecten(canvas);
+        }
         private void btverwijder_Click(object sender, EventArgs e)
         {
             Project.project.activeMindmap.RemoveActiveKnoop();
@@ -482,29 +510,6 @@ namespace MindSoft
         {
             SelectMindmap selectbox = new SelectMindmap();
             selectbox.Show();
-        }
-
-        private void projectToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            StreamReader inputStream;
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.InitialDirectory = initialDir;
-            dialog.Filter = "xml files (*.xml)|*.xml";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                currentFile = dialog.FileName;
-                inputStream = File.OpenText(currentFile);
-                //hier komt het laden van de xml in het project
-
-                inputStream.Close();
-            }
-        }
-
-        private void lbminmapselect_Click(object sender, EventArgs e)
-        {
-            Project.project.SetActiveMindmap(Project.project.searchMindmap(Convert.ToString(lbminmapselect.SelectedValue)));
-            canvas.Clear(Color.White);
-            Project.project.activeMindmap.TekenObjecten(canvas);
         }
     }
 }

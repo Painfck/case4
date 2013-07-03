@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using BussinesLayer;
@@ -26,7 +27,28 @@ namespace DataAccessLayer
         //}
         public void LoadXML()
         {
-            
+            //XmlDocument xmlDoc = new XmlDocument(); // Create an XML document object
+            //xmlDoc.Load("mindsoft.xml"); // Load the XML document from the specified file
+
+            //XmlNodeList knoop = xmlDoc.GetElementsByTagName("knoop");
+
+
+            //MessageBox.Show(knoop[0].InnerText);
+            //while (lezer.Read())
+            //{
+            //    switch (lezer.NodeType)
+            //    {
+            //        case XmlNodeType.Element: // Het knooppunt is een element.
+            //            MessageBox.Show("Element:"+ lezer.Name);
+            //            break;
+            //        case XmlNodeType.Text: //De tekst in elk element weergeven.
+            //            MessageBox.Show("Text"+lezer.Value);
+            //            break;
+            //        case XmlNodeType.EndElement: //Het einde van het element weergeven.
+            //            MessageBox.Show("end element:" + lezer.Name);
+            //            break;
+            //    }
+            //}
         }
         public void SaveXML(string docname, Project project)
         {
@@ -89,10 +111,6 @@ namespace DataAccessLayer
             {        
                 writer.WriteStartElement("Knoop");
 
-                    writer.WriteStartElement("id");
-                        writer.WriteString(Convert.ToString(kID));
-                    writer.WriteEndElement();
-
                     writer.WriteStartElement("size");
                         writer.WriteStartElement("width");
                             writer.WriteString(Convert.ToString(knoop.rect.Width));
@@ -123,17 +141,6 @@ namespace DataAccessLayer
                                 id+=1;
                             }
                      writer.WriteEndElement();                  
-                    //writer.WriteStartElement("knoopposition");
-                    //    writer.WriteString(kPosition);
-                    //writer.WriteEndElement();
-                
-                    //writer.WriteStartElement("knoopinhoud");
-                    //    writer.WriteString(kInhoud);
-                    //writer.WriteEndElement();
-                
-                    //writer.WriteStartElement("knoopopmaak");
-                    //    writer.WriteString(kOpmaak);
-                    //writer.WriteEndElement();
                 writer.WriteEndElement();
             }
         }
