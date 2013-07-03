@@ -33,7 +33,8 @@ namespace MindSoft
         private EditKnoop editknoop;
         private bool selected = false;
         private bool isFileSaved = false;
-
+        private List<string> mindmapnames;
+        
         private string initialDir;
         private string currentFile = "";
 
@@ -47,6 +48,12 @@ namespace MindSoft
             Project.project.activeMindmap = project.mindmaplist.First();
             initialDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             Project.project.activeMindmap.player.drawField = canvas;
+            mindmapnames = new List<string>();
+            foreach (BussinesLayer.Mindmap.MindMap mindmap in Project.project.mindmaplist)
+            {
+                mindmapnames.Add(mindmap.name);
+            }
+            lbminmapselect.DataSource = mindmapnames;
         }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -242,6 +249,13 @@ namespace MindSoft
         {
             Project.project.activeMindmap = project.createMindmap();
             canvas.Clear(Color.White);
+            mindmapnames.Clear();
+            foreach (BussinesLayer.Mindmap.MindMap mindmap in Project.project.mindmaplist)
+            {
+                mindmapnames.Add(mindmap.name);
+            }
+            lbminmapselect.DataSource = null;
+            lbminmapselect.DataSource = mindmapnames;
         }
 
         private void presentatieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -484,6 +498,13 @@ namespace MindSoft
 
                 inputStream.Close();
             }
+        }
+
+        private void lbminmapselect_Click(object sender, EventArgs e)
+        {
+            Project.project.SetActiveMindmap(Project.project.searchMindmap(Convert.ToString(lbminmapselect.SelectedValue)));
+            canvas.Clear(Color.White);
+            Project.project.activeMindmap.TekenObjecten(canvas);
         }
     }
 }

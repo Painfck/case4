@@ -35,6 +35,8 @@
             this.mindmapToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.presentatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mindmapToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +57,8 @@
             this.btplay = new System.Windows.Forms.Button();
             this.btpauze = new System.Windows.Forms.Button();
             this.PnlEdit = new System.Windows.Forms.Panel();
-            this.projectToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mindmapToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbminmapselect = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbView)).BeginInit();
             this.PnlPlayer.SuspendLayout();
@@ -127,7 +129,22 @@
             this.mindmapToolStripMenuItem2});
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
-            this.loadToolStripMenuItem.Text = "Load";            // 
+            this.loadToolStripMenuItem.Text = "Load";
+            // 
+            // projectToolStripMenuItem1
+            // 
+            this.projectToolStripMenuItem1.Name = "projectToolStripMenuItem1";
+            this.projectToolStripMenuItem1.Size = new System.Drawing.Size(197, 40);
+            this.projectToolStripMenuItem1.Text = "Project";
+            this.projectToolStripMenuItem1.Click += new System.EventHandler(this.projectToolStripMenuItem1_Click);
+            // 
+            // mindmapToolStripMenuItem2
+            // 
+            this.mindmapToolStripMenuItem2.Name = "mindmapToolStripMenuItem2";
+            this.mindmapToolStripMenuItem2.Size = new System.Drawing.Size(197, 40);
+            this.mindmapToolStripMenuItem2.Text = "Mindmap";
+            this.mindmapToolStripMenuItem2.Click += new System.EventHandler(this.mindmapToolStripMenuItem2_Click);
+            // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
@@ -330,6 +347,8 @@
             // 
             this.PnlEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.PnlEdit.Controls.Add(this.label1);
+            this.PnlEdit.Controls.Add(this.lbminmapselect);
             this.PnlEdit.Controls.Add(this.lbzoom);
             this.PnlEdit.Controls.Add(this.zoomCB);
             this.PnlEdit.Controls.Add(this.btverwijder);
@@ -339,19 +358,24 @@
             this.PnlEdit.Size = new System.Drawing.Size(238, 727);
             this.PnlEdit.TabIndex = 13;
             // 
-            // projectToolStripMenuItem1
+            // lbminmapselect
             // 
-            this.projectToolStripMenuItem1.Name = "projectToolStripMenuItem1";
-            this.projectToolStripMenuItem1.Size = new System.Drawing.Size(197, 40);
-            this.projectToolStripMenuItem1.Text = "Project";
-            this.projectToolStripMenuItem1.Click += new System.EventHandler(this.projectToolStripMenuItem1_Click);
+            this.lbminmapselect.FormattingEnabled = true;
+            this.lbminmapselect.ItemHeight = 25;
+            this.lbminmapselect.Location = new System.Drawing.Point(27, 156);
+            this.lbminmapselect.Name = "lbminmapselect";
+            this.lbminmapselect.Size = new System.Drawing.Size(190, 379);
+            this.lbminmapselect.TabIndex = 14;
+            this.lbminmapselect.Click += new System.EventHandler(this.lbminmapselect_Click);
             // 
-            // mindmapToolStripMenuItem2
+            // label1
             // 
-            this.mindmapToolStripMenuItem2.Name = "mindmapToolStripMenuItem2";
-            this.mindmapToolStripMenuItem2.Size = new System.Drawing.Size(197, 40);
-            this.mindmapToolStripMenuItem2.Text = "Mindmap";
-            this.mindmapToolStripMenuItem2.Click += new System.EventHandler(this.mindmapToolStripMenuItem2_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 26);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Mindmaps";
             // 
             // MindSoft
             // 
@@ -412,6 +436,8 @@
         private System.Windows.Forms.ToolStripMenuItem presentatieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mindmapToolStripMenuItem2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox lbminmapselect;
 
     }
 }
