@@ -97,6 +97,7 @@
             // 
             // btomhoog
             // 
+            this.btomhoog.Enabled = false;
             this.btomhoog.Location = new System.Drawing.Point(269, 23);
             this.btomhoog.Name = "btomhoog";
             this.btomhoog.Size = new System.Drawing.Size(75, 39);
@@ -107,6 +108,7 @@
             // 
             // btomlaag
             // 
+            this.btomlaag.Enabled = false;
             this.btomlaag.Location = new System.Drawing.Point(269, 68);
             this.btomlaag.Name = "btomlaag";
             this.btomlaag.Size = new System.Drawing.Size(75, 39);
@@ -125,7 +127,7 @@
             this.btnoteconfirm.UseVisualStyleBackColor = true;
             this.btnoteconfirm.Click += new System.EventHandler(this.btnoteconfirm_Click);
             // 
-            // Settings
+            // EditPresentatie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,7 +141,7 @@
             this.Controls.Add(this.tbnotitietekst);
             this.Controls.Add(this.pbdiapreview);
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "Settings";
+            this.Name = "EditPresentatie";
             this.Text = "Settings";
             ((System.ComponentModel.ISupportInitialize)(this.pbdiapreview)).EndInit();
             this.ResumeLayout(false);
