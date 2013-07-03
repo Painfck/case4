@@ -105,6 +105,7 @@ namespace BussinesLayer
         //Teken methode om de knoop met al zijn attributen te tekenen op de canvas.
         public virtual void Teken(Graphics canvas)
         {
+        
             foreach (Text text in inhoudlist.OfType<Text>())
             {
                 stringSize.Height = Convert.ToInt32(canvas.MeasureString(text.textInhoud, text.font).Height);
@@ -212,15 +213,27 @@ namespace BussinesLayer
                     rect.Width -= posX - oldX;
                     this.positie.Y += posY - oldY;
                     rect.Height -= posY - oldY;
+                    foreach (Inhoud inhoud in inhoudlist)
+                    {
+                        inhoud.Move(rect.X + posX - oldX, rect.Y + posY - oldY);
+                    }
                     break;
                 case KnoopAnchor.LeftMiddle:
                     this.positie.X += posX - oldX;
                     rect.Width -= posX - oldX;
+                    foreach (Inhoud inhoud in inhoudlist)
+                    {
+                        inhoud.Move(rect.X + posX - oldX, rect.Y + posY - oldY);
+                    }
                     break;
                 case KnoopAnchor.LeftBottom:
                     rect.Width -= posX - oldX;
                     this.positie.X += posX - oldX;
                     rect.Height += posY - oldY;
+                    foreach (Inhoud inhoud in inhoudlist)
+                    {
+                        inhoud.Move(rect.X + posX - oldX, rect.Y + posY - oldY);
+                    }
                     break;
                 case KnoopAnchor.BottomMiddle:
                     rect.Height += posY - oldY;
@@ -241,6 +254,10 @@ namespace BussinesLayer
                 case KnoopAnchor.UpMiddle:
                     this.positie.Y += posY - oldY;
                     rect.Height -= posY - oldY;
+                    foreach (Inhoud inhoud in inhoudlist)
+                    {
+                        inhoud.Move(rect.X + posX - oldX, rect.Y + posY - oldY);
+                    }
                     break;
                 default:
                     
